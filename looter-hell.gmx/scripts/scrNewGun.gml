@@ -78,7 +78,7 @@ acc = acc * (1+(rarity/100));
 if (acc > 100) acc = 100;
 
 //don't scale bnum for certain weapons
-if (fixed_bnum == 0) bnum = ceil(bnum * (rarity/2));
+if (fixed_bnum == 0) bnum = ceil(bnum * (rarity/3));
 
 //1% bonuses per rarity
 rate = rate * (1+(rarity/100));

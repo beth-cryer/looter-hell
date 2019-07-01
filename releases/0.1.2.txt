@@ -1,0 +1,4 @@
+-Changed objGun, now guns display normally on ground and show guncard only when moused over
+-Inventory also shows guncard for the selected gun
+
+-Added a Pearlescent gun for each weapon type (most are placeholders currently)

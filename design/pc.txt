@@ -1,0 +1,45 @@
+-Common-
+
+Rebel (Starter)
+Skill: Dash
+
+Kineticist
+Skill: Force Push
+
+Blast Technician
+Skill: Grenade
+
+Hacker
+Skill: Refill Shields
+
+
+-Rare-
+
+Berserker
+Skill: Double Firerate+Reload
+
+Trapper
+Skill: Landmines
+
+Cyberman
+Skill: Invincibility
+
+Hazmat Trooper
+Skill: Element Immunity
+
+Refill Shields+Health
+
+Mind Control
+
+-Legendary-
+
+Time Lord
+Skill: Stop Time
+
+Defuser
+Skill: Destroy Enemy Projectiles
+
+ZERO
+Skill: Deflect Bullets
+
+Double Projectiles Fired

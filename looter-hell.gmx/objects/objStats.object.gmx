@@ -25,15 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>xp = view_xview[0]+8;
-yp = view_yview[0]+8;
+            <string>xp = view_xview[0]+10;
+yp = view_yview[0]+10;
 
 draw_set_font(global.font_stats);
 draw_set_color(c_black);
-draw_text(xp,yp,"XP: " + string(global.xp));
-draw_text(xp,yp+8,load_text("gold") + ": " + string(global.gold));
-draw_text(xp,yp+16,load_text("metal") + ": " + string(global.metal));
-draw_text(xp,yp+24,load_text("crystal") + ": " + string(global.crystal));
+draw_text(xp,yp+10,"XP: " + string(global.xp));
+draw_text(xp,yp+20,load_text("gold") + ": " + string(global.gold));
+draw_text(xp,yp+30,load_text("metal") + ": " + string(global.metal));
+draw_text(xp,yp+40,load_text("crystal") + ": " + string(global.crystal));
 </string>
           </argument>
         </arguments>

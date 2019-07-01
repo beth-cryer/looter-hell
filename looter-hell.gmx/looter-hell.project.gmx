@@ -159,6 +159,16 @@
         <sound>sound\sfxSMGShoot3</sound>
         <sound>sound\sfxSMGReload1</sound>
       </sounds>
+      <sounds name="menu">
+        <sound>sound\sfxMenuSelect</sound>
+        <sound>sound\sfxMenuCancel</sound>
+      </sounds>
+      <sounds name="battle">
+        <sound>sound\sfxPlayerHurt</sound>
+        <sound>sound\sfxPlayerDeath</sound>
+        <sound>sound\sfxEnemyDeath</sound>
+        <sound>sound\sfxPlayerDash</sound>
+      </sounds>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -295,6 +305,10 @@
         <sprite>sprites\sprSMGStock2</sprite>
         <sprite>sprites\sprSMGStock3</sprite>
         <sprite>sprites\sprSMGStock4</sprite>
+        <sprite>sprites\sprSMGScope1</sprite>
+        <sprite>sprites\sprSMGScope2</sprite>
+        <sprite>sprites\sprSMGScope3</sprite>
+        <sprite>sprites\sprSMGScope4</sprite>
         <sprite>sprites\sprSandstormBody</sprite>
         <sprite>sprites\sprSandstormBarrel</sprite>
         <sprite>sprites\sprVampireBody</sprite>
@@ -303,10 +317,6 @@
         <sprite>sprites\sprGreedBarrel</sprite>
         <sprite>sprites\sprAquaBody</sprite>
         <sprite>sprites\sprAquaGrip</sprite>
-        <sprite>sprites\sprSMGScope1</sprite>
-        <sprite>sprites\sprSMGScope2</sprite>
-        <sprite>sprites\sprSMGScope3</sprite>
-        <sprite>sprites\sprSMGScope4</sprite>
       </sprites>
     </sprites>
     <sprites name="Textures">
@@ -377,8 +387,12 @@
     <sprite>sprites\sprPuddle</sprite>
     <sprite>sprites\sprPlayerHand1</sprite>
     <sprite>sprites\sprPlayerHand2</sprite>
+    <sprite>sprites\spr64x64</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bgShip</background>
+    <background>background\background1</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="gunGen">
@@ -524,6 +538,7 @@
     <object>objects\objGunSpawn</object>
     <object>objects\objStarterItems</object>
     <object>objects\objDashTrail</object>
+    <object>objects\objWall</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMenu</room>

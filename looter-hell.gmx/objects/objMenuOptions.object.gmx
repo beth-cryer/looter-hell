@@ -76,13 +76,14 @@ if (sel&lt;0) sel = 0;
 //select option
 if (keyboard_check_pressed(vk_enter)
 or (moused == true and mouse_check_button_pressed(mb_left))) {
-switch(sel) {
-    case(0): if window_get_fullscreen() window_set_fullscreen(false); else window_set_fullscreen(true); break;
-    case(1): break;
-    case(2): audio_group_set_gain(1,0,0); break;
-    case(3): audio_group_set_gain(2,0,0); break;
-    case(4): room_goto(rmMenu) break;
-}
+    if(sel == 4) audio_play_sound(sfxMenuCancel,10,false); else audio_play_sound(sfxMenuSelect,10,false);
+    switch(sel) {
+        case(0): if window_get_fullscreen() window_set_fullscreen(false); else window_set_fullscreen(true); break;
+        case(1): break;
+        case(2): audio_group_set_gain(1,0,0); break;
+        case(3): audio_group_set_gain(2,0,0); break;
+        case(4): room_goto(rmMenu) break;
+    }
 }
 </string>
           </argument>

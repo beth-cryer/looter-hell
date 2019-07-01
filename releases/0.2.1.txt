@@ -1,0 +1,22 @@
+-Added base resources: XP, Gold, Metal, Crystal
+-Added default PC, Rebel, with Action Skill: Dash
+-Added more Chest types (with 3 unique sprites), give increased rarity chance based on the chest
+
+-Starting to implement bonus modifiers, give increased resources/rarity chance
+
+-Can now only open the inventory in the Hub or after all waves are cleared
+-Can now choose to spawn only Legendary/Pearl guns in the Test Room
+
+-Added to the options menu
+-Started implementing text localization support
+-Changed font to an external 8-bit .ttf
+-Added options to select font and font range in the localization file
+-Started adding gun sfx
+
+-Rewrote gun card Draw code to take text width into account properly, should now work regardless of font (but probably won't lol)
+
+-Fixed bug with enemy group spawn; groups now actually spawn around the center y
+-Fixed inventory keyboard controls deleting items (bad bracketing lol)
+-Fixed selection persisting after mouse is no longer over an item
+-Fixed mouse controls being able to select nonexistent items from after the end of the inventory (ie. empty array elements)
+-BUG: One some stages, the first wave is spawned again at the end of the stage

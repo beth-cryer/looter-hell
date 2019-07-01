@@ -5,9 +5,9 @@ if (type == "Pistol") {
     switch(rand){
     
     case(1):
-    bspeed = 4;
+    bspeed = 5;
     bspread = 30;
-    bnum += round(random_range(0,1));
+    bnum += round(random_range(1,2));
     scrElementalChance(60);
     return sprPistolBarrel1;
     break;
@@ -34,6 +34,7 @@ if (type == "Pistol") {
     bspeed = 10;
     bspread = 10;
     acc = acc*1.03;
+    bnum += round(random_range(0,1));
     return sprPistolBarrel4;
     break;
     
@@ -42,7 +43,7 @@ if (type == "Pistol") {
     damage -= 1;
     bspeed = 8;
     bspread = 60;
-    bnum += round(random_range(0,1));
+    bnum += round(random_range(1,2));
     return sprPistolBarrel5;
     break;
     
@@ -68,7 +69,7 @@ if (type == "Assault Rifle") {
     case(2):
     bspeed = 8;
     bspread = 30;
-    bnum += round(random_range(0,2));
+    bnum += round(random_range(2,3));
     damage += 3;
     rate += 2;
     scrElementalChance(60);
@@ -81,13 +82,14 @@ if (type == "Assault Rifle") {
     bspread = 20;
     damage += 5;
     rate -= 1;
+    bnum += round(random_range(1,2));
     return sprARBarrel3;
     break;
     
     case(4):
     bspeed = 10;
     bspread = 25;
-    bnum += round(random_range(1,2));
+    bnum += round(random_range(1,3));
     rate = rate*1.03;
     return sprARBarrel4;
     break;
@@ -155,6 +157,7 @@ if (type == "Sniper Rifle") {
     bnum += round(random_range(0,1));
     burst = round(random_range(2,3));
     acc = acc*1.02;
+    rate += 3;
     return sprSniperBarrel1;
     break;
     
@@ -197,7 +200,7 @@ if (type == "SMG") {
     case(1):
     bspeed = 11;
     bspread = 10;
-    bnum += round(random_range(0,2));
+    bnum += round(random_range(1,2));
     scrElementalChance(60);
     acc = acc*1.02;
     return sprSMGBarrel1;
@@ -220,7 +223,7 @@ if (type == "SMG") {
     acc = acc*1.01;
     damage = damage*1.01;
     rate = rate*0.97;
-    burst = round(random_range(3,4));
+    burst = round(random_range(2,3));
     return sprSMGBarrel3;
     break;
     

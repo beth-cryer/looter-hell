@@ -289,7 +289,13 @@ if (burstcount &lt; burst) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//SWITCH WEAPONS
+            <string>//CHECK FOR LOADOUT UPDATE
+if(global.updated_load != -1) {
+    if (equipped == global.updated_load) scrSwitchWep(equipped);
+    global.updated_load = -1;
+}
+
+//SWITCH WEAPONS
 for(i=0;i&lt;4;i++) {
     if (keyboard_check(ord(string(i+1)))) {
     scrSwitchWep(i);
@@ -335,7 +341,7 @@ if (equipped != -1) {
     global.mag[equipped] = global.inventory[global.loadout[equipped],7];
     
     //reload if out of ammo
-    if (global.mag[equipped] == 0 and reloading = false) {
+    if (global.mag[equipped] == 0 and reloading = false and (barrel != sprMeatshotBarrel)) {
         scrReloadSound();
         reloading = true;
         alarm[1] = room_speed * global.inventory[global.loadout[equipped],6];
@@ -437,6 +443,34 @@ canshoot = false;
         </arguments>
       </action>
     </event>
+    <event eventtype="5" enumb="88">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (reloading == false 
+and global.mag[equipped] != global.inventory[global.loadout[equipped],7]) {
+    scrReloadSound();
+    reloading = true;
+    alarm[1] = room_speed * global.inventory[global.loadout[equipped],6];
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="5" enumb="32">
       <action>
         <libid>1</libid>
@@ -458,7 +492,7 @@ canshoot = false;
 if (skillactive == false and skillcool == false) {
 
     switch(skill) {
-    case("Dash"): mspeed = dspeed; break;
+    case("Dash"): audio_play_sound(sfxPlayerDash,20,false); mspeed = dspeed; break;
     }
 
     skillactive = true;
@@ -487,10 +521,9 @@ if (skillactive == false and skillcool == false) {
           <argument>
             <kind>1</kind>
             <string>draw_set_font(global.font_stats);
-
 draw_sprite(sprite_index,-1,x,y);
 
-draw_text(view_xview[0],view_yview[0],"HP: " + string(global.hp));
+draw_text(view_xview[0]+10,view_yview[0]+10,"HP: " + string(global.hp));
 
 //draw reload
 if (reloading == true) {
@@ -530,34 +563,6 @@ if (global.loadout[equipped] != -1) {
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="88">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (reloading == false 
-and global.mag[equipped] != global.inventory[global.loadout[equipped],7]) {
-    scrReloadSound();
-    reloading = true;
-    alarm[1] = room_speed * global.inventory[global.loadout[equipped],6];
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="9" enumb="27">
       <action>
         <libid>1</libid>
@@ -576,6 +581,33 @@ and global.mag[equipped] != global.inventory[global.loadout[equipped],7]) {
           <argument>
             <kind>1</kind>
             <string>room_goto(rmHub);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="17">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>equipped++;
+if (equipped&gt;=global.loadSlots) equipped = 0;
+
+scrSwitchWep(equipped);
+if (sfx_reload != 0) audio_stop_sound(sfx_reload);
 </string>
           </argument>
         </arguments>

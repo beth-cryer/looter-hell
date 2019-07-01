@@ -1,0 +1,12 @@
+-Added a quick equip cycle button (Ctrl default)
+
+-Edited all gun sprites so that textures slightly affect the outline too (not just black outline on everything)
+
+-Fixed loadwidth bug; now properly places inventory next to loadout based on widest text, not just width of the last text lol
+-Held gun now properly updates if the gun in current loadout position is changed
+
+-BUG: Burst fire doesn't always fire the correct number of shots
+-BUG: Burst fire also doesn't work if you hold shoot before the end of the reload period
+
+-BUG: Enemy HP goes into negatives before death
+-BUG: Inventory breaks if it is completely full

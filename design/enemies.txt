@@ -1,0 +1,18 @@
+Psychos: run at player, keep attacking at melee range
+Bombers: run at player, explode on impact
+
+Runners: run in straight line, damage landing ship
+Fliers: fly in straight line, damage landing ship
+Digger: burrows underground, moves towards landing ship
+Sniper: sits in backlines, shoots landing ship
+
+Turrets: stand still and shoot
+Gunners: move up/down and shoot
+Assault: move up/down/forward and shoot
+
+Mortar: fires aerial shots at set locations
+
+Engineer: build turrets, move up/down
+Medic: heal units it touches
+Nanite Injector: buffs other units
+Force Field: blocks projectiles in a given radius, destroyed by enough damage

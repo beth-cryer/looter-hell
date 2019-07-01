@@ -1,0 +1,20 @@
+-Ported to GMS1
+-Changed resolution, larger viewport
+
+-Implemented weapon texturing
+-Added many Textures to be applied during gun generation
+
+-Added new Legendaries
+-Added damage over time effects for Fire and Corrosive, with placeholder visuals when afflicted
+-Can now force a given element on a gun
+-Added redtext to unique guns
+-Inventory still very buggy, can crash easily
+
+-Added Stage creation system
+-Can make a stage script defining enemies for each wave
+-objSpawner handles the wave creation ingame
+
+-Added Runner enemies which follow player and melee
+-Enemy Gunners can hold and fire their own randomly generated guns
+-Had to fiddle with some stats to make it balanced (TODO balance this more)
+-Gunners can drop weapon on death (buggy, doesn't texture correctly sometimes)

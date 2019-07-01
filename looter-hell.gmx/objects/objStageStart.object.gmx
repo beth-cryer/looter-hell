@@ -26,12 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>wavelength = 15;
-cx = 592; cy = 256;
+cx = 736; cy = 320;
+sp = 96;
 
 //TEST STAGE
 if(global.area == -1) {
-instance_create(448,224,objEnemyDummy);
-instance_create(144,80,objGunSpawn);
+instance_create(480,224,objEnemyDummy);
+instance_create(320,224,objGunSpawn);
 ii=instance_create(objPlayer.x,objPlayer.y,objChest);
 ii.sprite_index=sprChest1; ii.chestbonus = 2;
 instance_create(448,32,objInv);

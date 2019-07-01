@@ -1,0 +1,20 @@
+-Added Main menu and Stage select screen
+-Currently 1 Area, 3 Stages (all Level 1)
+-Also a Test/Debug stage, accessed with T on stage select
+
+-Current/Total waves displayed on HUD
+-Added chests that spawn at end of each stage
+-Added some more automation to the Stage scripting code, no longer have to manually define which enemy index to start at when adding new enemy group to wave
+
+-Changed objGun code, now needs external trigger to re-generate (ie. only on testing stage)
+-Can also auto-pickup guns after generation
+-Player given 4 Common guns for first stage (AR, Pistol, Shotgun, Sniper)
+
+-Added Mouse Control to all menus
+-Inventory no longer crashes constantly when using keyboard controls
+
+-Player Sprite updated, probably not final but closer to actual art
+-Added Hands which move based on which gun is held
+
+-BUG: Pistol grips and body+barrels have a slight gap between them
+-BUG: Keyboard controls for inventory are totally fucked

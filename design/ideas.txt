@@ -1,0 +1,17 @@
+shop: merchants pass by every x days, stay for y days
+
+crafting templates: stages can drop a template with weapon type,level,body.
+player can craft guns from these, materials dropped from stages
+
+gems: grants bonus properties to embedded guns/shields
+eg. extra element,
+
+quest system: rewards for completing milestone stages
+
+relics: gives special effect to player, like rings in an RPG
+
+
+EXP is a resource gained from clearing stages
+Can be allocated to: Player, Action Skill, Passive Skill
+
+Can play stages above your level, but can't equip items above Player Level

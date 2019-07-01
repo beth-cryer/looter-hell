@@ -99,6 +99,8 @@ alarm[9] = 1;
             <kind>1</kind>
             <string>if (bullets &lt;= 0) alarm[10] = room_speed*reload; else{
 
+    //scrShootSound(0);
+
     proj = instance_create(x,y,pattern);
     proj.owner = 1;
     proj.type = objBulletEnemy;
@@ -139,7 +141,7 @@ if (canmove==true and frozen==false
 and distance_to_object(instance_nearest(x,y,objEnemy)) &gt; 128) {
     
     //don't strafe if close to border
-    if (y&lt;=mspeed) {
+    if (y&lt;=128+mspeed) {
     y+=mspeed;
     dir = 1;
     }else if (y&gt;=room_height-mspeed) {
@@ -157,6 +159,29 @@ and distance_to_object(instance_nearest(x,y,objEnemy)) &gt; 128) {
         strafetime -= 1;
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="objEnemy">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (y &gt; other.y) depth = other.depth+1;
 </string>
           </argument>
         </arguments>

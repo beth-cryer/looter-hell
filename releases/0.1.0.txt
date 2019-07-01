@@ -1,0 +1,13 @@
+-Added controllable Player
+-Added an inventory and loadout system, can switch held gun
+
+-Added ARs, Shotguns, Snipers, SMGs
+-Added 6 projectile Patterns to be chosen at random
+-Added Burst Fire to certain weapon parts
+
+-Added 9 unique Legendary guns
+-Most have their own Pattern/Effect
+
+-5 new Elements: Fire, Ice, Electric, Corrosive, Explosive
+-Added Explosion effect on hit with an Explosive projectile
+-Certain weapon parts have a defined chance to spawn with an element

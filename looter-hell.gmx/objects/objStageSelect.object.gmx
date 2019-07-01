@@ -77,6 +77,7 @@ if (sel&lt;0) sel = 0;
 
 //select option
 if (keyboard_check_pressed(vk_enter) or (moused == true and mouse_check_button_pressed(mb_left))) {
+    audio_play_sound(sfxMenuSelect,10,false);
     global.area = area;
     global.stage = sel;
     
@@ -114,6 +115,9 @@ for(i=0;i&lt;stages[area];i++) {
 }
 
 draw_set_color(c_black);
+draw_set_font(global.font_stats);
+draw_text(xp-128,yp-128,"[T]est Room");
+
 </string>
           </argument>
         </arguments>

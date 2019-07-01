@@ -76,11 +76,12 @@ if (sel&lt;0) sel = 0;
 //select option
 if (keyboard_check_pressed(vk_enter)
 or (moused == true and mouse_check_button_pressed(mb_left))) {
-switch(sel) {
-    case(0): room_goto(rmHub); break;
-    case(1): room_goto(rmOptions); break;
-    case(2): game_end(); break;
-}
+    audio_play_sound(sfxMenuSelect,10,false);
+    switch(sel) {
+        case(0): room_goto(rmHub); break;
+        case(1): room_goto(rmOptions); break;
+        case(2): game_end(); break;
+    }
 }
 </string>
           </argument>

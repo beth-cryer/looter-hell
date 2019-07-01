@@ -29,6 +29,9 @@ global.bonus_rarity = 0;
 global.area = -1;
 global.stage = -1;
 
+//GLOBAL FLAGS
+global.updated_load = -1;
+
 //INVENTORY
 global.invSize = 20;
 scrCreateInv();
@@ -41,6 +44,7 @@ for(i=0;i<global.loadSlots;i++) {
 //TECHNICAL SHIT
 audio_group_load(1);
 audio_group_load(2);
+audio_master_gain(0.5);
 
 //AUDIO
 font_menu = load_text("font-menu");

@@ -139,7 +139,7 @@ if (canmove==true and frozen==false
 and distance_to_object(instance_nearest(x,y,objEnemy)) &gt; 128) {
     
     //don't strafe if close to border
-    if (y&lt;=mspeed) {
+    if (y&lt;=128+mspeed) {
     y+=mspeed;
     dir = 1;
     }else if (y&gt;=room_height-mspeed) {
