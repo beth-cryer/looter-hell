@@ -1,0 +1,1 @@
+enemies = 0; positionx = 0; positiony = 0; eindex = 0;

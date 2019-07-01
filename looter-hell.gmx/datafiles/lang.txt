@@ -1,0 +1,51 @@
+﻿{
+	"eng": {
+		"font-menu" : "PressStart2P-Regular.ttf",
+		"font-text" : "04B_03.ttf",
+		"font-start" : "32",
+		"font-end" : "128",
+		"menu0" : "Start",
+		"menu1" : "Options",
+		"menu2" : "Exit",
+		"options0" : "Fullscreen",
+		"options1" : "Master",
+		"options2" : "SFX",
+		"options3" : "Music",
+		"back" : "Back",
+		"gold" : "Gold",
+		"metal" : "Metal",
+		"crystal" : "Crystal",
+		"empty" : "Empty",
+		"ammo" : "Ammo",
+		"damage" : "Damage",
+		"accuracy" : "Accuracy",
+		"reloadspeed" : "Reload Speed",
+		"magsize" : "Magazine Size",
+		"firerate" : "Fire Rate",
+		"level" : "Level",
+		"fire" : "Fire",
+		"ice" : "Ice",
+		"electric" : "Electric",
+		"corrosive" : "Corrosive",
+		"explosive" : "Explosive",
+		"elementchance" : "Chance"
+	},
+	
+	"fra": {
+		"font-menu" : "PressStart2P-Regular.ttf",
+		"font-text" : "04B_03.ttf",
+		"font" : "pixelfjverdana.ttf",
+		"font-start" : "32",
+		"font-end" : "128",
+		"menu0":"Debut",
+		"menu1":"Options",
+		"menu2":"Quitter"
+	},
+	
+	"jp": {
+		"font-text" : "jackeyfont.ttf",
+		"font-start" : "12352",
+		"font-end" : "12543"
+	}
+	
+}
