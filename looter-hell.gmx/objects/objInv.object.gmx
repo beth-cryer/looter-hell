@@ -99,14 +99,14 @@ yp = view_yview[0]+32;
 if (keyboard_check_pressed(ord('D')) or (moused == true and mouse_check_button_pressed(mb_right))) {
     if (across == 1) {
         //delete from loadout
-        for(i=0;i&lt;global.loadSlots;i+=1) {if (global.loadout[i] == sel) {global.loadout[i] = -1}}
+        for(i=0;i&lt;global.loadSlots;i++) {if (global.loadout[i] == sel) {global.loadout[i] = -1}}
         
         //drop weapon
         scrDropInv(sel);
         
         //shift inventory up by one
         if (sel &lt; global.invSize-1) {
-        for (k=sel+1; k&lt;global.invSize; k+=1) {
+        for (k=sel+1; k&lt;global.invSize; k++) {
             scrMoveInv(k);
         }}
     }
@@ -126,27 +126,35 @@ or (moused == true and mouse_check_button_pressed(mb_left))) {
     
     //otherwise switch
     }else{
-    //if switching from loadout
-    if (switching == 0) {
-        if (across == 0) { //to loadout
-        temp = global.loadout[sel]; global.loadout[sel] = global.loadout[iswitch]; global.loadout[iswitch] = temp;
-        scrReloadGun(iswitch,0); scrReloadGun(sel,0);
-        global.updated_load = sel;
+        //if switching from loadout
+        if (switching == 0) {
+            if (across == 0) { //to loadout
+                temp = global.loadout[sel]; global.loadout[sel] = global.loadout[iswitch]; global.loadout[iswitch] = temp;
+                scrReloadGun(iswitch,0); scrReloadGun(sel,0);
+                global.updated_load = sel;
+            }
+            //to inv
+            if (across == 1) {
+                //If gun not already in loadout, switch
+                if (scrInLoadout(sel) == false) {
+                    global.loadout[iswitch] = sel; scrReloadGun(iswitch,0);
+                    global.updated_load = iswitch;
+                }
+            }
         }
-        //to inv
-        if (across == 1) {global.loadout[iswitch] = sel; scrReloadGun(iswitch,0);
-        global.updated_load = iswitch;}
-    }
-    //if switching from inventory
-    if (switching == 1) {
-        if (across == 0) { //to loadout
-        global.loadout[sel] = iswitch; scrReloadGun(sel,0);
-        global.updated_load = sel;
+        //if switching from inventory
+        if (switching == 1) {
+            if (across == 0) { //to loadout
+                //If gun not already in loadout, switch
+                if (scrInLoadout(iswitch) == false) {
+                    global.loadout[sel] = iswitch; scrReloadGun(sel,0);
+                    global.updated_load = sel;
+                }
+            }
+            //to inv
+            if (across == 1) {}
         }
-        //to inv
-        if (across == 1) {}
-    }
-    switching = -1;
+        switching = -1;
     }
 }
 
@@ -268,13 +276,9 @@ xw = xp-(width+16);
 if global.inv_open == false exit;
 
 //BACKGROUND
-/*
-draw_set_color(c_white);
-draw_rectangle(xp-8,yp-8,xp+32+loadwidth+invwidth,yp+32+(scrInvSize()*16),0);
+c = merge_color(c_white,c_dkgray,0.5);
+draw_rectangle_colour(xp-8,yp-8,xp+32+loadwidth+invwidth,yp+32+(scrInvSize()*16),c_white,c_white,c,c,0);
 draw_set_color(c_black);
-draw_rectangle(xp-8,yp-8,xp+32+loadwidth+invwidth,yp+32+(scrInvSize()*16),1);
-*/
-draw_rectangle_colour(xp-8,yp-8,xp+32+loadwidth+invwidth,yp+32+(scrInvSize()*16),c_white,c_white,c_ltgray,c_ltgray,0);
 
 //LOADOUT
 uiwidth = 0;
@@ -325,11 +329,10 @@ draw_set_color(c_black);
 if drawcard == false exit;
 
 //draw background card
-scrSetRarityColour();
-draw_rectangle(xw-4, yp-4, xw+width, yp+90, 0);
-//draw outline
+c1 = scrSetRarityColour();
+c2 = merge_colour(c1,c_dkgray,0.5);
+draw_rectangle_color(xw-8,yp-8,xw+width,yp+90,c1,c1,c2,c2,0);
 draw_set_color(c_black);
-draw_rectangle(xw-4, yp-4, xw+width, yp+90, 1);
 
 //draw sprite
 if (scope != 0) draw_sprite_texture(scope,texture,0,xw,yp+(gheight/2),xsc,ysc);

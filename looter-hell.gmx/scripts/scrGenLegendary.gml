@@ -111,32 +111,11 @@ if (type == "Pistol") {
 
 if (type == "Assault Rifle") {
 
-    rand = round(random_range(1,2));
+    rand = round(random_range(1,1));
     switch(rand) {
     
-    //CHERRY BLOSSOM
-    case(1):
-    name = "Cherry Blossom";
-    pattern = objPatternBlossom;
-    //BODY
-    body = sprCBlossomBody;
-    damage = 12; acc = 80; rate = 4; reload = 4; mag = 32;
-    grip = scrGenGrip();
-    //BARREL
-    barrel = sprCBlossomBarrel;
-    bspeed = 5;
-    bspread = 180;
-    bnum = round(random_range(8,10));
-    splits = 1;
-    scope = scrGenScope();
-    stock = scrGenStock();
-    access = scrGenAccess();
-    texture = texPink2;
-    redtext = "Spring blooms";
-    break;
-    
     //BAKURETSU
-    case(2):
+    case(1):
     name = "Bakuretsu";
     pattern = objPattern1;
     //BODY
@@ -153,29 +132,10 @@ if (type == "Assault Rifle") {
     scope = scrGenScope();
     stock = scrGenStock();
     access = scrGenAccess();
-    element = scrGenElement("Explosive");
+    element = "Explosive";
     elem_chance = 100;
     texture = texGoldRed;
     redtext = "ECKSUSPUROSHION!!!";
-    break;
-    
-    //EYE OF THE STORM
-    case(3):
-    name = "Tornado";
-    pattern = objPatternBlossom;
-    //BODY
-    body = sprCBlossomBody;
-    damage = 10; acc = 80; rate = 5; reload = 4; mag = 32;
-    grip = scrGenGrip();
-    stock = scrGenStock();
-    //BARREL
-    barrel = sprCBlossomBarrel;
-    bspeed = 5;
-    bspread = 180;
-    bnum += round(random_range(3,5));
-    splits = 2;
-    scope = scrGenScope();
-    access = scrGenAccess();
     break;
     
     }

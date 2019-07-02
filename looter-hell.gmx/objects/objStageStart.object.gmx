@@ -29,6 +29,10 @@
 cx = 736; cy = 320;
 sp = 96;
 
+//BACKGROUND SETUP
+background_xscale[0] = 4;
+background_yscale[0] = 4;
+
 //TEST STAGE
 if(global.area == -1) {
 instance_create(480,224,objEnemyDummy);
@@ -57,7 +61,7 @@ case(7): scrA1S8(); break;
 }
 
 //DELAY START
-alarm[0] = room_speed;
+alarm[0] = 1;
 </string>
           </argument>
         </arguments>

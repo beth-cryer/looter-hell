@@ -30,4 +30,4 @@ break;
 }
 
 //PLAY SOUND
-audio_play_sound(sfx_reload,10,false);
+audio_play_sound(sfx_reload,15,false);

@@ -168,14 +168,17 @@ if (cardopen == true) {
 dps = damage*rate + elem_dps;
 gheight = sprite_get_height(body);
 
+//RARITY GLOW
+c = scrSetRarityColour();
+gwidth = sprite_get_width(body);
+draw_sprite_ext(sprGlow,-1,x-16+(gwidth/2),y+(gheight/2)-4,0.4,0.4,0,c,0.5);
+
 if (cardopen == true) {
 
     //draw background card
-    scrSetRarityColour();
-    draw_rectangle(x-4, y-4, x+width, y+90, 0);
-    //draw outline
-    draw_set_color(c_black);
-    draw_rectangle(x-4, y-4, x+width, y+90, 1);
+    c1 = scrSetRarityColour();
+    c2 = merge_colour(c1,c_dkgray,0.5);
+    draw_rectangle_color(x-4,y-4,x+width,y+90,c1,c1,c2,c2,0);
     
     //Element
     if (elem_index != 0) {

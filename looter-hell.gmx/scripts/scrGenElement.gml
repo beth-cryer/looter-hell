@@ -1,4 +1,4 @@
-if (argument0 != "None") rand = round(random_range(1,5)); else rand = 0;
+if (argument0 == "Gen") rand = round(random_range(1,5)); else rand = 0;
 
 if (rand == 1 or argument0 == "Fire"){ scrGenFirePrefixes(); elem_index = 2; elem_dps = 9; return "Fire"; } //Fire
 if (rand == 2 or argument0 == "Ice"){ scrGenIcePrefixes(); elem_index = 3; return "Ice"; } //Ice

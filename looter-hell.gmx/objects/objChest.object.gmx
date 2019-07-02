@@ -34,6 +34,8 @@ chestbonus = 1;
 
 image_speed = 0;
 image_index = 0;
+
+audio_play_sound(sfxChest2,20,false);
 </string>
           </argument>
         </arguments>
@@ -60,6 +62,8 @@ image_index = 0;
 if (opened == false) {
     opened = true;
     image_index = 1;
+    
+    audio_play_sound(sfxChestOpen,10,false);
     
     //GENERATE GUNS
     type = scrGenType();

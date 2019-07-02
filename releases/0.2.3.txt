@@ -1,0 +1,11 @@
+-Can no longer have more than one of the same gun in your loadout
+-Added background scroll between waves
+
+-Changed inventory and guncard backgrounds to a cool gradient
+-Added rarity glow effect to dropped guns
+
+-Updated gun sfx to 8-bit versions, also added new sfx
+-Enemy HP no longer shows negative numbers
+-Fixed element bug, can now force a certain element on a gun
+
+-BUG: Sometimes freezes forever when switching weapons, stuck in an infinite loop probably

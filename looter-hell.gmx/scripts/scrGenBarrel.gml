@@ -5,7 +5,7 @@ if (type == "Pistol") {
     switch(rand){
     
     case(1):
-    bspeed = 5;
+    bspeed = 6;
     bspread = 30;
     bnum += round(random_range(1,2));
     scrElementalChance(60);
@@ -13,7 +13,7 @@ if (type == "Pistol") {
     break;
     
     case(2):
-    bspeed = 6;
+    bspeed = 7;
     bspread = 20;
     bnum += round(random_range(1,2));
     damage += 2;
@@ -22,7 +22,7 @@ if (type == "Pistol") {
     break;
     
     case(3):
-    bspeed = 7;
+    bspeed = 8;
     bspread = 40;
     damage += 4;
     rate += 2;
@@ -67,7 +67,7 @@ if (type == "Assault Rifle") {
     break;
     
     case(2):
-    bspeed = 8;
+    bspeed = 12;
     bspread = 30;
     bnum += round(random_range(2,3));
     damage += 3;
@@ -105,7 +105,7 @@ if (type == "Shotgun") {
     switch(rand){
     
     case(1):
-    bspeed = 9;
+    bspeed = 10;
     bspread = 30;
     bnum += round(random_range(3,4));
     damage += 2;
@@ -115,7 +115,7 @@ if (type == "Shotgun") {
     break;
     
     case(2):
-    bspeed = 7;
+    bspeed = 9;
     bspread = 50;
     bnum += round(random_range(2,5));
     damage += 4;
@@ -152,7 +152,7 @@ if (type == "Sniper Rifle") {
     switch(rand){
     
     case(1):
-    bspeed = 13;
+    bspeed = 16;
     bspread = 5;
     bnum += round(random_range(0,1));
     burst = round(random_range(2,3));
@@ -162,7 +162,7 @@ if (type == "Sniper Rifle") {
     break;
     
     case(2):
-    bspeed = 11;
+    bspeed = 13;
     bspread = 10;
     bnum += round(random_range(1,2));
     damage = damage*1.02;
@@ -170,7 +170,7 @@ if (type == "Sniper Rifle") {
     break;
     
     case(3):
-    bspeed = 10;
+    bspeed = 12;
     bspread = 15;
     scrElementalChance(75);
     bnum += round(random_range(0,2));
@@ -179,7 +179,7 @@ if (type == "Sniper Rifle") {
     break;
     
     case(4):
-    bspeed = 12;
+    bspeed = 14;
     bspread = 20;
     bnum += round(random_range(1,3));
     rate += 0.5;

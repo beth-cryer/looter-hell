@@ -136,6 +136,8 @@
       </sounds>
       <sounds name="AR">
         <sound>sound\sfxARShoot1</sound>
+        <sound>sound\sfxARShoot2</sound>
+        <sound>sound\sfxARShoot3</sound>
         <sound>sound\sfxARReload1</sound>
         <sound>sound\sfxARReload2</sound>
       </sounds>
@@ -162,13 +164,18 @@
       <sounds name="menu">
         <sound>sound\sfxMenuSelect</sound>
         <sound>sound\sfxMenuCancel</sound>
+        <sound>sound\sfxMouseover</sound>
       </sounds>
       <sounds name="battle">
         <sound>sound\sfxPlayerHurt</sound>
         <sound>sound\sfxPlayerDeath</sound>
         <sound>sound\sfxEnemyDeath</sound>
         <sound>sound\sfxPlayerDash</sound>
+        <sound>sound\sfxExplosion</sound>
       </sounds>
+      <sound>sound\sfxChest1</sound>
+      <sound>sound\sfxChest2</sound>
+      <sound>sound\sfxChestOpen</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -388,6 +395,7 @@
     <sprite>sprites\sprPlayerHand1</sprite>
     <sprite>sprites\sprPlayerHand2</sprite>
     <sprite>sprites\spr64x64</sprite>
+    <sprite>sprites\sprGlow</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgShip</background>
@@ -459,8 +467,8 @@
       <script>scripts\scrAddRebel.gml</script>
     </scripts>
     <scripts name="sound">
-      <script>scripts\scrReloadSound.gml</script>
       <script>scripts\scrShootSound.gml</script>
+      <script>scripts\scrReloadSound.gml</script>
     </scripts>
     <script>scripts\draw_sprite_texture.gml</script>
     <script>scripts\scrSetProj.gml</script>
@@ -479,6 +487,8 @@
     <script>scripts\update_uiwidth.gml</script>
     <script>scripts\sprite_get_bbox_width.gml</script>
     <script>scripts\scrGetGCWidth.gml</script>
+    <script>scripts\scrInLoadout.gml</script>
+    <script>scripts\draw_shadow.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntStats</font>
@@ -489,12 +499,11 @@
     <object>objects\objGun</object>
     <object>objects\objPlayer</object>
     <object>objects\objChest</object>
-    <object>objects\objEnemy</object>
-    <object>objects\objProjectile</object>
-    <object>objects\objBullet</object>
-    <object>objects\objBulletEnemy</object>
-    <object>objects\objKnife</object>
-    <object>objects\objLaser</object>
+    <objects name="Parents">
+      <object>objects\objSolid</object>
+      <object>objects\objProjectile</object>
+      <object>objects\objEnemy</object>
+    </objects>
     <objects name="Patterns">
       <object>objects\objPattern1</object>
       <object>objects\objPattern2</object>
@@ -517,12 +526,17 @@
       <object>objects\objPatternScarlet</object>
       <object>objects\objPatternTornado</object>
     </objects>
-    <objects name="UI">
+    <objects name="UI/System">
       <object>objects\objInv</object>
       <object>objects\objMenuMain</object>
       <object>objects\objMenuOptions</object>
       <object>objects\objStageSelect</object>
       <object>objects\objStats</object>
+      <object>objects\objStageStart</object>
+      <object>objects\objSpawner</object>
+      <object>objects\objGunSpawn</object>
+      <object>objects\objStarterItems</object>
+      <object>objects\objController</object>
     </objects>
     <objects name="Enemies">
       <object>objects\objEnemyRunner</object>
@@ -531,12 +545,14 @@
       <object>objects\objEnemyAssault</object>
       <object>objects\objEnemyTurret</object>
     </objects>
-    <object>objects\objExplosion</object>
-    <object>objects\objSpawner</object>
-    <object>objects\objStageStart</object>
-    <object>objects\objPuddle</object>
-    <object>objects\objGunSpawn</object>
-    <object>objects\objStarterItems</object>
+    <objects name="Projectiles">
+      <object>objects\objBullet</object>
+      <object>objects\objBulletEnemy</object>
+      <object>objects\objLaser</object>
+      <object>objects\objKnife</object>
+      <object>objects\objExplosion</object>
+      <object>objects\objPuddle</object>
+    </objects>
     <object>objects\objDashTrail</object>
     <object>objects\objWall</object>
   </objects>
@@ -551,8 +567,8 @@
   </help>
   <audiogroups name="audiogroups">
     <audiogroup name="audiogroup_default"/>
-    <audiogroup name="sfx"/>
-    <audiogroup name="music"/>
+    <audiogroup name="ag_sfx"/>
+    <audiogroup name="ag_music"/>
   </audiogroups>
   <TutorialState>
     <IsTutorial>0</IsTutorial>

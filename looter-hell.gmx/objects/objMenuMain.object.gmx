@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>init();
-
-sel = 0;
+            <string>sel = 0;
 moused = false;
 smax = 3;
 
@@ -65,6 +63,7 @@ if (keyboard_check_pressed(vk_up)) sel--;
 //select by mouseover
 for(i=0;i&lt;3;i++) {
     if(point_in_rectangle(mouse_x,mouse_y,xp,yp+(i*32),xp+64,yp+(i*32+32))) {
+    //if (i != sel) audio_play_sound(sfxMouseover,10,false);
     sel = i;
     moused = true;
     }

@@ -37,11 +37,17 @@ image_xscale = -1;
 
 scrNewGun(global.stageLevel,1,"");
 bullets = mag;
-nrate = rate*1.5;
+nrate = rate/2;
 if (bnum mod 2 == 0) nnum = bnum; else nnum = bnum+1;
-//bspread *= 2;
-nspread = 50;
+
+nspread = bspread*1.5;
+if (pattern==objPattern2) nspread = 10;
 alarm[9] = room_speed/nrate;
+
+xp = 30;
+gold = 40;
+metal = floor(random(5));
+crystal = floor(random(5));
 </string>
           </argument>
         </arguments>

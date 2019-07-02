@@ -13,19 +13,22 @@ break;
 
 case("Assault Rifle"):
 sfx_shoot = sfxARShoot1;
+if (barrel == sprARBarrel1) sfx_shoot = sfxARShoot1;
+if (barrel == sprARBarrel2 or barrel == sprARBarrel3) sfx_shoot = sfxARShoot2;
+else if (barrel == sprARBarrel4) sfx_shoot = sfxARShoot3;
 break;
 
 case("Shotgun"):
 sfx_shoot = sfxSGShoot1;
-if (barrel == sprSGBarrel2 or barrel == sprSGBarrel1) sfx_shoot = sfxSGShoot1;
-if (barrel == sprSGBarrel4) sfx_shoot = sfxSGShoot2;
+if (barrel == sprSGBarrel2) sfx_shoot = sfxSGShoot1;
+if (barrel == sprSGBarrel4 or barrel == sprSGBarrel1) sfx_shoot = sfxSGShoot2;
 if (barrel == sprSGBarrel3) sfx_shoot = sfxSGShoot3;
 break;
 
 case("Sniper Rifle"):
 sfx_shoot = sfxSniperShoot2;
-if (barrel == sprSniperBarrel1 or barrel == sprSniperBarrel4) sfx_shoot = sfxSniperShoot1;
-else if (barrel == sprSniperBarrel2) sfx_shoot = sfxSniperShoot2;
+if (barrel == sprSniperBarrel1) sfx_shoot = sfxSniperShoot1;
+else if (barrel == sprSniperBarrel2 or barrel == sprSniperBarrel4) sfx_shoot = sfxSniperShoot2;
 else if (barrel == sprSniperBarrel3) sfx_shoot = sfxSniperShoot3;
 break;
 
@@ -39,4 +42,4 @@ break;
 }
 
 //PLAY SOUND
-audio_play_sound(sfx_shoot,10,false);
+audio_play_sound(sfx_shoot,20,false);

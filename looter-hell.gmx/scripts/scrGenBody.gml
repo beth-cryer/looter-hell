@@ -45,12 +45,12 @@ if (type == "Assault Rifle") {
     break;
     
     case(3):
-    damage = 14; acc = 80; rate = 5; reload = 3; mag = 30;
+    damage = 14; acc = 80; rate = 6; reload = 3; mag = 30;
     return sprARBody3;
     break;
     
     case(4):
-    damage = 11; acc = 85; rate = 5.5; reload = 3.5; mag = 42;
+    damage = 11; acc = 85; rate = 7; reload = 3.5; mag = 42;
     return sprARBody4;
     break;
     

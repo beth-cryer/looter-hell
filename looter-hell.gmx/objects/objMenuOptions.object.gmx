@@ -80,8 +80,8 @@ or (moused == true and mouse_check_button_pressed(mb_left))) {
     switch(sel) {
         case(0): if window_get_fullscreen() window_set_fullscreen(false); else window_set_fullscreen(true); break;
         case(1): break;
-        case(2): audio_group_set_gain(1,0,0); break;
-        case(3): audio_group_set_gain(2,0,0); break;
+        case(2): audio_group_set_gain(ag_sfx,0,0); break;
+        case(3): audio_group_set_gain(ag_music,0,0); break;
         case(4): room_goto(rmMenu) break;
     }
 }

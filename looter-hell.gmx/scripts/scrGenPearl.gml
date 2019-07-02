@@ -30,7 +30,7 @@ if (type == "Pistol") {
 
 if (type == "Assault Rifle") {
 
-    rand = round(random_range(1,1));
+    rand = round(random_range(1,2));
     switch(rand) {
     
     //TORNADO
@@ -52,6 +52,27 @@ if (type == "Assault Rifle") {
     access = 0;
     texture = texVortex;
     redtext = "uwu";
+    break;
+    
+    //CHERRY BLOSSOM
+    case(2):
+    name = "Cherry Blossom";
+    pattern = objPatternBlossom;
+    //BODY
+    body = sprCBlossomBody;
+    damage = 12; acc = 80; rate = 4; reload = 4; mag = 32;
+    grip = scrGenGrip();
+    //BARREL
+    barrel = sprCBlossomBarrel;
+    bspeed = 5;
+    bspread = 180;
+    bnum = round(random_range(8,10));
+    splits = 1;
+    scope = scrGenScope();
+    stock = scrGenStock();
+    access = scrGenAccess();
+    texture = texPink2;
+    redtext = "Spring blooms";
     break;
     
     }

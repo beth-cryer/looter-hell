@@ -44,7 +44,7 @@ nrate = rate/2;
 if (bnum mod 2 == 0) nnum = bnum; else nnum = bnum+1;
 
 nspread = bspread*1.5;
-if (pattern==objPattern2) nspread = 20;
+if (pattern==objPattern2) nspread = 10;
 alarm[9] = room_speed/nrate;
 
 xp = 30;
