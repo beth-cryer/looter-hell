@@ -131,12 +131,17 @@ if point_in_rectangle(mouse_x, mouse_y, x, y, x+96, y+64) and delay!=0 {
 if (cardopen == true) {
     xsc = 1; ysc = 1;
     //get the max width of the guncard for Draw event
+    draw_set_font(global.font_stats);
+    gwidth = sprite_get_width(body);
+    gheight = sprite_get_height(body);
     scrGetGCWidth();
     //PICKUP GUN
     //+inform spawner object if needed
     if (mouse_check_button_pressed(mb_left)) {
-        if (spawner != 0) spawner.spawn = 1;
-        if (scrAddInv() == true) instance_destroy();
+        if (scrAddInv() == true) {
+            if (spawner != 0) spawner.spawn = 1;
+            instance_destroy();
+        }
     }
 }else{
     xsc = 0.75; ysc = 0.75;

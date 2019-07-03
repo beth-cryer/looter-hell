@@ -40,8 +40,8 @@ body = 0;
 uinum = 0;
 loadwidth = 0;
 invwidth = 0;
-xsc = 1;
-ysc = 1;
+xsc = 2;
+ysc = 2;
 
 vampire = 0;
 </string>
@@ -92,8 +92,11 @@ delay = 0;
             <kind>1</kind>
             <string>if global.inv_open == false exit;
 
-xp = view_xview[0]+320;
-yp = view_yview[0]+32;
+//xp = view_xview[0]+320;
+//yp = view_yview[0]+32;
+
+xp = 640;
+yp = 32;
 
 //delete
 if (keyboard_check_pressed(ord('D')) or (moused == true and mouse_check_button_pressed(mb_right))) {
@@ -182,14 +185,14 @@ if (keyboard_check_pressed(vk_right)) {across=1};
 moused = false;
 is = scrInvSize()
 for(i=0;i&lt;is;i++) {
-    if(point_in_rectangle(mouse_x,mouse_y,xp+loadwidth,yp+(i*16),xp+loadwidth+64,yp+(i*16+16))) {
+    if(point_in_rectangle(device_mouse_x_to_gui(0),device_mouse_y_to_gui(0),xp+loadwidth,yp+(i*16),xp+loadwidth+64,yp+(i*16+16))) {
     sel=i;
     across=1;
     moused = true; }
 }
 //select loadout by mouseover
 for(i=0;i&lt;global.loadSlots;i++) {
-    if(point_in_rectangle(mouse_x,mouse_y,xp,yp+(i*16),xp+loadwidth,yp+(i*16+16))) {
+    if(point_in_rectangle(device_mouse_x_to_gui(0),device_mouse_y_to_gui(0),xp,yp+(i*16),xp+loadwidth,yp+(i*16+16))) {
     sel=i;
     across=0;
     moused = true; }
@@ -246,6 +249,8 @@ if (scrInvSize() &gt; 0) {
 if drawcard == false exit;
 
 //get the max width of the guncard
+gwidth = sprite_get_width(body)*xsc;
+gheight = sprite_get_height(body)*ysc;
 scrGetGCWidth();
 
 xw = xp-(width+16);
@@ -254,7 +259,7 @@ xw = xp-(width+16);
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -271,7 +276,9 @@ xw = xp-(width+16);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(global.font_stats);
+            <string>display_set_gui_size(view_wport[0], view_hport[0]);
+
+draw_set_font(global.font_gui);
 
 if global.inv_open == false exit;
 
@@ -331,21 +338,21 @@ if drawcard == false exit;
 //draw background card
 c1 = scrSetRarityColour();
 c2 = merge_colour(c1,c_dkgray,0.5);
-draw_rectangle_color(xw-8,yp-8,xw+width,yp+90,c1,c1,c2,c2,0);
+draw_rectangle_color(xw-8,yp-8,xw+width,yp+gheight,c1,c1,c2,c2,0);
 draw_set_color(c_black);
 
 //draw sprite
-if (scope != 0) draw_sprite_texture(scope,texture,0,xw,yp+(gheight/2),xsc,ysc);
-if (stock != 0) draw_sprite_texture(stock,texture,0,xw,yp+(gheight/2),xsc,ysc);
+if (scope != 0) draw_sprite_texture(scope,texture,0,xw,yp+(gheight*0.1),xsc,ysc);
+if (stock != 0) draw_sprite_texture(stock,texture,0,xw,yp+(gheight*0.1),xsc,ysc);
 
-draw_sprite_texture(grip,texture,0,xw,yp+(gheight/2),xsc,ysc);
+draw_sprite_texture(grip,texture,0,xw,yp+(gheight*0.1),xsc,ysc);
 //DECIDE ORDER TO DRAW BODY/BARREL
 if (type == "Shotgun") {
-    draw_sprite_texture(body,texture,0,xw,yp+(gheight/2),xsc,ysc);
-    draw_sprite_texture(barrel,texture,0,xw,yp+(gheight/2),xsc,ysc);
+    draw_sprite_texture(body,texture,0,xw,yp+(gheight*0.1),xsc,ysc);
+    draw_sprite_texture(barrel,texture,0,xw,yp+(gheight*0.1),xsc,ysc);
 }else{
-    draw_sprite_texture(barrel,texture,0,xw,yp+(gheight/2),xsc,ysc);
-    draw_sprite_texture(body,texture,0,xw,yp+(gheight/2),xsc,ysc);
+    draw_sprite_texture(barrel,texture,0,xw,yp+(gheight*0.1),xsc,ysc);
+    draw_sprite_texture(body,texture,0,xw,yp+(gheight*0.1),xsc,ysc);
 }
 
 //DPS
@@ -353,25 +360,25 @@ draw_text(xw+4,yp,"DPS: " + string(damage*rate + elem_dps));
 
 //Element
 if (elem_index != 0) {
-    draw_text(xw+4,yp+gheight,string(element));
-    draw_text_w(xw+4,yp+gheight+10,load_text("elementchance") + ": " + string(elem_chance));
+    draw_text(xw+4,yp+(gheight*0.6),string(element));
+    draw_text_w(xw+4,yp+(gheight*0.6)+10,load_text("elementchance") + ": " + string(elem_chance));
 }
 
 //draw stats
 
 draw_text(xw+width1,yp,string(name));
-draw_text(xw+width1,yp+8,load_text("level") + ": " + string(level) + " " + string(type));
+draw_text(xw+width1,yp+16,load_text("level") + ": " + string(level) + " " + string(type));
 
-if (bnum &gt; 1) draw_text(xw+width1,yp+16,load_text("damage") + ": " + string(damage) + "x" + string(bnum));
-else draw_text(xw+width1,yp+16,load_text("damage") + ": " + string(damage));
+if (bnum &gt; 1) draw_text(xw+width1,yp+32,load_text("damage") + ": " + string(damage) + "x" + string(bnum));
+else draw_text(xw+width1,yp+32,load_text("damage") + ": " + string(damage));
 
-draw_text(xw+width1,yp+24,load_text("accuracy") + ": " + string(acc));
-draw_text(xw+width1,yp+32,load_text("firerate") + ": " + string(rate));
-draw_text(xw+width1,yp+40,load_text("reloadspeed") + ": " + string(reload));
-draw_text(xw+width1,yp+48,load_text("magsize") + ": " + string(mag));
+draw_text(xw+width1,yp+48,load_text("accuracy") + ": " + string(acc));
+draw_text(xw+width1,yp+64,load_text("firerate") + ": " + string(rate));
+draw_text(xw+width1,yp+80,load_text("reloadspeed") + ": " + string(reload));
+draw_text(xw+width1,yp+96,load_text("magsize") + ": " + string(mag));
 
 //RED TEXT
-if (redtext != "") {draw_set_color(c_red); draw_text(xw+width1,yp+60,redtext); draw_set_color(c_black);}
+if (redtext != "") {draw_set_color(c_red); draw_text(xw+width1,yp+112,redtext); draw_set_color(c_black);}
 </string>
           </argument>
         </arguments>

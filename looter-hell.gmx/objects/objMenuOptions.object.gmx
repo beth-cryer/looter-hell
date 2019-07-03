@@ -56,15 +56,15 @@ menu[4]=load_text("back");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>xp = view_xview[0]+256;
-yp = view_yview[0]+160;
+            <string>xp = 256;
+yp = 160;
 
 if (keyboard_check_pressed(vk_down)) sel++;
 if (keyboard_check_pressed(vk_up)) sel--;
 
 //select by mouseover
 for(i=0;i&lt;smax;i++) {
-    if(point_in_rectangle(mouse_x,mouse_y,xp,yp+(i*32),xp+64,yp+(i*32+32))) {
+    if(point_in_rectangle(device_mouse_x_to_gui(0),device_mouse_y_to_gui(0),xp,yp+(i*32),xp+64,yp+(i*32+32))) {
     sel = i;
     moused = true;
     }
@@ -90,7 +90,7 @@ or (moused == true and mouse_check_button_pressed(mb_left))) {
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>

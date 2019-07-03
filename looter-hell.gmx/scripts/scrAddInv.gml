@@ -2,7 +2,7 @@
 scrInvSize();
 
 //if there is space
-if (i != -1) {
+if (i != -1 and i<global.invSize-1) {
     //name
     if (prefix != "") {global.inventory[i,0] = prefix + " " + name; 
     }else {global.inventory[i,0] = name;}

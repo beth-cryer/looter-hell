@@ -1,6 +1,4 @@
-uiwidth = sprite_get_width(body)-16;
-//uiwidth = sprite_get_bbox_width(body)+16;
-gheight = sprite_get_height(body);
+uiwidth = gwidth;
 
 //get max width of text
 update_uiwidth("DPS: " + string(damage*rate + elem_dps));

@@ -258,7 +258,9 @@ mspeed = ospeed/2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (fire == true) draw_col = c_red;
+            <string>draw_set_font(global.font_stats);
+
+if (fire == true) draw_col = c_red;
 else if (frozen == true) draw_col = c_aqua;
 else if (corrode == true) draw_col = c_green;
 else draw_col = image_blend;

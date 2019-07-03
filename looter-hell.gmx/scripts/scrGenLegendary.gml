@@ -192,7 +192,7 @@ if (type == "Shotgun") {
     //BODY
     body = scrGenBody();
     mag = 6;
-    reload = 0.25;
+    reload = 0.35;
     grip = scrGenGrip();
     //BARREL
     barrel = sprMeatshotBarrel;

@@ -1,0 +1,9 @@
+-Moved UI to the GUI layer
+-Updated hand sprites
+
+-"Fixed" inventory committing sudoku when its full (by stopping scrAddInv from filling the inv lmao)
+-Fixed objGunSpawn spawning another gun when you try and pick one up with a full inventory
+-Enemies shouldn't spawn on top of each other anymore if the next wave starts before all enemies are killed
+
+-BUG: Dropped guncards now way too wide (FIXED)
+-BUG: Fullscreen causes the game to shit its pants. Either fix or make borderless windowed the only option

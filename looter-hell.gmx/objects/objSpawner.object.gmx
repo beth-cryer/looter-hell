@@ -57,6 +57,8 @@ alarm[1] = 1;
 
 //spawn this wave of enemies
 for(i=0; i&lt;array_length_2d(global.w_enemies,current); i++) {
+    //if position is empty
+    if !(instance_position(global.w_positionx[current,i],global.w_positiony[current,i],objEnemy))
     instance_create(global.w_positionx[current,i],global.w_positiony[current,i],global.w_enemies[current,i]);
 }
 

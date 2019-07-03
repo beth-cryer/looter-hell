@@ -4,3 +4,14 @@ Area 1
 9-12: LV3
 13-16: LV4
 17-20: LV5
+
+A1: Bandit Camp
+Desert
+Humanoid Bandit enemies
+
+A?: Federation Ship
+
+
+A?: Alien Hive
+Green colour scheme
+Small melee enemies, Large stationary shooters
