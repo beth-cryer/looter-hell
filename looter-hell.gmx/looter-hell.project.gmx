@@ -219,6 +219,7 @@
         <sprite>sprites\sprARBarrel2</sprite>
         <sprite>sprites\sprARBarrel3</sprite>
         <sprite>sprites\sprARBarrel4</sprite>
+        <sprite>sprites\sprARBarrel5</sprite>
         <sprite>sprites\sprARStock1</sprite>
         <sprite>sprites\sprARStock2</sprite>
         <sprite>sprites\sprARStock3</sprite>
@@ -251,6 +252,7 @@
         <sprite>sprites\sprSGGrip2</sprite>
         <sprite>sprites\sprSGGrip3</sprite>
         <sprite>sprites\sprSGGrip4</sprite>
+        <sprite>sprites\sprSGGrip5</sprite>
         <sprite>sprites\sprSGStock1</sprite>
         <sprite>sprites\sprSGStock2</sprite>
         <sprite>sprites\sprSGStock3</sprite>
@@ -300,6 +302,7 @@
         <sprite>sprites\sprSMGBody2</sprite>
         <sprite>sprites\sprSMGBody3</sprite>
         <sprite>sprites\sprSMGBody4</sprite>
+        <sprite>sprites\sprSMGBody5</sprite>
         <sprite>sprites\sprSMGBarrel1</sprite>
         <sprite>sprites\sprSMGBarrel2</sprite>
         <sprite>sprites\sprSMGBarrel3</sprite>
@@ -308,6 +311,7 @@
         <sprite>sprites\sprSMGGrip2</sprite>
         <sprite>sprites\sprSMGGrip3</sprite>
         <sprite>sprites\sprSMGGrip4</sprite>
+        <sprite>sprites\sprSMGGrip5</sprite>
         <sprite>sprites\sprSMGStock1</sprite>
         <sprite>sprites\sprSMGStock2</sprite>
         <sprite>sprites\sprSMGStock3</sprite>
@@ -386,6 +390,8 @@
       <sprite>sprites\sprHacker</sprite>
       <sprite>sprites\sprPlayerHand1</sprite>
       <sprite>sprites\sprPlayerHand2</sprite>
+      <sprite>sprites\sprBanditGunner</sprite>
+      <sprite>sprites\sprBanditRunner</sprite>
     </sprites>
     <sprite>sprites\sprBullet</sprite>
     <sprite>sprites\sprBulletEnemy</sprite>
@@ -427,7 +433,11 @@
       <script>scripts\scrAddInv.gml</script>
       <script>scripts\scrDropInv.gml</script>
       <script>scripts\scrInvSize.gml</script>
+      <script>scripts\scrSInvSize.gml</script>
       <script>scripts\scrWepStats.gml</script>
+      <script>scripts\inv_sort.gml</script>
+      <script>scripts\sval_type.gml</script>
+      <script>scripts\sremove_type.gml</script>
     </scripts>
     <scripts name="genNames">
       <script>scripts\scrGenPistolName.gml</script>
@@ -450,6 +460,7 @@
       <script>scripts\scrEmptyWaves.gml</script>
       <script>scripts\scrResetWave.gml</script>
       <script>scripts\scrAddEnemies.gml</script>
+      <script>scripts\scrCreateWaves.gml</script>
     </scripts>
     <scripts name="stages">
       <scripts name="a1">
@@ -481,6 +492,7 @@
       <script>scripts\draw_sprite_texture.gml</script>
       <script>scripts\draw_elem.gml</script>
       <script>scripts\scrSpawnGun.gml</script>
+      <script>scripts\scrGunPos.gml</script>
     </scripts>
     <script>scripts\scrSetProj.gml</script>
     <script>scripts\scrSwitchWep.gml</script>

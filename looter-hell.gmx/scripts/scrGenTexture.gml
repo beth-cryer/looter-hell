@@ -54,7 +54,7 @@ switch(rarity) {
 }
 
 //TORGUE
-if (body==sprARBody3 or body==sprSGBody2 or body==sprPistolBody2 or body==sprSniperBody4) {
+if (body==sprARBody3 or body==sprSGBody2 or body==sprPistolBody2 or body==sprSniperBody4 or body==sprSMGBody4) {
 switch(rarity) {
     case(1): return texDark2; break;
     case(2): return texDark3; break;

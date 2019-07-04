@@ -1,7 +1,6 @@
 Inventory:
 Add multiple pages
 Add Shields and Gems
-Add sorting
 Add gun comparison
 
 Add multiple Characters, with their own loadout + stats

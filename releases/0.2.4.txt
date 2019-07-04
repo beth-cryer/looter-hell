@@ -1,5 +1,13 @@
+-Added inventory sorting by Type
+-Added inventory filtering (ie. don't show a given weapon Type)
+-(Note: this is buggy af rn, fix as soon as possible)
+
 -Moved UI to the GUI layer
 -Updated hand sprites
+-Added smooth keyboard selection to all menus
+-Added new enemy sprites (no animations yet)
+-Gave enemy gun users hand sprites
+-Added some new gun parts
 
 -"Fixed" inventory committing sudoku when its full (by stopping scrAddInv from filling the inv lmao)
 -Fixed objGunSpawn spawning another gun when you try and pick one up with a full inventory

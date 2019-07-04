@@ -54,7 +54,7 @@ if (type == "Pistol") {
 //ASSAULT RIFLE BARRELS
 if (type == "Assault Rifle") {
 
-    rand = round(random_range(1,4));
+    rand = round(random_range(1,5));
     switch(rand){
     
     case(1):
@@ -92,6 +92,15 @@ if (type == "Assault Rifle") {
     bnum += round(random_range(1,3));
     rate = rate*1.03;
     return sprARBarrel4;
+    break;
+    
+    case(5):
+    bspeed = 14;
+    bspread = 30;
+    bnum += round(random_range(2,4));
+    rate += 1;
+    damage = damage*0.96;
+    return sprARBarrel5;
     break;
     
     }
@@ -182,8 +191,8 @@ if (type == "Sniper Rifle") {
     bspeed = 14;
     bspread = 20;
     bnum += round(random_range(1,3));
-    rate += 0.5;
-    damage = damage*0.97;
+    rate += 1;
+    damage = damage*0.96;
     return sprSniperBarrel4;
     break;
     

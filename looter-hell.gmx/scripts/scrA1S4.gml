@@ -1,7 +1,7 @@
 global.stageLevel = 1;
 global.numWaves = 8;
 
-scrEmptyWaves();
+scrCreateWaves();
 
 //WAVE 1
 scrAddEnemies(objEnemyRunner,3,cx,cy,sp);

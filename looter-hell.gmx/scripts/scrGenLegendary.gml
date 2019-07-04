@@ -172,7 +172,7 @@ if (type == "Shotgun") {
     pattern = objPattern4;
     //BODY
     body = sprMillionBody;
-    damage = 18; acc = 72; rate = 1; reload = 3.5; mag = 10; bnum = 24; fixed_bnum = 1;
+    damage = 21; acc = 72; rate = 1; reload = 3.5; mag = 10; bnum = 24; fixed_bnum = 1;
     grip = scrGenGrip();
     //BARREL
     barrel = sprMillionBarrel;

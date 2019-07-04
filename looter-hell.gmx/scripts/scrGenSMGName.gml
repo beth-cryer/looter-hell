@@ -37,3 +37,13 @@ if (body == sprSMGBody4) {
     case(sprSMGBarrel4): return "Transporter"; break;
     }
 }
+
+//BODY5
+if (body == sprSMGBody5) {
+    switch(barrel) {
+    case(sprSMGBarrel1): return "Phaser"; break;
+    case(sprSMGBarrel2): return "Neos"; break;
+    case(sprSMGBarrel3): return "P90"; break;
+    case(sprSMGBarrel4): return "Hawk"; break;
+    }
+}

@@ -45,13 +45,13 @@ if (type == "Shotgun") {
     
     case(2):
     acc = acc*0.98;
-    damage = damage*1.01;
+    damage = damage*1.02;
     bspeed -= 1;
     return sprSGStock2;
     break;
     
     case(3):
-    acc = acc*1.05;
+    acc = acc*1.04;
     reload = reload*0.99;
     return sprSGStock3;
     break;

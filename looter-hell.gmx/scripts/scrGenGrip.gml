@@ -85,7 +85,7 @@ if (type == "Assault Rifle") {
 //SHOTGUN GRIPS
 if (type == "Shotgun") {
 
-    rand = round(random_range(1,4));
+    rand = round(random_range(1,5));
     switch(rand){
     
     case(1):
@@ -117,6 +117,14 @@ if (type == "Shotgun") {
     rate = rate*0.98;
     prefix = "Hammer";
     return sprSGGrip4;
+    break;
+    
+    case(5):
+    damage = damage*1.04;
+    acc = acc*0.96;
+    rate = rate*1.02;
+    prefix = "Rider";
+    return sprSGGrip5;
     break;
     
     }
@@ -161,11 +169,12 @@ if (type == "Sniper Rifle") {
 //SMG GRIPS
 if (type == "SMG") {
 
-    rand = round(random_range(1,4));
+    rand = round(random_range(1,5));
     switch(rand){
     
     case(1):
     acc = acc*1.04;
+    reload = reload*0.96;
     prefix = "Arc";
     return sprSMGGrip1;
     break;
@@ -189,6 +198,14 @@ if (type == "SMG") {
     acc = acc*1.02;
     prefix = "Loaded";
     return sprSMGGrip4;
+    break;
+    
+    case(5):
+    mag = mag*0.96;
+    acc = acc*1.05;
+    reload = reload*0.99;
+    prefix = "Tactical";
+    return sprSMGGrip5;
     break;
     
     }

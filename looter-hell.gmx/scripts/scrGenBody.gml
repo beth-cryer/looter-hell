@@ -70,7 +70,7 @@ if (type == "Shotgun") {
     break;
     
     case(2):
-    damage = 23; acc = 85; rate = 2; reload = 3.5; mag = 10; bnum = 2;
+    damage = 23; acc = 85; rate = 2; reload = 3.5; mag = 10;
     return sprSGBody2;
     break;
     
@@ -121,7 +121,7 @@ if (type == "Sniper Rifle") {
 //SMG BODYS
 if (type == "SMG") {
 
-    rand = round(random_range(1,4));
+    rand = round(random_range(1,5));
     switch(rand){
     
     case(1):
@@ -142,6 +142,11 @@ if (type == "SMG") {
     case(4):
     damage = 8; acc = 88; rate = 7.5; reload = 2.5; mag = 20; scrElementalChance(50);
     return sprSMGBody4;
+    break;
+    
+    case(5):
+    damage = 8; acc = 91; rate = 8; reload = 2.5; mag = 15;
+    return sprSMGBody5;
     break;
     
     }

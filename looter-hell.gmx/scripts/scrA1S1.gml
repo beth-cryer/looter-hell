@@ -1,7 +1,7 @@
 global.stageLevel = 1;
 global.numWaves = 5;
 
-scrEmptyWaves();
+scrCreateWaves();
 
 //WAVE 1
 scrAddEnemies(objEnemyRunner,1,cx,cy,sp);
@@ -12,7 +12,7 @@ scrAddEnemies(objEnemyRunner,3,cx,cy,sp);
 scrNewWave();
 
 //WAVE 3
-scrAddEnemies(objEnemyTurret,1,cx-128,cy,sp*2);
+scrAddEnemies(objEnemyTurret,1,cx-64,cy,sp);
 scrNewWave();
 
 //WAVE 4

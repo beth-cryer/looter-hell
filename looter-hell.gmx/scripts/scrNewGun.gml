@@ -63,7 +63,7 @@ texture = scrGenTexture(); //uses body+rarity to generate texture
 element = scrGenElement(element); //determines gun prefix if used
 
 //scale down damage for multiple shots
-for(i=0;i<bnum;i++) damage = damage*0.99
+for(i=1;i<bnum;i++) damage = damage*0.98
 
 //scale damage to weapon level + rarity
 damage = ceil(0.5 * damage * (1.1^(rarity*2 + level*2)) );
