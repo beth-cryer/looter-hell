@@ -2,16 +2,20 @@
 -Added inventory filtering (ie. don't show a given weapon Type)
 -(Note: this is buggy af rn, fix as soon as possible)
 
+-Reworked gun part system: part generation and stat application now separated
+
 -Moved UI to the GUI layer
 -Updated hand sprites
 -Added smooth keyboard selection to all menus
 -Added new enemy sprites (no animations yet)
 -Gave enemy gun users hand sprites
 -Added some new gun parts
+-Added Pestilence pistol
 
 -"Fixed" inventory committing sudoku when its full (by stopping scrAddInv from filling the inv lmao)
 -Fixed objGunSpawn spawning another gun when you try and pick one up with a full inventory
 -Enemies shouldn't spawn on top of each other anymore if the next wave starts before all enemies are killed
 
 -BUG: Dropped guncards now way too wide (FIXED)
--BUG: Fullscreen causes the game to shit its pants. Either fix or make borderless windowed the only option
+-BUG: Fullscreen causes the game to bug out. Either fix or make borderless windowed the only option
+-BUG: Dropping guns now crashes the game

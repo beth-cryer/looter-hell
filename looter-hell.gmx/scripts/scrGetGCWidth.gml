@@ -16,5 +16,4 @@ update_uiwidth(load_text("magsize") + ": " + string(mag));
 update_uiwidth(redtext);
 width2 = uiwidth;
 
-width1 += 16;
 width = width1+width2;

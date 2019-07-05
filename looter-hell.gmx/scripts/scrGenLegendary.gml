@@ -1,5 +1,5 @@
 if (type == "Pistol") {
-    rand = round(random_range(1,5));
+    rand = round(random_range(1,6));
     stock = 0;
     switch(rand) {
     
@@ -23,6 +23,7 @@ if (type == "Pistol") {
     scope = scrGenScope();
     access = scrGenAccess();
     texture = texVortex;
+    redtext = "Eye of the storm";
     break;
     
     //SLINGSHOT
@@ -103,7 +104,28 @@ if (type == "Pistol") {
     scope = scrGenScope();
     access = scrGenAccess();
     texture = texDark2;
-    redtext = "And so his watch has ended";
+    redtext = "And now his watch is ended";
+    break;
+    
+    //DEFILER
+    case(6):
+    name = "Pestilence";
+    body = scrGenBody();
+    pattern = objPattern4;
+    //BARREL
+    barrel = sprDefilerBarrel;
+    bspread = 10;
+    bnum += round(random_range(2,3));
+    bspeed = 11;
+    //GRIP
+    grip = sprDefilerGrip;
+    rate = rate*0.96;
+    reload = reload*0.96;
+    scope = scrGenScope();
+    access = scrGenAccess();
+    element = "Corrosive";
+    texture = texToxic;
+    redtext = "Down with the sickness";
     break;
     
     }
@@ -163,7 +185,7 @@ if (type == "Shotgun") {
     stock = scrGenStock();
     access = scrGenAccess(); //determines gun prefix
     texture = texNuclear;
-    redtext = "Oopsie.";
+    redtext = "RBMK reactor cores don't explode";
     break;
     
     //MILLION

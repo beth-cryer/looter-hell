@@ -194,7 +194,7 @@ if (cardopen == true) {
     draw_text(x+5,y,"DPS: " + string(dps));
     
     //draw stats
-    draw_text(x+width1,y,string(prefix) + " " + string(name));
+    draw_text(x+width1,y,name);
     draw_text(x+width1,y+10,"Level " + string(level) + " " + string(type));
     
     if (bnum &gt; 1) draw_text(x+width1,y+20,"Damage: " + string(damage) + "x" + string(bnum));

@@ -15,7 +15,7 @@ case("Assault Rifle"):
 sfx_shoot = sfxARShoot1;
 if (barrel == sprARBarrel1) sfx_shoot = sfxARShoot1;
 if (barrel == sprARBarrel2 or barrel == sprARBarrel3) sfx_shoot = sfxARShoot2;
-else if (barrel == sprARBarrel4) sfx_shoot = sfxARShoot3;
+else if (barrel == sprARBarrel4 or barrel == sprARBarrel5) sfx_shoot = sfxARShoot3;
 break;
 
 case("Shotgun"):

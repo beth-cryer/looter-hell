@@ -35,7 +35,7 @@ if (type == "Assault Rifle") {
     
     //TORNADO
     case(1):
-    name = "Tornado";
+    name = "Cyclone";
     pattern = objPatternTornado;
     //BODY
     body = scrGenBody();

@@ -5,38 +5,23 @@ if (type == "Pistol") {
     switch(rand){
     
     case(1):
-    reload = reload*0.97;
-    mag = mag*1.04;
-    prefix = "Stabilised";
-    return sprPistolGrip1;
+    grip = sprPistolGrip1;
     break;
     
     case(2):
-    scrElementalChance(80);
-    reload = reload*1.05;
-    mag = mag*1.05;
-    prefix = "Technical";
-    return sprPistolGrip2;
+    grip = sprPistolGrip2;
     break;
     
     case(3):
-    reload = reload*0.96;
-    mag = mag*0.96;
-    prefix = "Combat";
-    return sprPistolGrip3;
+    grip = sprPistolGrip3;
     break;
     
     case(4):
-    mag = mag*0.97;
-    prefix = "Compact";
-    return sprPistolGrip4;
+    grip = sprPistolGrip4;
     break;
     
     case(5):
-    rate = rate*1.04;
-    mag = mag*1.02;
-    prefix = "Forsaken";
-    return sprPistolGrip5;
+    grip = sprPistolGrip5;
     break;
     
     }
@@ -50,32 +35,19 @@ if (type == "Assault Rifle") {
     switch(rand){
     
     case(1):
-    rate = rate*1.02;
-    damage = damage*0.97;
-    prefix = "Rapid";
-    return sprARGrip1;
+    grip = sprARGrip1;
     break;
     
     case(2):
-    acc = acc*1.05;
-    prefix = "Focused";
-    return sprARGrip2;
+    grip = sprARGrip2;
     break;
     
     case(3):
-    damage = damage*1.03;
-    reload = reload*0.98;
-    rate = rate*0.96;
-    prefix = "Powerful";
-    return sprARGrip3;
+    grip = sprARGrip3;
     break;
     
     case(4):
-    damage = damage*1.02;
-    reload = reload*1.02;
-    mag = mag*1.05;
-    prefix = "Packed";
-    return sprARGrip4;
+    grip = sprARGrip4;
     break;
     
     }
@@ -89,42 +61,23 @@ if (type == "Shotgun") {
     switch(rand){
     
     case(1):
-    rate = rate*1.02;
-    damage = damage*0.97;
-    prefix = "Filled";
-    return sprSGGrip1;
+    grip = sprSGGrip1;
     break;
     
     case(2):
-    damage = damage*1.02;
-    rate = rate*0.96;
-    prefix = "Thick";
-    return sprSGGrip2;
+    grip = sprSGGrip2;
     break;
     
     case(3):
-    damage = damage*0.98;
-    acc = acc*1.06;
-    reload = reload*1.02;
-    rate = rate*1.03;
-    prefix = "Stable";
-    return sprSGGrip3;
+    grip = sprSGGrip3;
     break;
     
     case(4):
-    damage = damage*1.02;
-    acc = acc*1.03;
-    rate = rate*0.98;
-    prefix = "Hammer";
-    return sprSGGrip4;
+    grip = sprSGGrip4;
     break;
     
     case(5):
-    damage = damage*1.04;
-    acc = acc*0.96;
-    rate = rate*1.02;
-    prefix = "Rider";
-    return sprSGGrip5;
+    grip = sprSGGrip5;
     break;
     
     }
@@ -138,28 +91,19 @@ if (type == "Sniper Rifle") {
     switch(rand){
     
     case(1):
-    acc = acc*1.04;
-    prefix = "Stable";
-    return sprSniperGrip1;
+    grip = sprSniperGrip1;
     break;
     
     case(2):
-    reload = reload*1.03;
-    mag = mag*1.04;
-    prefix = "Compact";
-    return sprSniperGrip2;
+    grip = sprSniperGrip2;
     break;
     
     case(3):
-    damage = damage*1.02;
-    prefix = "Tough";
-    return sprSniperGrip3;
+    grip = sprSniperGrip3;
     break;
     
     case(4):
-    rate = rate*1.03;
-    prefix = "Rapid";
-    return sprSniperGrip4;
+    grip = sprSniperGrip4;
     break;
     
     }
@@ -173,41 +117,30 @@ if (type == "SMG") {
     switch(rand){
     
     case(1):
-    acc = acc*1.04;
-    reload = reload*0.96;
-    prefix = "Arc";
-    return sprSMGGrip1;
+    grip = sprSMGGrip1;
     break;
     
     case(2):
-    mag = mag*1.02;
-    rate = rate*1.03;
-    prefix = "Light";
-    return sprSMGGrip2;
+    grip = sprSMGGrip2;
     break;
     
     case(3):
-    mag = mag*1.02;
-    acc = acc*1.04;
-    prefix = "Stabilised";
-    return sprSMGGrip3;
+    grip = sprSMGGrip3;
     break;
     
     case(4):
-    mag = mag*1.06;
-    acc = acc*1.02;
-    prefix = "Loaded";
-    return sprSMGGrip4;
+    grip = sprSMGGrip4;
     break;
     
     case(5):
-    mag = mag*0.96;
-    acc = acc*1.05;
-    reload = reload*0.99;
-    prefix = "Tactical";
-    return sprSMGGrip5;
+    grip = sprSMGGrip5;
     break;
     
     }
     
 }
+
+//LOOKUP STATS
+scrStatsGrip();
+
+return grip;

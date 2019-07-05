@@ -1,15 +1,12 @@
 Guns:
 Radial Spitter (Assault Rifle): Fires 8 bullets, each in one of the cardinal + intermediate directions around the player.
 Vampire (SMG): Replenishes health and ammo with each hit, drains health slowly while equipped.
-Eye of the Storm (Assault Rifle): Shoots projectiles which split on death 3 times and orbit the player
 Vortex (Pistol): Fires a swirling vortex of bullets which shield the user.
 Slingshot (Pistol): Spawns projectiles which orbit in front of the player for a short moment before shooting off at maximum velocity.
 Chernobyl (Shotgun) - Bullets orbit the player momentarily then explode in all directions.
 Black Hole (Sniper Rifle): Spawns projectiles in a radius around a point in front of the player; they then shoot towards the centerpoint and explode on impact, dealing elemental damage.
 Millionaire (Shotgun): Fires a large number of bullets which cover the entire screen, slow firerate.
 64-Trigrams (Assault Rifle / Naruto): Burst fire gun with mag size of 64, fires 8 of its bullets per burst. Bullet speed increases the less bullets are left in the mag.
-Cherry Blossom (Assault Rifle): Bullets which explode into more bullets on hit.
-Bloodhound (Sniper Rifle): Bullets split once and track whichever target is closest upon splitting.
 Fully automatic sniper rifle.
 Meatshot (Shotgun / TF2): Very tight spread.
 Aqua (SMG / Useless Goddess): Creates puddles on hit which slow enemies.
@@ -32,11 +29,12 @@ Amygdalan Arm (Bloodborne): Laser weapon
 PEARLESCENTS
 Scarlet Devil (Shotgun / Touhou): Two patterns at once: Basic radial shots and a rotating wave pattern
 Sandstorm (SMG): Shoots projectiles which split once, halfway across the screen.
-Tornado (Assault Rifle): CBlossom/Vortex hybrid
+Cyclone (Assault Rifle): CBlossom/Vortex hybrid
 Recursive Assassin (Sniper Rifle): Fires a bullet which spawns three other bullets, which spawns three other bullets…
 Raid Boss
 BFG9000 (Laser Rifle / DOOM): Shoots a huge ball of energy that explodes on hit
-
+Cherry Blossom (Assault Rifle): Bullets which explode into more bullets on hit.
+Bloodhound (Sniper Rifle): Bullets split once and track whichever target is closest upon splitting.
 
 Shields:
 Riot Shield: A tall, thin shield which remains stationary in front of the player.

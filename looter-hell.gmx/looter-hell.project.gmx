@@ -209,6 +209,8 @@
         <sprite>sprites\sprOSBody</sprite>
         <sprite>sprites\sprCrowBody</sprite>
         <sprite>sprites\sprCrowBarrel</sprite>
+        <sprite>sprites\sprDefilerBarrel</sprite>
+        <sprite>sprites\sprDefilerGrip</sprite>
       </sprites>
       <sprites name="AssaultRifle">
         <sprite>sprites\sprARBody1</sprite>
@@ -379,6 +381,7 @@
       <sprite>sprites\texGreed</sprite>
       <sprite>sprites\texScales</sprite>
       <sprite>sprites\texYellow</sprite>
+      <sprite>sprites\texToxic</sprite>
     </sprites>
     <sprites name="Chests">
       <sprite>sprites\sprChest1</sprite>
@@ -426,6 +429,10 @@
       <script>scripts\scrGenElement.gml</script>
       <script>scripts\scrGenLegendary.gml</script>
       <script>scripts\scrGenPearl.gml</script>
+      <script>scripts\scrStatsBody.gml</script>
+      <script>scripts\scrStatsBarrel.gml</script>
+      <script>scripts\scrStatsGrip.gml</script>
+      <script>scripts\scrStatsStock.gml</script>
     </scripts>
     <scripts name="inv">
       <script>scripts\scrMoveInv.gml</script>

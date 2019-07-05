@@ -90,3 +90,6 @@ if (bnum == 2) {bspread /=5}
 
 //don't allow single shot bursts
 if (burst == 1) burst = 0;
+
+//combine name and prefix for ease
+if (prefix != "") name = prefix + " " + name;

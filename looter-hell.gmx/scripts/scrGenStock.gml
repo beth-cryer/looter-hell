@@ -1,3 +1,5 @@
+stock = 0;
+
 //ASSAULT RIFLE STOCKS
 if (type == "Assault Rifle") {
 
@@ -5,25 +7,19 @@ if (type == "Assault Rifle") {
     switch(rand){
     
     case(1):
-    acc = acc*0.98;
-    reload = reload*1.02;
-    return sprARStock1;
+    stock = sprARStock1;
     break;
     
     case(2):
-    acc = acc*1.03;
-    return sprARStock2;
+    stock = sprARStock2;
     break;
     
     case(3):
-    acc = acc*1.05;
-    return sprARStock3;
+    stock = sprARStock3;
     break;
     
     case(4):
-    acc = acc*0.97;
-    mag = mag*1.05;
-    return sprARStock4;
+    stock = sprARStock4;
     break;
     
     }
@@ -33,27 +29,21 @@ if (type == "Assault Rifle") {
 //SHOTGUN STOCKS
 if (type == "Shotgun") {
 
-    if (grip==sprSGGrip4) return 0;
+    if (grip == sprSGGrip4) return 0;
 
     rand = round(random_range(1,3));
     switch(rand){
     
     case(1):
-    reload = reload*0.97;
-    return sprSGStock1;
+    stock = sprSGStock1;
     break;
     
     case(2):
-    acc = acc*0.98;
-    damage = damage*1.02;
-    bspeed -= 1;
-    return sprSGStock2;
+    stock = sprSGStock2;
     break;
     
     case(3):
-    acc = acc*1.04;
-    reload = reload*0.99;
-    return sprSGStock3;
+    stock = sprSGStock3;
     break;
     
     }
@@ -67,27 +57,19 @@ if (type == "Sniper Rifle") {
     switch(rand){
     
     case(1):
-    acc = acc*0.98;
-    reload = reload*1.02;
-    return sprSniperStock1;
+    stock = sprSniperStock1;
     break;
     
     case(2):
-    damage = damage*1.02;
-    reload = reload*0.98;
-    return sprSniperStock2;
+    stock = sprSniperStock2;
     break;
     
     case(3):
-    damage = damage*0.99;
-    acc = acc*1.02;
-    return sprSniperStock3;
+    stock = sprSniperStock3;
     break;
     
     case(4):
-    damage = damage*0.97;
-    rate = rate*1.03;
-    return sprSniperStock4;
+    stock = sprSniperStock4;
     break;
     
     }
@@ -100,30 +82,26 @@ if (type == "SMG") {
     switch(rand){
     
     case(1):
-    acc = acc*1.02;
-    reload = reload*1.02;
-    return sprSMGStock1;
+    stock = sprSMGStock1;
     break;
     
     case(2):
-    acc = acc*1.01;
-    reload = reload*1.01;
-    return sprSMGStock2;
+    stock = sprSMGStock2;
     break;
     
     case(3):
-    reload = reload*0.97;
-    return sprSMGStock3;
+    stock = sprSMGStock3;
     break;
     
     case(4):
-    reload = reload*0.99;
-    return sprSMGStock4;
+    stock = sprSMGStock4;
     break;
     
     }
     
 }
 
-//NO STOCK
-return 0;
+//LOOKUP STATS
+scrStatsStock();
+
+return stock;
