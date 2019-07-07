@@ -44,6 +44,13 @@ xsc = 2;
 ysc = 2;
 
 vampire = 0;
+
+//set filters
+filterNum = 0;
+
+//filters[0] = "Pistol";
+//filters[1] = "Assault Rifle";
+//filterNum = 2;
 </string>
           </argument>
         </arguments>
@@ -99,9 +106,10 @@ for(i=0;i&lt;global.invSize;i++) {
 sinv = inv_sort(sinv);
 
 //remove empty items
+/*
 for(i=0;i&lt;global.invSize;i++) {
     if (global.inventory[sinv[i],0] == "") sinv[i] = -1;
-}
+}*/
 
 //sinv = sremove_type(sinv,"Pistol");
 //sinv = sremove_type(sinv,"Sniper Rifle");
@@ -217,12 +225,16 @@ if (keyboard_check_pressed(vk_left)) {across=0};
 if (keyboard_check_pressed(vk_right)) {across=1};
 
 //select gun by mouseover
-moused = false;
-for(i=0;i&lt;scrSInvSize();i++) {
-    if(point_in_rectangle(device_mouse_x_to_gui(0),device_mouse_y_to_gui(0),xp+loadwidth,yp+(i*16),xp+loadwidth+string_width(global.inventory[sinv[i],0]),yp+(i*16+16))) {
-    sel = i;
-    across = 1;
-    moused = true; }
+moused = false; s = scrInvSize(); j = 0;
+for(i=0;i&lt;s;i++) {
+    if (scrCheckFilters(global.inventory[sinv[i],1])) {
+        if(point_in_rectangle(device_mouse_x_to_gui(0),device_mouse_y_to_gui(0),xp+loadwidth,yp+(j*16),xp+loadwidth+string_width(global.inventory[sinv[i],0]),yp+(j*16+16))) {
+            sel = i;
+            across = 1;
+            moused = true;
+        }
+        j++;
+    }
 }
 
 //select loadout by mouseover
@@ -230,7 +242,8 @@ for(i=0;i&lt;global.loadSlots;i++) {
     if(point_in_rectangle(device_mouse_x_to_gui(0),device_mouse_y_to_gui(0),xp,yp+(i*16),xp+loadwidth,yp+(i*16+16))) {
     sel = i;
     across = 0;
-    moused = true; }
+    moused = true;
+    }
 }
 
 if (sel &lt; 0) sel = 0;
@@ -309,7 +322,7 @@ xw = xp-(width+16);
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>objInv</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -346,7 +359,9 @@ uiwidth = 0;
 j = 0;
 for(i=0;i&lt;global.invSize;i++) {
     if (i == sel and across == 1) { if (switching == -1) draw_set_color(c_green); else draw_set_color(c_blue); } else draw_set_color(c_black);
-    if (sinv[i] != -1) {draw_text_w(xp+loadwidth+8,yp+(j*16),global.inventory[sinv[i],0]); j++;}
+    //filter out Types in filters[]
+    if (scrCheckFilters(global.inventory[sinv[i],1]))
+    {draw_text_w(xp+loadwidth+8,yp+(j*16),global.inventory[sinv[i],0]); j++;}
 }
 
 invwidth = uiwidth;

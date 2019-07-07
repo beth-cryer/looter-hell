@@ -1,4 +1,4 @@
-switch(body) {
+switch(barrel) {
     
     case(sprPistolBarrel1):
     bspeed = 6;

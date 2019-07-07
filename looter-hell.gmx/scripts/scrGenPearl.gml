@@ -21,7 +21,7 @@ if (type == "Pistol") {
     reload = reload*0.96;
     mag = mag*1.02;
     scope = scrGenScope();
-    access = 0;
+    access = scrGenAccess();
     texture = texVortex;
     break;
     
@@ -30,7 +30,7 @@ if (type == "Pistol") {
 
 if (type == "Assault Rifle") {
 
-    rand = round(random_range(1,2));
+    rand = round(random_range(1,3));
     switch(rand) {
     
     //TORNADO
@@ -49,7 +49,7 @@ if (type == "Assault Rifle") {
     splits = 1;
     scope = scrGenScope();
     stock = scrGenStock();
-    access = 0;
+    access = scrGenAccess();
     texture = texVortex;
     redtext = "uwu";
     break;
@@ -75,6 +75,26 @@ if (type == "Assault Rifle") {
     redtext = "Spring blooms";
     break;
     
+    //BFG
+    case(3):
+    name = "BFG";
+    pattern = objPattern1;
+    //BODY
+    body = sprBFGBody;
+    damage = 50; acc = 88; rate = 1; reload = 2.5; mag = 10;
+    grip = sprBFGGrip;
+    //BARREL
+    barrel = sprBFGBarrel;
+    bspeed = 7;
+    bspread = 1;
+    bnum = 1;
+    scope = scrGenScope();
+    stock = scrGenStock();
+    access = scrGenAccess();
+    texture = texTech2;
+    redtext = "Big friendly giant?";
+    break;
+    
     }
 }
 
@@ -96,10 +116,10 @@ if (type == "Shotgun") {
     bspeed = 8;
     bspread = 180;
     scope = 0;
-    stock = scrGenStock();
-    access = 0; //determines gun prefix
+    stock = 0;
+    access = scrGenAccess(); //determines gun prefix
     texture = texBlood2;
-    redtext = "U.N.Owen";
+    redtext = "U.N Owen Was Her?";
     break;
     
     }
@@ -108,7 +128,7 @@ if (type == "Shotgun") {
 
 if (type == "Sniper Rifle") {
 
-    rand = round(random_range(1,1));
+    rand = round(random_range(1,2));
     switch(rand) {
     
     //RECURSIVE
@@ -126,9 +146,29 @@ if (type == "Sniper Rifle") {
     scope = scrGenScope();
     stock = scrGenStock();
     bnum = round(random_range(3,4));
-    access = 0;
+    access = scrGenAccess();
     texture = texTech3;
-    redtext = "Did you mean: recursion";
+    redtext = "Did you mean: recursion?";
+    break;
+    
+    //BLOODHOUND
+    case(2):
+    name = "Bloodhound";
+    pattern = objPatternBloodhound;
+    body = scrGenBody();
+    //GRIP
+    grip = sprBloodhoundGrip;
+    //BARREL
+    barrel = sprBloodhoundBarrel;
+    damage = damage*0.9;
+    bspeed = 7;
+    bnum = round(random_range(3,4));
+    splits = 1;
+    scope = scrGenScope();
+    stock = scrGenStock();
+    access = scrGenAccess();
+    texture = texBlood3;
+    redtext = "Near, far - Wherever you are"
     break;
     
     }
@@ -156,7 +196,7 @@ if (type == "SMG") {
     splits = 1;
     scope = scrGenScope();
     stock = scrGenStock();
-    access = 0;
+    access = scrGenAccess();
     texture = texSand;
     if (random(100) <= 1) prefix = "Darude"; //meme
     redtext = "DUDUDUDUDU"

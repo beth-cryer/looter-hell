@@ -133,7 +133,7 @@ if (type == "Pistol") {
 
 if (type == "Assault Rifle") {
 
-    rand = round(random_range(1,1));
+    rand = round(random_range(1,4));
     switch(rand) {
     
     //BAKURETSU
@@ -143,14 +143,13 @@ if (type == "Assault Rifle") {
     //BODY
     body = scrGenBody();
     //(ignore body stats though)
-    damage = 21; acc = 65; rate = 3; reload = 3.5; mag = 20;
+    damage = 21; acc = 65; rate = 3; reload = 2.5; mag = 20;
     grip = sprBakaGrip;
     //BARREL
     barrel = sprBakaBarrel;
     bspeed = 9;
-    bspread = 20;
+    bspread = 15;
     bnum = round(random_range(4,5));
-    splits = 0;
     scope = scrGenScope();
     stock = scrGenStock();
     access = scrGenAccess();
@@ -160,12 +159,72 @@ if (type == "Assault Rifle") {
     redtext = "ECKSUSPUROSHION!!!";
     break;
     
+    //CHAINGUN
+    case(2):
+    name = "Chain-Gun";
+    pattern = objPattern1;
+    //BODY
+    body = sprARBody4
+    damage = 12; acc = 60; rate = 9; reload = 3.5; mag = 50;
+    grip = scrGenGrip();
+    //BARREL
+    barrel = sprARBarrel5;
+    bspeed = 11;
+    bspread = 15;
+    bnum = round(random_range(4,5));
+    scope = scrGenScope();
+    stock = scrGenStock();
+    access = scrGenAccess();
+    texture = texFlag;
+    redtext = "Smoking kills";
+    break;
+    
+    //LEAD RAIN
+    case(3):
+    name = "Lead Rain";
+    pattern = objPattern1;
+    //BODY
+    body = sprARBody4
+    damage = 6; acc = 80; rate = 8; reload = 2.5; mag = 20; fixed_bnum = 1;
+    grip = scrGenGrip();
+    //BARREL
+    barrel = sprARBarrel5;
+    bspeed = 11;
+    bspread = 25;
+    bnum = 16;
+    scope = scrGenScope();
+    stock = scrGenStock();
+    access = scrGenAccess();
+    texture = texMetal2;
+    redtext = "It's a terrible day for rain";
+    break;
+    
+    //FROSTBITE
+    case(4):
+    name = "Frostbite";
+    pattern = objPattern1;
+    body = scrGenBody();
+    //GRIP
+    grip = sprFrostbiteGrip;
+    //BARREL
+    barrel = sprFrostbiteBarrel;
+    bspeed = 9;
+    bspread = 30;
+    bnum = round(random_range(3,4));
+    element = "Ice";
+    scope = scrGenScope();
+    stock = scrGenStock();
+    access = scrGenAccess();
+    texture = texIce;
+    redtext = "Ouch!";
+    break;
+    
     }
 }
 
 if (type == "Shotgun") {
 
-    rand = round(random_range(1,3));
+    rand = round(random_range(1,4));
     switch(rand) {
     
     //CHERNOBYL
@@ -230,6 +289,27 @@ if (type == "Shotgun") {
     redtext = "8)"
     break;
     
+    //Spindash
+    case(4):
+    name = "Spin Dash";
+    pattern = objPattern1;
+    //BODY
+    body = sprSpindashBody;
+    damage = 40; acc = 84; rate = 1.2; reload = 3; mag = 6; fixed_bnum = 1;
+    element = scrGenElement("Electric");
+    grip = scrGenGrip();
+    //BARREL
+    barrel = sprSpindashBarrel;
+    bspeed = 7;
+    bnum = 1;
+    bspread = 1;
+    scope = scrGenScope();
+    stock = scrGenStock();
+    access = scrGenAccess(); //determines gun prefix
+    texture = texSanic;
+    redtext = "Must accelerate";
+    break;
+    
     }
 
 }
@@ -239,35 +319,15 @@ if (type == "Sniper Rifle") {
     rand = round(random_range(1,4));
     switch(rand) {
     
-    //RECURSIVE
-    case(1):
-    name = "Recursive Assassin";
-    pattern = objPatternRecursive;
-    //BODY
-    body = sprRecursiveBody;
-    damage = 28; acc = 80; rate = 1; reload = 4; mag = 6;
-    scrElementalChance(50);
-    //GRIP
-    grip = sprRecursiveGrip;
-    barrel = scrGenBarrel();
-    splits = 3;
-    scope = scrGenScope();
-    stock = scrGenStock();
-    bnum = round(random_range(3,4));
-    access = scrGenAccess();
-    texture = texTech3;
-    redtext = "Did you mean: recursion";
-    break;
-    
     //BLACK HOLE
-    case(2):
+    case(1):
     name = "Black Hole";
     pattern = objPatternBlackHole;
     //BODY
     body = sprBlackHoleBody;
     damage = 36; acc = 93; rate = 2; reload = 2.5; mag = 20;
-    //GRIP
     grip = scrGenGrip();
+    //BARREL
     barrel = sprBlackHoleBarrel;
     bspeed = 7;
     bspread = 180;
@@ -280,28 +340,8 @@ if (type == "Sniper Rifle") {
     redtext = "Does NOT look like an anime eye"
     break;
     
-    //BLOODHOUND
-    case(3):
-    name = "Bloodhound";
-    pattern = objPatternBloodhound;
-    //BODY
-    body = scrGenBody();
-    //GRIP
-    grip = sprBloodhoundGrip;
-    barrel = sprBloodhoundBarrel;
-    damage = damage*0.9;
-    bspeed = 7;
-    bnum = round(random_range(3,4));
-    splits = 1;
-    scope = scrGenScope();
-    stock = scrGenStock();
-    access = scrGenAccess();
-    texture = texBlood3;
-    redtext = "Near, far - Wherever you are"
-    break;
-    
     //THE WORLD
-    case(4):
+    case(2):
     name = "The World";
     pattern = objPatternWorld;
     //BODY
@@ -320,12 +360,51 @@ if (type == "Sniper Rifle") {
     redtext = "BUT IT WAS ME";
     break;
     
+    //SPECTRE
+    case(3):
+    name = "Spectre";
+    pattern = objPattern1;
+    //BODY
+    body = sprSpectreBody;
+    damage = 40; acc = 94; rate = 1.5; reload = 2; mag = 8; fixed_bnum = 1;
+    scrElementalChance(50);
+    grip = scrGenGrip();
+    //BARREL
+    barrel = sprSpectreBarrel;
+    bnum = 1;
+    bspread = 1;
+    bspeed = 6;
+    scope = scrGenScope();
+    stock = scrGenStock();
+    access = scrGenAccess();
+    texture = texSpectre;
+    redtext = "Who you gonna call?";
+    break;
+    
+    //SPITFIRE
+    case(4):
+    name = "Spitfire";
+    pattern = objPattern1;
+    //BODY
+    body = sprSpitfireBody;
+    damage = 20; acc = 80; rate = 5; reload = 2.5; mag = 16; fixed_bnum = 1;
+    grip = scrGenGrip();
+    barrel = scrGenBarrel();
+    element = "Fire";
+    scope = 0;
+    //STOCK
+    stock = sprSpitfireStock;
+    access = scrGenAccess();
+    texture = texGreen2;
+    redtext = "I'm not a rapper";
+    break;
+    
     }
 }
 
 if (type == "SMG") {
 
-    rand = round(random_range(1,3));
+    rand = round(random_range(1,4));
     switch(rand) {
     
     //VAMPIRE
@@ -365,7 +444,6 @@ if (type == "SMG") {
     bspeed = 12;
     bspread = 240;
     bnum = 2;
-    splits = 0;
     scope = scrGenScope();
     stock = scrGenStock();
     access = scrGenAccess();
@@ -381,15 +459,32 @@ if (type == "SMG") {
     body = sprAquaBody;
     damage = 11; acc = 83; rate = 7; reload = 2; mag = 25; fixed_bnum = 1;
     scrElementalChance(75);
+    //GRIP
     grip = sprAquaGrip;
-    //BARREL
     barrel = scrGenBarrel();
-    splits = 0;
     scope = scrGenScope();
     stock = 0;
     access = scrGenAccess();
     texture = texAqua;
     redtext = "Not actually all that useless"
+    break;
+    
+    //UZI
+    case(4):
+    name = "Uzi";
+    pattern = objPattern1;
+    //BODY
+    body = sprUziBody;
+    damage = 7; acc = 75; rate = 11; reload = 1.5; mag = 15;
+    scrElementalChance(25);
+    //GRIP
+    grip = sprUziGrip;
+    barrel = scrGenBarrel();
+    scope = scrGenScope();
+    stock = scrGenStock();
+    access = scrGenAccess();
+    texture = texGunMetal;
+    redtext = "Weight: 1 ton"
     break;
     
     }

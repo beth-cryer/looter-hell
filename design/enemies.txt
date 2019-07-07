@@ -16,3 +16,7 @@ Engineer: build turrets, move up/down
 Medic: heal units it touches
 Nanite Injector: buffs other units
 Force Field: blocks projectiles in a given radius, destroyed by enough damage
+
+Alien Hive: Spawns swarm + spits acid slowly
+Alien Swarm: Small melee creatures, very low health
+Alien Predator: Invisible melee creature, decloaks before attack. Can be hit while invisible, creates blood

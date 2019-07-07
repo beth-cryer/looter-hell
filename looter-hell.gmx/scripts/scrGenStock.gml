@@ -78,7 +78,7 @@ if (type == "Sniper Rifle") {
 //SMG STOCKS
 if (type == "SMG") {
 
-    rand = round(random_range(1,4));
+    rand = round(random_range(1,5));
     switch(rand){
     
     case(1):
@@ -95,6 +95,10 @@ if (type == "SMG") {
     
     case(4):
     stock = sprSMGStock4;
+    break;
+    
+    case(5):
+    stock = sprSMGStock5;
     break;
     
     }

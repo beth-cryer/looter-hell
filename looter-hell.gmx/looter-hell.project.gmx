@@ -240,6 +240,11 @@
         <sprite>sprites\sprBakaGrip</sprite>
         <sprite>sprites\sprTornadoBarrel</sprite>
         <sprite>sprites\sprTornadoGrip</sprite>
+        <sprite>sprites\sprFrostbiteBarrel</sprite>
+        <sprite>sprites\sprFrostbiteGrip</sprite>
+        <sprite>sprites\sprBFGBarrel</sprite>
+        <sprite>sprites\sprBFGGrip</sprite>
+        <sprite>sprites\sprBFGBody</sprite>
       </sprites>
       <sprites name="Shotgun">
         <sprite>sprites\sprSGBody1</sprite>
@@ -269,6 +274,8 @@
         <sprite>sprites\sprMeatshotStock</sprite>
         <sprite>sprites\sprScarletBarrel</sprite>
         <sprite>sprites\sprScarletBody</sprite>
+        <sprite>sprites\sprSpindashBody</sprite>
+        <sprite>sprites\sprSpindashBarrel</sprite>
       </sprites>
       <sprites name="SniperRifle">
         <sprite>sprites\sprSniperBody1</sprite>
@@ -298,6 +305,10 @@
         <sprite>sprites\sprBloodhoundGrip</sprite>
         <sprite>sprites\sprWorldBarrel</sprite>
         <sprite>sprites\sprWorldBody</sprite>
+        <sprite>sprites\sprSpectreBody</sprite>
+        <sprite>sprites\sprSpectreBarrel</sprite>
+        <sprite>sprites\sprSpitfireBody</sprite>
+        <sprite>sprites\sprSpitfireStock</sprite>
       </sprites>
       <sprites name="SMG">
         <sprite>sprites\sprSMGBody1</sprite>
@@ -318,6 +329,7 @@
         <sprite>sprites\sprSMGStock2</sprite>
         <sprite>sprites\sprSMGStock3</sprite>
         <sprite>sprites\sprSMGStock4</sprite>
+        <sprite>sprites\sprSMGStock5</sprite>
         <sprite>sprites\sprSMGScope1</sprite>
         <sprite>sprites\sprSMGScope2</sprite>
         <sprite>sprites\sprSMGScope3</sprite>
@@ -330,6 +342,8 @@
         <sprite>sprites\sprGreedBarrel</sprite>
         <sprite>sprites\sprAquaBody</sprite>
         <sprite>sprites\sprAquaGrip</sprite>
+        <sprite>sprites\sprUziBody</sprite>
+        <sprite>sprites\sprUziGrip</sprite>
       </sprites>
     </sprites>
     <sprites name="Textures">
@@ -382,6 +396,12 @@
       <sprite>sprites\texScales</sprite>
       <sprite>sprites\texYellow</sprite>
       <sprite>sprites\texToxic</sprite>
+      <sprite>sprites\texSpectre</sprite>
+      <sprite>sprites\texElectric</sprite>
+      <sprite>sprites\texSanic</sprite>
+      <sprite>sprites\texIce</sprite>
+      <sprite>sprites\texGunMetal</sprite>
+      <sprite>sprites\texGunMetal2</sprite>
     </sprites>
     <sprites name="Chests">
       <sprite>sprites\sprChest1</sprite>
@@ -399,6 +419,7 @@
     <sprite>sprites\sprBullet</sprite>
     <sprite>sprites\sprBulletEnemy</sprite>
     <sprite>sprites\sprKnife</sprite>
+    <sprite>sprites\sprSawblade</sprite>
     <sprite>sprites\sprLaser</sprite>
     <sprite>sprites\sprEnemy</sprite>
     <sprite>sprites\sprExplosion</sprite>
@@ -511,6 +532,7 @@
     <script>scripts\scrInLoadout.gml</script>
     <script>scripts\draw_shadow.gml</script>
     <script>scripts\key_bindings.gml</script>
+    <script>scripts\scrCheckFilters.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntStats</font>
@@ -574,6 +596,7 @@
       <object>objects\objKnife</object>
       <object>objects\objExplosion</object>
       <object>objects\objPuddle</object>
+      <object>objects\objSawblade</object>
     </objects>
     <object>objects\objDashTrail</object>
     <object>objects\objWall</object>

@@ -79,4 +79,9 @@ switch(stock) {
     reload = reload*0.99;
     break;
     
+    case(sprSMGStock5):
+    reload = reload*0.95;
+    acc = acc*0.98;
+    break;
+    
 }
