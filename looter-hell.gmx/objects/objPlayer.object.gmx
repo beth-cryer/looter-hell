@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>hpmax = global.level*800;
 global.hp = hpmax;
+global.shield = 0;
 
 basespeed = 3;
 mspeed = basespeed;

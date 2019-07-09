@@ -64,6 +64,19 @@ if (type == "SMG") {
 
 }
 
+//SHIELD BODYS
+if (type == "Shield") {
+
+    rand = round(random_range(1,4));
+    switch(rand){
+    case(1): body = sprShieldBody1; break;
+    case(2): body = sprShieldBody2; break;
+    case(3): body = sprShieldBody3; break;
+    case(4): body = sprShieldBody4; break;
+    }
+
+}
+
 //LOOKUP STATS
 scrStatsBody();
 

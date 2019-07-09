@@ -28,7 +28,12 @@
 		"electric" : "Electric",
 		"corrosive" : "Corrosive",
 		"explosive" : "Explosive",
-		"elementchance" : "Chance"
+		"elementchance" : "Chance",
+		"capacity" : "Capacity",
+		"shieldrate" : "Recharge Rate",
+		"shielddelay" : "Recharge Delay",
+		"story1" : "That was a close call! Almost bit it there, but we managed to pull through in the end. Shame we lost the weapon vault - here's a few from my personal stash so you're not wandering around defenceless.",
+		"story2" : "This ship isn't going anywhere in this state. You'll have to bring back some materials so I can get to repairing the hull. Oh, and we'll need a new warp drive core - go ask the locals if they have a spare lying about."
 	},
 	
 	"fra": {

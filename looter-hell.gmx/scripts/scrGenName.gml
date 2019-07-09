@@ -4,4 +4,5 @@ switch(type) {
     case("Shotgun"): return scrGenSGName(); break;
     case("Sniper Rifle"): return scrGenSniperName(); break;
     case("SMG"): return scrGenSMGName(); break;
+    case("Shield"): return scrGenShieldName() + " Shield"; break;
 }

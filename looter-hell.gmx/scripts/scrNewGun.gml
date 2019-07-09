@@ -1,7 +1,5 @@
 //arguments: level, rarity, type
 
-randomize();
-
 //LEVEL
 if (argument0 == 0) {
     level = scrLevelRange(global.level,1);
@@ -46,15 +44,24 @@ if (rarity == 6) { scrGenPearl(); fixed_bnum = 1;
 //otherwise regular weapon
 
 //generate parts
-body = scrGenBody(); //determines base stats
-grip = scrGenGrip(); //can override gun prefix
-barrel = scrGenBarrel(); //determines bullet speed
-scope = scrGenScope();
-stock = scrGenStock();
-access = scrGenAccess(); //determines gun prefix
 
-pattern = scrGenPattern();
-//pattern = objPattern6;
+//SHIELD
+if (type == "Shield") {
+    body = scrGenBody(); //determines base stats
+    arm = scrGenArm(); //can override prefix
+    battery = scrGenBattery();
+    //access = scrGenAccess(); //determines prefix
+//GUN
+}else{
+    body = scrGenBody(); //determines base stats
+    grip = scrGenGrip(); //can override gun prefix
+    barrel = scrGenBarrel(); //determines bullet speed
+    scope = scrGenScope();
+    stock = scrGenStock();
+    access = scrGenAccess(); //determines gun prefix
+    
+    pattern = scrGenPattern();
+}
 
 name = scrGenName(); //uses body+barrel to generate name
 texture = scrGenTexture(); //uses body+rarity to generate texture
@@ -62,34 +69,51 @@ texture = scrGenTexture(); //uses body+rarity to generate texture
 
 element = scrGenElement(element); //determines gun prefix if used
 
-//scale down damage for multiple shots
-for(i=1;i<bnum;i++) damage = damage*0.98
+//SHIELD
+if (type == "Shield") {
+    //scale capacity to shield level + rarity
+    capacity = ceil(0.5 * capacity * (1.1^(rarity*2 + level*2)) );
+    elem_dps = ceil(elem_dps * (1.1^(rarity*2 + level)) );
+    
+    elem_chance = 0.5 * elem_chance * (rarity + (level/5) - (rate/5));
+    if (elem_chance > 100) elem_chance = 100;
+    if (elem_chance < 1) elem_chance = 1;
+    
+    //1% bonuses per rarity
+    rate = rate * (1+(rarity/100));
+    delay = delay * (1-(rarity/100));
 
-//scale damage to weapon level + rarity
-damage = ceil(0.5 * damage * (1.1^(rarity*2 + level*2)) );
-elem_dps = ceil(elem_dps * (1.1^(rarity*2 + level)) );
-
-elem_chance = 0.5 * elem_chance * (rarity + (level/5) - (rate/5));
-if (elem_chance > 100) elem_chance = 100;
-if (elem_chance < 1) elem_chance = 1;
-
-//scale other stats to rarity only
-acc = acc * (1+(rarity/100));
-if (acc > 100) acc = 100;
-
-//don't scale bnum for certain weapons
-if (fixed_bnum == 0) bnum = ceil(bnum * (rarity/3));
-
-//1% bonuses per rarity
-rate = rate * (1+(rarity/100));
-reload = reload * (1-(rarity/100));
-mag = round(mag * (1+(rarity/100)));
-
-//bring double shots together
-if (bnum == 2) {bspread /=5}
-
-//don't allow single shot bursts
-if (burst == 1) burst = 0;
+//GUN
+}else{
+    //scale down damage for multiple shots
+    for(i=1;i<bnum;i++) damage = damage*0.98
+    
+    //scale damage to weapon level + rarity
+    damage = ceil(0.5 * damage * (1.1^(rarity*2 + level*2)) );
+    elem_dps = ceil(elem_dps * (1.1^(rarity*2 + level)) );
+    
+    elem_chance = 0.5 * elem_chance * (rarity + (level/5) - (rate/5));
+    if (elem_chance > 100) elem_chance = 100;
+    if (elem_chance < 1) elem_chance = 1;
+    
+    //scale other stats to rarity only
+    acc = acc * (1+(rarity/100));
+    if (acc > 100) acc = 100;
+    
+    //don't scale bnum for certain weapons
+    if (fixed_bnum == 0) bnum = ceil(bnum * (rarity/3));
+    
+    //1% bonuses per rarity
+    rate = rate * (1+(rarity/100));
+    reload = reload * (1-(rarity/100));
+    mag = round(mag * (1+(rarity/100)));
+    
+    //bring double shots together
+    if (bnum == 2) {bspread /=5}
+    
+    //don't allow single shot bursts
+    if (burst == 1) burst = 0;
+}
 
 //combine name and prefix for ease
 if (prefix != "") name = prefix + " " + name;

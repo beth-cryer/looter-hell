@@ -32,7 +32,7 @@ rargen = 0;
 typegen = "";
 
 cardopen = false;
-delay = 0;
+idelay = 0;
 xsc = 1;
 ysc = 1;
 
@@ -66,7 +66,7 @@ alarm[1]=0.5*room_speed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>delay = 1;
+            <string>idelay = 1;
 </string>
           </argument>
         </arguments>
@@ -122,7 +122,7 @@ if (pickup == true) {
 if (scrAddInv() == true) {instance_destroy();}
 }
 
-if point_in_rectangle(mouse_x, mouse_y, x, y, x+96, y+64) and delay!=0 {
+if point_in_rectangle(mouse_x, mouse_y, x, y, x+96, y+64) and idelay!=0 {
     cardopen = true;
 }else{
     cardopen = false;
@@ -144,7 +144,8 @@ if (cardopen == true) {
         }
     }
 }else{
-    xsc = 0.75; ysc = 0.75;
+    if (type == "Shield") { xsc = 0.6; ysc = 0.6; }
+    else{ xsc = 0.75; ysc = 0.75;}
 }
 </string>
           </argument>
@@ -170,7 +171,6 @@ if (cardopen == true) {
             <kind>1</kind>
             <string>draw_set_font(global.font_stats);
 
-dps = damage*rate + elem_dps;
 gheight = sprite_get_height(body);
 
 //RARITY GLOW
@@ -190,38 +190,59 @@ if (cardopen == true) {
         draw_text(x+4,y+gheight,string(element));
         draw_text(x+4,y+gheight+10,load_text("elementchance") + ": " + string(elem_chance));
     }
-    //DPS
-    draw_text(x+5,y,"DPS: " + string(dps));
     
     //draw stats
     draw_text(x+width1,y,name);
-    draw_text(x+width1,y+10,"Level " + string(level) + " " + string(type));
+    draw_text(x+width1,y+10,load_text("level") + " " + string(level) + " " + string(type));
     
-    if (bnum &gt; 1) draw_text(x+width1,y+20,"Damage: " + string(damage) + "x" + string(bnum));
-    else draw_text(x+width1,y+20,"Damage: " + string(damage));
+    //SHIELD
+    if(type == "Shield") {
+        draw_text(x+width1,y+20,load_text("capacity") + ": " + string(capacity));
+        draw_text(x+width1,y+30,load_text("shieldrate") + ": " + string(rate));
+        draw_text(x+width1,y+40,load_text("shielddelay") + ": " + string(delay));
+        
+    //GUN
+    }else{
     
-    draw_text(x+width1,y+30,"Accuracy: " + string(acc));
-    draw_text(x+width1,y+40,"Fire Rate: " + string(rate));
-    draw_text(x+width1,y+50,"Reload Speed: " + string(reload));
-    draw_text(x+width1,y+60,"Magazine Size: " + string(mag));
+    //DPS
+    dps = damage*rate + elem_dps;
+    draw_text(x+5,y,"DPS: " + string(dps));
+    
+    if (bnum &gt; 1) draw_text(x+width1,y+20,load_text("damage") + ": " + string(damage) + "x" + string(bnum));
+    else draw_text(x+width1,y+20,load_text("damage") + ": " + string(damage));
+    
+    draw_text(x+width1,y+30,load_text("accuracy") + ": " + string(acc));
+    draw_text(x+width1,y+40,load_text("firerate") + ": " + string(rate));
+    draw_text(x+width1,y+50,load_text("reloadspeed") + ": " + string(reload));
+    draw_text(x+width1,y+60,load_text("magsize") + ": " + string(mag));
+    
+    }
     
     //RED TEXT
     if (redtext != "") {draw_set_color(c_red); draw_text_w(x+width1,y+70,redtext); draw_set_color(c_black);}    
     
 }
 
-//draw sprite
-if (scope != 0) draw_sprite_texture(scope,texture,0,x,y+(gheight/2),xsc,ysc);
-if (stock != 0) draw_sprite_texture(stock,texture,0,x,y+(gheight/2),xsc,ysc);
-
-draw_sprite_texture(grip,texture,0,x,y+(gheight/2),xsc,ysc);
-//DECIDE ORDER TO DRAW BODY/BARREL
-if (type == "Shotgun") {
+if(type == "Shield") {
+    draw_sprite_texture(arm,texture,0,x,y+(gheight/2),xsc,ysc);
+    draw_sprite_texture(battery,texture,0,x,y+(gheight/2),xsc,ysc);
     draw_sprite_texture(body,texture,0,x,y+(gheight/2),xsc,ysc);
-    draw_sprite_texture(barrel,texture,0,x,y+(gheight/2),xsc,ysc);
 }else{
-    draw_sprite_texture(barrel,texture,0,x,y+(gheight/2),xsc,ysc);
-    draw_sprite_texture(body,texture,0,x,y+(gheight/2),xsc,ysc);
+
+    //draw sprite
+    if (scope != 0) draw_sprite_texture(scope,texture,0,x,y+(gheight/2),xsc,ysc);
+    if (stock != 0) draw_sprite_texture(stock,texture,0,x,y+(gheight/2),xsc,ysc);
+    
+    draw_sprite_texture(grip,texture,0,x,y+(gheight/2),xsc,ysc);
+    //DECIDE ORDER TO DRAW BODY/BARREL
+    if (type == "Shotgun") {
+        draw_sprite_texture(body,texture,0,x,y+(gheight/2),xsc,ysc);
+        draw_sprite_texture(barrel,texture,0,x,y+(gheight/2),xsc,ysc);
+    }else{
+        draw_sprite_texture(barrel,texture,0,x,y+(gheight/2),xsc,ysc);
+        draw_sprite_texture(body,texture,0,x,y+(gheight/2),xsc,ysc);
+    }
+
 }
 </string>
           </argument>

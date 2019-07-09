@@ -488,4 +488,24 @@ if (type == "SMG") {
     break;
     
     }
+
+}
+
+if(type == "Shield") {
+
+    rand = round(random_range(1,1));
+    switch(rand) {
+    
+    //TURTLE
+    case(1):
+    name = "Turtle";
+    body = sprShieldBody1;
+    capacity = 50; rate = 4; delay = 5;
+    arm = scrGenArm();
+    battery = scrGenBattery();
+    redtext = "Slow and steady";
+    break;
+    
+    }
+
 }

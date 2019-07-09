@@ -93,5 +93,23 @@ switch(body) {
     case(sprSMGBody5):
     damage = 8; acc = 91; rate = 8; reload = 2.5; mag = 15;
     break;
+    
+    //SHIELDS
+    
+    case(sprShieldBody1):
+    capacity = 20; rate = 3; delay = 4;
+    break;
+    
+    case(sprShieldBody2):
+    capacity = 6; rate = 4; delay = 5;
+    break;
+    
+    case(sprShieldBody3):
+    capacity = 10; rate = 5; delay = 3;
+    break;
+    
+    case(sprShieldBody4):
+    capacity = 15; rate = 2; delay = 2;
+    break;
 
 }

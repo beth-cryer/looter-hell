@@ -1,0 +1,2 @@
+-Added Shields
+-Altered objGun and objInv to account for shields (buggy for now)

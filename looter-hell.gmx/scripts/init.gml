@@ -1,5 +1,8 @@
+randomize();
+
 //LOAD SETTINGS FROM INI
 scrLoadSettings();
+global.input_device = 0; //0=kb+m //1=controller
 key_bindings();
 
 //PLAYER STATS

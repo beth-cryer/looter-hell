@@ -7,8 +7,17 @@ if (i != -1 and i<global.invSize-1) {
     global.inventory[i,0] = name;
     global.inventory[i,1] = type; //type
     global.inventory[i,2] = level; //level
-    global.inventory[i,3] = damage; //damage
-    global.inventory[i,4] = acc; //acc
+    if(type == "Shield") {
+        global.inventory[i,3] = capacity; //damage
+        global.inventory[i,4] = delay; //acc
+        global.inventory[i,16] = battery; //battery
+        global.inventory[i,17] = arm; //arm
+    }else{
+        global.inventory[i,3] = damage; //damage
+        global.inventory[i,4] = acc; //acc
+        global.inventory[i,16] = barrel; //barrel
+        global.inventory[i,17] = grip; //grip
+    }
     global.inventory[i,5] = rate; //rate
     global.inventory[i,6] = reload; //reload
     global.inventory[i,7] = mag; //mag
@@ -20,8 +29,8 @@ if (i != -1 and i<global.invSize-1) {
     global.inventory[i,13] = elem_dps; //elem_dps
     global.inventory[i,14] = elem_chance; //elem_change
     global.inventory[i,15] = body; //body
-    global.inventory[i,16] = barrel; //barrel
-    global.inventory[i,17] = grip; //grip
+    
+    
     global.inventory[i,18] = stock; //stock
     global.inventory[i,19] = access; //access
     global.inventory[i,20] = splits; //splits

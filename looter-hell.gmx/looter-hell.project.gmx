@@ -345,6 +345,20 @@
         <sprite>sprites\sprUziBody</sprite>
         <sprite>sprites\sprUziGrip</sprite>
       </sprites>
+      <sprites name="Shields">
+        <sprite>sprites\sprShieldBody1</sprite>
+        <sprite>sprites\sprShieldBody2</sprite>
+        <sprite>sprites\sprShieldBody3</sprite>
+        <sprite>sprites\sprShieldBody4</sprite>
+        <sprite>sprites\sprShieldArm1</sprite>
+        <sprite>sprites\sprShieldArm2</sprite>
+        <sprite>sprites\sprShieldArm3</sprite>
+        <sprite>sprites\sprShieldArm4</sprite>
+        <sprite>sprites\sprShieldBattery1</sprite>
+        <sprite>sprites\sprShieldBattery2</sprite>
+        <sprite>sprites\sprShieldBattery3</sprite>
+        <sprite>sprites\sprShieldBattery4</sprite>
+      </sprites>
     </sprites>
     <sprites name="Textures">
       <sprite>sprites\texCamo</sprite>
@@ -438,7 +452,9 @@
       <script>scripts\scrGenType.gml</script>
       <script>scripts\scrGenRarity.gml</script>
       <script>scripts\scrGenBody.gml</script>
+      <script>scripts\scrGenArm.gml</script>
       <script>scripts\scrGenBarrel.gml</script>
+      <script>scripts\scrGenBattery.gml</script>
       <script>scripts\scrGenGrip.gml</script>
       <script>scripts\scrGenStock.gml</script>
       <script>scripts\scrGenScope.gml</script>
@@ -453,6 +469,8 @@
       <script>scripts\scrStatsBody.gml</script>
       <script>scripts\scrStatsBarrel.gml</script>
       <script>scripts\scrStatsGrip.gml</script>
+      <script>scripts\scrStatsArm.gml</script>
+      <script>scripts\scrStatsBattery.gml</script>
       <script>scripts\scrStatsStock.gml</script>
     </scripts>
     <scripts name="inv">
@@ -473,6 +491,7 @@
       <script>scripts\scrGenSGName.gml</script>
       <script>scripts\scrGenSniperName.gml</script>
       <script>scripts\scrGenSMGName.gml</script>
+      <script>scripts\scrGenShieldName.gml</script>
     </scripts>
     <scripts name="genElemental">
       <script>scripts\scrGenFirePrefixes.gml</script>
@@ -533,6 +552,8 @@
     <script>scripts\draw_shadow.gml</script>
     <script>scripts\key_bindings.gml</script>
     <script>scripts\scrCheckFilters.gml</script>
+    <script>scripts\plr_damage.gml</script>
+    <script>scripts\input_check.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntStats</font>

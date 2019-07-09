@@ -1,9 +1,18 @@
-o = argument0;
+var o = argument0;
 name = global.inventory[o,0]; //name
 type = global.inventory[o,1]; //type
 level = global.inventory[o,2]; //level
-damage = global.inventory[o,3]; //damage
-acc = global.inventory[o,4]; //acc
+if (type == "Shield") {
+    capacity = global.inventory[o,3]; //damage
+    delay = global.inventory[o,4]; //acc
+    battery = global.inventory[o,16]; //battery
+    arm = global.inventory[o,17]; //arm
+}else{
+    damage = global.inventory[o,3]; //damage
+    acc = global.inventory[o,4]; //acc
+    barrel = global.inventory[o,16]; //barrel
+    grip = global.inventory[o,17]; //grip
+}
 rate = global.inventory[o,5]; //rate
 reload = global.inventory[o,6] ; //reload
 mag = global.inventory[o,7]; //mag
@@ -15,8 +24,8 @@ element = global.inventory[o,12]; //element
 elem_dps = global.inventory[o,13]; //elem_dps
 elem_chance = global.inventory[o,14]; //elem_chance
 body = global.inventory[o,15]; //body
-barrel = global.inventory[o,16]; //barrel
-grip = global.inventory[o,17]; //grip
+
+
 stock = global.inventory[o,18]; //stock
 access = global.inventory[o,19]; //access
 splits = global.inventory[o,20]; //splits

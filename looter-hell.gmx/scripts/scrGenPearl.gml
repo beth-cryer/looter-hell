@@ -204,3 +204,22 @@ if (type == "SMG") {
     
     }
 }
+
+if(type == "Shield") {
+
+    rand = round(random_range(1,1));
+    switch(rand) {
+    
+    //BEE
+    case(1):
+    name = "Bee";
+    body = sprShieldBody4;
+    capacity = 30; rate = 2; delay = 2;
+    arm = scrGenArm();
+    battery = scrGenBattery();
+    redtext = "NOT THE BEES";
+    break;
+    
+    }
+
+}
