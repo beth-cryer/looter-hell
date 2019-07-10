@@ -386,6 +386,7 @@ if (world == 1) {
     }
 }
 
+instance_create(x+16,y,objBlood);
 instance_destroy();
 }
 </string>
@@ -422,6 +423,9 @@ scrElemEffect();
 
 if (other.corrode == true) global.hp -= (damage*1.1); else
 global.hp -= damage;
+
+//screen shake
+scrShake(1,0.7);
 
 audio_play_sound(sfxPlayerHurt,20,false);
 instance_destroy();

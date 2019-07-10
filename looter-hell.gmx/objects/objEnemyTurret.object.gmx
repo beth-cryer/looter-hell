@@ -35,7 +35,7 @@ rate = 1;
 
 image_xscale = -1;
 
-scrNewGun(global.stageLevel,1,"");
+scrNewGun(global.stageLevel,1,scrGenGunType());
 bullets = mag;
 nrate = rate/2;
 if (bnum mod 2 == 0) nnum = bnum; else nnum = bnum+1;

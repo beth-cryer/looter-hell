@@ -3,8 +3,8 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>10000</depth>
-  <persistent>-1</persistent>
+  <depth>0</depth>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,15 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>init();
-instance_create(x,y,objStarterItems);
-xpos = 0;
+            <string>shake = 0;
+decay = 0.8;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="5">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -50,64 +49,18 @@ xpos = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>surface_free(bsurf);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//set window to resolution size
-window_set_size(global.res_w,global.res_h);
-surface_resize(application_surface,global.res_w,global.res_h);
+            <string>//keep camera centered
+view_xview = (view_wview/2);
+view_yview = (view_hview/2);
 
-//create blood surface
-bsurf = surface_create(room_width,room_height);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_shadow();
+//keep view within room
+view_xview = clamp(view_xview,0,room_width-view_wview);
+view_yview = clamp(view_yview,0,room_height-view_hview);
 
-//blood surface
-if(surface_exists(bsurf))
-    draw_surface(bsurf,xpos,0);
-else
-    bsurf = surface_create(room_width,room_height);
+//shake view
+view_xview += random_range(-shake,shake);
+view_yview += random_range(-shake,shake);
+shake *= decay;
 </string>
           </argument>
         </arguments>

@@ -240,8 +240,11 @@ if (burst &gt; 0) burstcount += 1;
 
 //if underneath burst limit
 if (burstcount &lt; burst) {
-
+    
+    //shoot sound
     scrShootSound();
+    //screen shake
+    scrShake(0.5,0.1);
 
     proj = instance_create(x+xsh,y+ysh,pattern);
     proj.type = objBullet;
@@ -419,7 +422,10 @@ for (i=0; i&lt;instance_number(objEnemy); i++) {
 }
 }
 
+//shoot sound
 scrShootSound();
+//screen shake
+scrShake(0.5,0.1);
 
 proj = instance_create(x+xsh,y+ysh,pattern);
 proj.owner = 0;

@@ -50,6 +50,32 @@ hands = 0;
         </arguments>
       </action>
     </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//BIG BLOOD SPLATTER
+for (var i=0; i&lt;random_range(4,32); i++) {
+    instance_create(x+random_range(-8,8), y+random_range(-8,8), objBlood);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
@@ -188,6 +214,10 @@ if (body != 0) {
     }
 }*/
 
+//screen shake
+scrShake(2,0.5);
+
+audio_play_sound(sfxEnemyDeath,15,false);
 instance_destroy();
 }
 </string>

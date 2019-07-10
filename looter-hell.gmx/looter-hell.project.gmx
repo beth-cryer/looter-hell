@@ -172,6 +172,7 @@
         <sound>sound\sfxEnemyDeath</sound>
         <sound>sound\sfxPlayerDash</sound>
         <sound>sound\sfxExplosion</sound>
+        <sound>sound\sfxBossDeath</sound>
       </sounds>
       <sound>sound\sfxChest1</sound>
       <sound>sound\sfxChest2</sound>
@@ -440,6 +441,7 @@
     <sprite>sprites\sprPuddle</sprite>
     <sprite>sprites\spr64x64</sprite>
     <sprite>sprites\sprGlow</sprite>
+    <sprite>sprites\sprBlood</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgShip</background>
@@ -449,6 +451,7 @@
   <scripts name="scripts">
     <scripts name="gunGen">
       <script>scripts\scrNewGun.gml</script>
+      <script>scripts\scrGenGunType.gml</script>
       <script>scripts\scrGenType.gml</script>
       <script>scripts\scrGenRarity.gml</script>
       <script>scripts\scrGenBody.gml</script>
@@ -554,6 +557,9 @@
     <script>scripts\scrCheckFilters.gml</script>
     <script>scripts\plr_damage.gml</script>
     <script>scripts\input_check.gml</script>
+    <script>scripts\approach.gml</script>
+    <script>scripts\scrItemType.gml</script>
+    <script>scripts\scrShake.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntStats</font>
@@ -602,6 +608,7 @@
       <object>objects\objGunSpawn</object>
       <object>objects\objStarterItems</object>
       <object>objects\objController</object>
+      <object>objects\objCamera</object>
     </objects>
     <objects name="Enemies">
       <object>objects\objEnemyRunner</object>
@@ -621,6 +628,7 @@
     </objects>
     <object>objects\objDashTrail</object>
     <object>objects\objWall</object>
+    <object>objects\objBlood</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMenu</room>

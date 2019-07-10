@@ -7,8 +7,8 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>24</bbox_left>
-  <bbox_right>40</bbox_right>
+  <bbox_left>16</bbox_left>
+  <bbox_right>32</bbox_right>
   <bbox_top>16</bbox_top>
   <bbox_bottom>47</bbox_bottom>
   <HTile>0</HTile>
@@ -17,7 +17,7 @@
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>96</width>
+  <width>80</width>
   <height>64</height>
   <frames>
     <frame index="0">images\sprShieldArm2_0.png</frame>

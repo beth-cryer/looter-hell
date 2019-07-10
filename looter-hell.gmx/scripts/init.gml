@@ -37,7 +37,7 @@ global.stage = -1;
 global.updated_load = -1;
 
 //INVENTORY
-global.invSize = 20;
+global.invSize = 36;
 scrCreateInv();
 
 global.loadSlots = 4;

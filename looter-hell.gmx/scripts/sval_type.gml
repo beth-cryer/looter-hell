@@ -4,6 +4,7 @@ switch(argument0) {
     case ("Shotgun"): return 2;
     case ("SMG"): return 3;
     case ("Sniper Rifle"): return 4;
+    case ("Shield"): return 5;
 }
 
 return 5;

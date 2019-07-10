@@ -5,13 +5,20 @@ Area 1
 13-16: LV4
 17-20: LV5
 
-A1: Bandit Camp
-Desert
+A1: Bandit Canyon
+Yellow/orange colour scheme
 Humanoid Bandit enemies
 
 A?: Federation Ship
-
+White/blue colour scheme
 
 A?: Alien Hive
 Green colour scheme
 Small melee enemies, Large stationary shooters
+
+Hellstar
+Red colour scheme
+Demon enemies. Basically copy DOOM
+
+Black Hole
+Infinite mode here possibly? Or have a cool Lovecraft boss in the center

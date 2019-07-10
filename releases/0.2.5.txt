@@ -1,2 +1,8 @@
 -Added Shields
 -Altered objGun and objInv to account for shields (buggy for now)
+
+-Added inventory pagination
+
+-Added Blood effects on enemy hit and death
+-Added screen shake effect when taking damage, shooting, or killing an enemy
+-Changed to fixed camera instead of tracking player. Also enlarged view to show the whole room

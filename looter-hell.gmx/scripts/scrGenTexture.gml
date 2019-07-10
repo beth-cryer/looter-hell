@@ -1,5 +1,5 @@
 //MALIWAN
-if (body==sprPistolBody1 or body==sprSMGBody1 or body==sprSniperBody3) {
+if (body==sprPistolBody1 or body==sprSMGBody1 or body==sprSniperBody3 or body==sprShieldBody1) {
 switch(rarity) {
     case(1): return texSilver; break;
     case(2): return texTech2; break;
@@ -10,7 +10,7 @@ switch(rarity) {
 }
 
 //DAHL
-if (body==sprARBody2 or body==sprSMGBody3) {
+if (body==sprARBody2 or body==sprSMGBody3 or body==sprShieldBody3) {
 switch(rarity) {
     case(1): return texCamo; break;
     case(2): return texDark; break;
@@ -21,7 +21,7 @@ switch(rarity) {
 }
 
 //BANDIT
-if (body==sprSMGBody2 or body==sprSGBody1 or body==sprARBody4) {
+if (body==sprSMGBody2 or body==sprSGBody1 or body==sprARBody4 or body==sprShieldBody2) {
 switch(rarity) {
     case(1): return texRust; break;
     case(2): return texRust2; break;
@@ -43,7 +43,7 @@ switch(rarity) {
 }
 
 //HYPERION
-if (body==sprSniperBody1 or body==sprSGBody3 or body==sprSMGBody4) {
+if (body==sprSniperBody1 or body==sprSGBody3 or body==sprSMGBody4 or body==sprShieldBody4) {
 switch(rarity) {
     case(1): return texSand2; break;
     case(2): return texSun3; break;

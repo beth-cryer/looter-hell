@@ -75,7 +75,7 @@ if (opened == false) {
     case("Shotgun"): xof = -2; break;
     case("Sniper Rifle"): xof = -8; break;
     case("SMG"): xof = 6; break;
-    case("Shield"): xof = 2; break;
+    case("Shield"): xof = 8; break;
     }
     
     ii = instance_create(x+xof,y,objGun);

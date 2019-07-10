@@ -9,7 +9,7 @@ switch(arm) {
     break;
     
     case(sprShieldArm3):
-    prefix = "Stabile";
+    prefix = "Stable";
     break;
     
     case(sprShieldArm4):
