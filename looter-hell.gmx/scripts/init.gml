@@ -40,7 +40,7 @@ global.updated_load = -1;
 global.invSize = 36;
 scrCreateInv();
 
-global.loadSlots = 4;
+global.loadSlots = 5;
 for(i=0;i<global.loadSlots;i++) {
     global.loadout[i] = -1;
 }

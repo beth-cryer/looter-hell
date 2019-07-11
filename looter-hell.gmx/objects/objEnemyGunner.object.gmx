@@ -101,6 +101,8 @@ alarm[9] = 1;
             <kind>1</kind>
             <string>if (bullets &lt;= 0) alarm[10] = room_speed*reload; else{
 
+    if (canmove == true) {
+
     //scrShootSound();
 
     proj = instance_create(x,y,pattern);
@@ -113,6 +115,8 @@ alarm[9] = 1;
     scrSetProj(proj);
     
     bullets -= 1;
+    }
+    
     alarm[9] = room_speed/nrate;
 }
 </string>

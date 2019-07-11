@@ -1,5 +1,7 @@
 -Common-
 
+-Common-
+
 Rebel (Starter)
 Skill: Dash
 
@@ -11,6 +13,9 @@ Skill: Grenade
 
 Hacker
 Skill: Refill Shields
+
+Pyromancer
+Skill: Firestorm
 
 
 -Rare-
@@ -27,9 +32,13 @@ Skill: Invincibility
 Hazmat Trooper
 Skill: Element Immunity
 
+Plaguespreader
+Skill: Virus
+
 Refill Shields+Health
 
 Mind Control
+
 
 -Legendary-
 

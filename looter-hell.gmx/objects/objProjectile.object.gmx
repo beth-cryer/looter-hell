@@ -365,8 +365,12 @@ if (timetrans != 1 and lifespan != 0) {
 //elemental effects
 scrElemEffect();
 
-if (other.corrode == true) other.hp -= (damage*1.1); else
-other.hp -= damage;
+if (other.corrode == true) {
+other.hp -= (damage*1.1); other.lasthit = damage*1.1;
+}else{
+other.hp -= damage; other.lasthit = damage;
+}
+other.recenthits++;
 
 if (vampire == 1) {
     global.hp += damage/5;
@@ -421,8 +425,8 @@ if (other.skill == "Dash") exit;
 //elemental effects
 scrElemEffect();
 
-if (other.corrode == true) global.hp -= (damage*1.1); else
-global.hp -= damage;
+if (other.corrode == true) plr_damage(damage*1.1); else
+plr_damage(damage);
 
 //screen shake
 scrShake(1,0.7);

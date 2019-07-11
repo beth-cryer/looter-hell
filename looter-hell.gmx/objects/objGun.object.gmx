@@ -198,7 +198,7 @@ if (cardopen == true) {
     //SHIELD
     if(type == "Shield") {
         draw_text(x+width1,y+20,load_text("capacity") + ": " + string(capacity));
-        draw_text(x+width1,y+30,load_text("shieldrate") + ": " + string(rate));
+        draw_text(x+width1,y+30,load_text("shieldrate") + ": " + string(chargerate));
         draw_text(x+width1,y+40,load_text("shielddelay") + ": " + string(delay));
         
     //GUN

@@ -35,11 +35,13 @@ ospeed = mspeed;
 canmove = true;
 canattack = true;
 rate = 1;
+lasthit = 0;
+recenthits = 0;
 
 body = 0;
 chestbonus = 0;
 
-maxhp = 0;
+hpmax = 0;
 xp = 0;
 gold = 0;
 metal = 0;
@@ -67,9 +69,16 @@ hands = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//BIG BLOOD SPLATTER
-for (var i=0; i&lt;random_range(4,32); i++) {
-    instance_create(x+random_range(-8,8), y+random_range(-8,8), objBlood);
+            <string>//blood amount/size based on kill damage
+var blood = ((lasthit + (recenthits/5)) / hpmax);
+if (blood &gt; 3) blood = 3;
+
+var blood_amount = blood * random_range(32,40);
+var blood_size = blood * 16;
+
+//BIG BLOOD SPLATTER
+for (var i=0; i&lt;blood_amount; i++) {
+    instance_create(x+random_range(-blood_size,blood_size), y+random_range(-blood_size,blood_size), objBlood);
 }
 </string>
           </argument>
@@ -162,7 +171,12 @@ for (var i=0; i&lt;random_range(4,32); i++) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (fire == true or corrode == true) {
+            <string>//DECREASE RECENT HITS
+recenthits -= 0.1;
+
+if (recenthits &lt; 0) recenthits = 0;
+
+if (fire == true or corrode == true) {
     hp -= elem_dps/room_speed;
 }
 
@@ -172,6 +186,7 @@ mspeed = ospeed/2;
 mspeed = ospeed;
 }
 
+//DEATH
 if (hp &lt;= 0) {
 
 //drop resources
@@ -217,7 +232,8 @@ if (body != 0) {
 //screen shake
 scrShake(2,0.5);
 
-audio_play_sound(sfxEnemyDeath,15,false);
+sfx = choose(sfxEnemyDeath,sfxEnemyDeath2);
+audio_play_sound(sfx,15,false);
 instance_destroy();
 }
 </string>

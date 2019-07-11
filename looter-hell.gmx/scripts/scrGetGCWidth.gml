@@ -1,7 +1,7 @@
 uiwidth = gwidth;
 
 //get max width of text
-update_uiwidth("DPS: " + string(damage*rate + elem_dps));
+if (type != "Shield") update_uiwidth("DPS: " + string(damage*rate + elem_dps));
 update_uiwidth(string(element));
 update_uiwidth(load_text("elementchance") + ": " + string(elem_chance));
 width1 = uiwidth;
@@ -10,7 +10,7 @@ update_uiwidth(string(name));
 update_uiwidth(load_text("level") + ": " + string(level) + " " + string(type));
 if (type == "Shield") {
     update_uiwidth(load_text("capacity") + ": " + string(capacity));
-    update_uiwidth(load_text("shieldrate") + ": " + string(rate));
+    update_uiwidth(load_text("shieldrate") + ": " + string(chargerate));
     update_uiwidth(load_text("shielddelay") + ": " + string(delay));
 }else{
     update_uiwidth(load_text("damage") + ": " + string(damage));

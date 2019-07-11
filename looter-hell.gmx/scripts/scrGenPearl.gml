@@ -81,7 +81,7 @@ if (type == "Assault Rifle") {
     pattern = objPattern1;
     //BODY
     body = sprBFGBody;
-    damage = 50; acc = 88; rate = 1; reload = 2.5; mag = 10;
+    damage = 60; acc = 88; rate = 1; reload = 2.5; mag = 10;
     grip = sprBFGGrip;
     //BARREL
     barrel = sprBFGBarrel;
@@ -214,7 +214,7 @@ if(type == "Shield") {
     case(1):
     name = "Bee";
     body = sprShieldBody4;
-    capacity = 30; rate = 2; delay = 2;
+    capacity = 40; chargerate = 20; delay = 2;
     arm = scrGenArm();
     battery = scrGenBattery();
     redtext = "NOT THE BEES";

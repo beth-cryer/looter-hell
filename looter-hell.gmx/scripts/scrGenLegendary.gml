@@ -77,12 +77,12 @@ if (type == "Pistol") {
     //BARREL
     barrel = sprOSBarrel;
     bspread = 1;
-    bnum = 1;
     bspeed = 4;
     //GRIP
     grip = scrGenGrip();
     scope = scrGenScope();
     access = scrGenAccess();
+    bnum = 1;
     texture = texYellow;
     redtext = "EVERY SINGLE DAY";
     break;
@@ -96,13 +96,13 @@ if (type == "Pistol") {
     //BARREL
     barrel = sprCrowBarrel;
     bspread = 10;
-    bnum = 7;
     bspeed = 6;
     burst = 7;
     //GRIP
     grip = scrGenGrip();
     scope = scrGenScope();
     access = scrGenAccess();
+    bnum = 7;
     texture = texDark2;
     redtext = "And now his watch is ended";
     break;
@@ -500,7 +500,7 @@ if(type == "Shield") {
     case(1):
     name = "Turtle";
     body = sprShieldBody1;
-    capacity = 50; rate = 4; delay = 5;
+    capacity = 80; chargerate = 10; delay = 5;
     arm = scrGenArm();
     battery = scrGenBattery();
     redtext = "Slow and steady";

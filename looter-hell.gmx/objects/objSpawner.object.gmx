@@ -127,9 +127,7 @@ if (instance_number(objEnemy) == 0 and waveend = 0 and stageend == 0) {
     else if (rand &lt;= 60) {chest=sprChest3; chestbonus = 1.5;}
     else {chest=sprChest3; chestbonus = 1;}
     
-    //if (objPlayer.x+256&lt;room_width) xs = objPlayer.x+256; else xs = objPlayer.x-256;
-    xs = objPlayer.x;
-    ii = instance_create(xs,objPlayer.y,objChest);
+    ii = instance_create(room_width/2,room_height/2,objChest);
     ii.sprite_index = chest;
     ii.chestbonus = chestbonus;
     

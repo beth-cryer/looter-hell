@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,15 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>xp = view_xview[0]+10;
-yp = view_yview[0]+10;
+            <string>xp = 16;
+yp = 128;
 
-draw_set_font(global.font_stats);
+draw_set_font(global.font_gui);
 draw_set_color(c_black);
-draw_text(xp,yp+10,"XP: " + string(global.xp));
-draw_text(xp,yp+20,load_text("gold") + ": " + string(global.gold));
-draw_text(xp,yp+30,load_text("metal") + ": " + string(global.metal));
-draw_text(xp,yp+40,load_text("crystal") + ": " + string(global.crystal));
+draw_text(xp,yp,"XP: " + string(global.xp));
+draw_text(xp,yp+16,load_text("gold") + ": " + string(global.gold));
+draw_text(xp,yp+32,load_text("metal") + ": " + string(global.metal));
+draw_text(xp,yp+48,load_text("crystal") + ": " + string(global.crystal));
 </string>
           </argument>
         </arguments>

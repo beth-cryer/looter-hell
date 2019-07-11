@@ -36,7 +36,6 @@ switching = -1;
 iswitch = 0;
 idelay = 0;
 body = 0;
-swaptype = 0;
 
 uinum = 0;
 loadwidth = 0;
@@ -53,7 +52,7 @@ filterNum = 0;
 
 //filters[0] = "Pistol";
 //filters[1] = "Assault Rifle";
-//filterNum = 2;
+//filterNum = 1;
 
 
 //APPLY SORTING TO INVENTORY (V IMPORTANT)
@@ -125,7 +124,7 @@ if (idelay = 0) {
     if (keyboard_check(ord('A'))) {ipage--; idelay = 1; alarm[0] = room_speed/10;}
     if (keyboard_check(ord('D'))) {ipage++; idelay = 1; alarm[0] = room_speed/10;}
     if(ipage&lt;0) ipage = 0;
-    if(ipage&gt;scrInvSize()/inum) ipage = floor(scrInvSize()/inum);
+    if(ipage&gt;scrSInvSize()/inum) ipage = floor(scrSInvSize()/inum);
 }
 
 //delete
@@ -153,10 +152,10 @@ or (moused == true and mouse_check_button_pressed(mb_left))) {
     if (switching == -1) {
         //from loadout
         if (across == 0) {
-        switchtype = scrItemType(global.inventory[global.loadout[sinv[sel]],1]); switching = 0; across = 1;
+        if (global.loadout[sinv[sel]] != -1) switching = 0; across = 1;
         //from inventory
         }else if (across == 1) {
-        switchtype = scrItemType(global.inventory[sinv[sel],1]); switching = 1; across = 0;
+        switching = 1; across = 0;
         }
         
         iswitch = sel;
@@ -172,16 +171,28 @@ or (moused == true and mouse_check_button_pressed(mb_left))) {
         //if switching from loadout
         if (switching == 0) {
             if (across == 0) { //to loadout
-                temp = global.loadout[sel]; global.loadout[sel] = global.loadout[iswitch]; global.loadout[iswitch] = temp;
-                scrReloadGun(iswitch,0); scrReloadGun(sel,0);
-                global.updated_load = sel;
+            
+                //CHECK LOADOUT SLOT IS VALID
+                if ((scrItemType(global.inventory[iswitch,1]) == 0 and sel &lt; global.loadSlots-1)) {
+                
+                    temp = global.loadout[sel]; global.loadout[sel] = global.loadout[iswitch]; global.loadout[iswitch] = temp;
+                    scrReloadGun(iswitch,0); scrReloadGun(sel,0);
+                    global.updated_load = sel;
+                }
             }
             //to inv
             if (across == 1) {
                 //If gun not already in loadout, switch
                 if (scrInLoadout(sinv[sel]) == false) {
+                
+                    //CHECK LOADOUT SLOT SELECTED WAS VALID
+                    if ((scrItemType(global.inventory[sinv[sel],1]) == 0 and iswitch &lt; global.loadSlots-1) or
+                    (scrItemType(global.inventory[sinv[sel],1]) == 1 and iswitch = global.loadSlots-1)) {
+                
                     global.loadout[iswitch] = sinv[sel]; scrReloadGun(iswitch,0);
                     global.updated_load = iswitch;
+                    
+                    }
                 }
             }
         }
@@ -190,8 +201,15 @@ or (moused == true and mouse_check_button_pressed(mb_left))) {
             if (across == 0) { //to loadout
                 //If gun not already in loadout, switch
                 if (scrInLoadout(sinv[iswitch]) == false) {
+                
+                    //CHECK LOADOUT SLOT SELECTED IS VALID
+                    if ((scrItemType(global.inventory[sinv[iswitch],1]) == 0 and sel &lt; global.loadSlots-1) or
+                    (scrItemType(global.inventory[sinv[iswitch],1]) == 1 and sel = global.loadSlots-1)) {
+                
                     global.loadout[sel] = sinv[iswitch]; scrReloadGun(sel,0);
                     global.updated_load = sel;
+                    
+                    }
                 }
             }
             //to inv
@@ -222,12 +240,22 @@ if (keyboard_check_pressed(vk_left)) {across=0};
 if (keyboard_check_pressed(vk_right)) {across=1};
 
 //select gun by mouseover
-//check upper bound
-imax = (ipage+1)*inum;
-if(imax &gt; global.invSize) imax = global.invSize;
 
-moused = false; s = scrInvSize(); j = 0;
-for(i=ipage*inum;i&lt;imax;i++) {
+//get start and end indexes of current page
+var p = 0;
+pstart = 0; //first page start
+while(p &lt; ipage) {
+    pstart = scrSPageSize(pstart,inum); //add prev page size to the next
+    p++;
+}
+//then simply get the next page size at the end
+pend = scrSPageSize(pstart,inum);
+
+//pstart = scrSPageSize(0,ipage*inum);
+//pend = scrSPageSize(pstart,inum);
+
+moused = false; j = 0;
+for(i=pstart;i&lt;pend;i++) {
     if (scrCheckFilters(global.inventory[sinv[i],1])) {
         if(point_in_rectangle(device_mouse_x_to_gui(0),device_mouse_y_to_gui(0),xp+loadwidth,yp+(j*16),xp+loadwidth+string_width(global.inventory[sinv[i],0]),yp+(j*16+16))) {
             sel = i;
@@ -358,7 +386,7 @@ uiwidth = 0;
 
 //INV
 j = 0;
-for(i=ipage*inum;i&lt;imax;i++) {
+for(i=pstart;i&lt;pend;i++) {
     if (i == sel and across == 1) { if (switching == -1) draw_set_color(c_green); else draw_set_color(c_blue); } else draw_set_color(c_black);
     //filter out Types in filters[]
     if (scrCheckFilters(global.inventory[sinv[i],1]))
@@ -433,7 +461,7 @@ draw_text(xw+width1,yp+16,load_text("level") + " " + string(level) + " " + strin
 
 if (type == "Shield") {
     draw_text(xw+width1,yp+32,load_text("capacity") + ": " + string(capacity));
-    draw_text(xw+width1,yp+48,load_text("shieldrate") + ": " + string(rate));
+    draw_text(xw+width1,yp+48,load_text("shieldrate") + ": " + string(chargerate));
     draw_text(xw+width1,yp+64,load_text("shielddelay") + ": " + string(delay));
 }else{
     

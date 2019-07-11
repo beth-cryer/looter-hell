@@ -161,6 +161,22 @@
         <sound>sound\sfxSMGShoot3</sound>
         <sound>sound\sfxSMGReload1</sound>
       </sounds>
+      <sounds name="unique">
+        <sound>sound\sfxShootCB</sound>
+        <sound>sound\sfxShootVortex</sound>
+        <sound>sound\sfxShootMillion</sound>
+        <sound>sound\sfxShootBHole</sound>
+        <sound>sound\sfxShootVampire</sound>
+        <sound>sound\sfxShootSlingshot</sound>
+        <sound>sound\sfxShootOS</sound>
+        <sound>sound\sfxShootCrow</sound>
+        <sound>sound\sfxShootBaka</sound>
+        <sound>sound\sfxShootFrostbite</sound>
+        <sound>sound\sfxShootCyclone</sound>
+        <sound>sound\sfxShootBFG</sound>
+        <sound>sound\sfxShootWorld</sound>
+        <sound>sound\sfxShootSpitfire</sound>
+      </sounds>
       <sounds name="menu">
         <sound>sound\sfxMenuSelect</sound>
         <sound>sound\sfxMenuCancel</sound>
@@ -170,9 +186,11 @@
         <sound>sound\sfxPlayerHurt</sound>
         <sound>sound\sfxPlayerDeath</sound>
         <sound>sound\sfxEnemyDeath</sound>
+        <sound>sound\sfxEnemyDeath2</sound>
         <sound>sound\sfxPlayerDash</sound>
         <sound>sound\sfxExplosion</sound>
         <sound>sound\sfxBossDeath</sound>
+        <sound>sound\sfxReloadEnd</sound>
       </sounds>
       <sound>sound\sfxChest1</sound>
       <sound>sound\sfxChest2</sound>
@@ -483,6 +501,7 @@
       <script>scripts\scrDropInv.gml</script>
       <script>scripts\scrInvSize.gml</script>
       <script>scripts\scrSInvSize.gml</script>
+      <script>scripts\scrSPageSize.gml</script>
       <script>scripts\scrWepStats.gml</script>
       <script>scripts\inv_sort.gml</script>
       <script>scripts\sval_type.gml</script>
@@ -560,6 +579,8 @@
     <script>scripts\approach.gml</script>
     <script>scripts\scrItemType.gml</script>
     <script>scripts\scrShake.gml</script>
+    <script>scripts\draw_circular_bar.gml</script>
+    <script>scripts\draw_pie.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntStats</font>

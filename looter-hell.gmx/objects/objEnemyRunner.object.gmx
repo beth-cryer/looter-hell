@@ -92,6 +92,8 @@ if (canmove == true and frozen==false) {
     //run at player
     if (distance_to_object(objPlayer)&gt;32)
     move_towards_point(objPlayer.x,objPlayer.y,mspeed);
+}else{
+    speed = 0;
 }
 
 //MELEE

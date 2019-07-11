@@ -1,8 +1,15 @@
 -Added Shields
--Altered objGun and objInv to account for shields (buggy for now)
+-Altered objGun and objInv to account for shields
+-Added shield slot to loadout
 
 -Added inventory pagination
+-Made pagination work properly with filtering (god damn that was hard)
 
 -Added Blood effects on enemy hit and death
+-Set size and amount of blood based on damage of killing shot and amount of shots taken recently
 -Added screen shake effect when taking damage, shooting, or killing an enemy
 -Changed to fixed camera instead of tracking player. Also enlarged view to show the whole room
+-Added many new shoot sfx for Legendary guns
+-Changed health, shield and reload GUIs to cool circular bars
+
+-BUG: Can switch to empty inventory pages

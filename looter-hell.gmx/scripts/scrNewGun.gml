@@ -72,16 +72,16 @@ element = scrGenElement(element); //determines gun prefix if used
 //SHIELD
 if (type == "Shield") {
     //scale capacity to shield level + rarity
-    capacity = ceil(0.5 * capacity * (1.1^(rarity*2 + level*2)) );
+    capacity = ceil(capacity * (1.1^(rarity*2 + level*2)) );
     elem_dps = ceil(elem_dps * (1.1^(rarity*2 + level)) );
     
-    elem_chance = 0.5 * elem_chance * (rarity + (level/5) - (rate/5));
+    elem_chance = 0.5 * elem_chance * (rarity + (level/5));
     if (elem_chance > 100) elem_chance = 100;
     if (elem_chance < 1) elem_chance = 1;
     
     //1% bonuses per rarity
-    rate = rate * (1+(rarity/100));
-    delay = delay * (1-(rarity/100));
+    chargerate = 0.5 * chargerate * (1.1^(rarity*2 + level*2));
+    delay *= (1-(rarity/100));
 
 //GUN
 }else{
@@ -97,15 +97,15 @@ if (type == "Shield") {
     if (elem_chance < 1) elem_chance = 1;
     
     //scale other stats to rarity only
-    acc = acc * (1+(rarity/100));
+    acc *= (1+(rarity/100));
     if (acc > 100) acc = 100;
     
     //don't scale bnum for certain weapons
     if (fixed_bnum == 0) bnum = ceil(bnum * (rarity/3));
     
     //1% bonuses per rarity
-    rate = rate * (1+(rarity/100));
-    reload = reload * (1-(rarity/100));
+    rate *= (1+(rarity/100));
+    reload *= (1-(rarity/100));
     mag = round(mag * (1+(rarity/100)));
     
     //bring double shots together
