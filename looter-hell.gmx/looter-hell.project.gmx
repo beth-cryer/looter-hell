@@ -274,6 +274,7 @@
         <sprite>sprites\sprSGBarrel2</sprite>
         <sprite>sprites\sprSGBarrel3</sprite>
         <sprite>sprites\sprSGBarrel4</sprite>
+        <sprite>sprites\sprSGBarrel5</sprite>
         <sprite>sprites\sprSGGrip1</sprite>
         <sprite>sprites\sprSGGrip2</sprite>
         <sprite>sprites\sprSGGrip3</sprite>
@@ -417,6 +418,7 @@
       <sprite>sprites\texTech</sprite>
       <sprite>sprites\texTech2</sprite>
       <sprite>sprites\texTech3</sprite>
+      <sprite>sprites\texTech4</sprite>
       <sprite>sprites\texGold</sprite>
       <sprite>sprites\texGold2</sprite>
       <sprite>sprites\texGold3</sprite>
@@ -650,6 +652,7 @@
     <object>objects\objDashTrail</object>
     <object>objects\objWall</object>
     <object>objects\objBlood</object>
+    <object>objects\objGib</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMenu</room>

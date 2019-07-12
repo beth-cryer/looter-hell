@@ -115,6 +115,13 @@ switch(barrel) {
     damage += 2;
     rate -= 0.5;
     break;
+    
+    case(sprSGBarrel5):
+    bspeed = 12;
+    bspread = 15;
+    bnum += round(random_range(2,4));
+    damage += 1;
+    break;
 
     //SNIPER BARRELS
     

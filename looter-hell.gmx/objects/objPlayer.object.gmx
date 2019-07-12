@@ -589,6 +589,9 @@ draw_set_font(global.font_gui);
 draw_pie(64,64,global.hp,hpmax,c_red,32,1);
 draw_circular_bar(64,64,global.shield,capacity,c_aqua,48,1,16);
 
+//draw ammo
+if (equipped != -1) and (global.loadout[equipped] != -1)
+draw_text(16,view_hview/2,"Ammo: " + string(global.mag[equipped]) + " / " + string(global.inventory[global.loadout[equipped],7]))
 </string>
           </argument>
         </arguments>
@@ -644,8 +647,6 @@ if (global.loadout[equipped] != -1) {
     //draw TOP hand
     draw_sprite(sprPlayerHand2,hi,x,y);
     
-    //draw ammo
-    draw_text(view_xview[0],view_yview[0]+view_hview[0]/2,"Ammo: " + string(global.mag[equipped]) + " / " + string(global.inventory[global.loadout[equipped],7]))
 }
 }
 </string>

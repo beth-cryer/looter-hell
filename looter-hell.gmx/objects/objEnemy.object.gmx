@@ -47,6 +47,9 @@ gold = 0;
 metal = 0;
 crystal = 0;
 hands = 0;
+
+variant = 0;
+sprite[0] = sprite_index;
 </string>
           </argument>
         </arguments>
@@ -70,7 +73,7 @@ hands = 0;
           <argument>
             <kind>1</kind>
             <string>//blood amount/size based on kill damage
-var blood = ((lasthit + (recenthits/5)) / hpmax);
+var blood = ((lasthit * (recenthits)) / hpmax);
 if (blood &gt; 3) blood = 3;
 
 var blood_amount = blood * random_range(32,40);
@@ -79,6 +82,23 @@ var blood_size = blood * 16;
 //BIG BLOOD SPLATTER
 for (var i=0; i&lt;blood_amount; i++) {
     instance_create(x+random_range(-blood_size,blood_size), y+random_range(-blood_size,blood_size), objBlood);
+}
+
+//EXPLODE?
+if (blood &gt;= 1.5) {
+    var width = sprite_get_width(sprite_index), height = sprite_get_height(sprite_index),
+    c_x = x+(width*0.5), c_y = y+(height*0.5),
+    i_inc = (width/6), j_inc = (height/6);
+    for (var i=0; i&lt;width; i+=i_inc) {
+    for (var j=0; j&lt;height; j+=j_inc) {
+        with (instance_create(x+i, y+j, objGib)) {
+            left = i; top = j; self.width = i_inc; self.height = j_inc; 
+            sprite_index = other.sprite_index;
+            hspeed = (x - c_x) * 0.1;
+            vspeed = (y - c_y) * 0.1;
+            gravity = 0.5;
+        }
+    }}
 }
 </string>
           </argument>

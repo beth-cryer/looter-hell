@@ -1,3 +1,10 @@
+Minibosses:
+
+Chaingunner-
+large humanoid, high health
+Shoots high firerate beam which moves up and down the screen
+
+
 Super Soldier-
 humanoid
 moves at normal speed
@@ -16,4 +23,3 @@ moves very fast
 shoots shurikens
 special: goes invisible, melee attack
 special: can deflect bullets in a certain stance
-

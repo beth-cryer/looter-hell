@@ -2,7 +2,7 @@
 if (body==sprPistolBody1 or body==sprSMGBody1 or body==sprSniperBody3 or body==sprShieldBody1) {
 switch(rarity) {
     case(1): return texSilver; break;
-    case(2): return texTech2; break;
+    case(2): return texTech4; break;
     case(3): return texBlood2; break;
     case(4): return texFlame; break;
     return texFlame;

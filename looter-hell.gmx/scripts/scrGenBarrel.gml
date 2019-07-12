@@ -61,7 +61,7 @@ if (type == "Assault Rifle") {
 //SHOTGUN BARRELS
 if (type == "Shotgun") {
 
-    rand = round(random_range(1,4));
+    rand = round(random_range(1,5));
     switch(rand){
     
     case(1):
@@ -78,6 +78,10 @@ if (type == "Shotgun") {
     
     case(4):
     barrel = sprSGBarrel4;
+    break;
+    
+    case(5):
+    barrel = sprSGBarrel5;
     break;
     
     }

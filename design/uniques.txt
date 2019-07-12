@@ -1,8 +1,9 @@
-Guns:
+LEGENDARY
+
 Black Hole (Sniper Rifle): Spawns projectiles in a radius around a point in front of the player; they then shoot towards the centerpoint and explode on impact, dealing elemental damage.
 Spitfire (Sniper Rifle): Fully automatic sniper, fire element only.
-The World (Sniper Rifle / Jojo): Stops time while shot travels, high damage/slow fire rate
 Spectre (Sniper Rifle): Shoots an invisible bullet which only becomes tangible after a set time. Huge damage.
+Recursive Assassin (Sniper Rifle): Fires a bullet which spawns three other bullets, which spawns three other bullets…
 
 Millionaire (Shotgun): Fires a large number of bullets which cover the entire screen, slow firerate.
 Meatshot (Shotgun / TF2): Very tight spread.
@@ -38,13 +39,18 @@ Dragon Slayer (Berserk)
 
 PEARLESCENTS
 Scarlet Devil (Shotgun / Touhou): Two patterns at once: Basic radial shots and a rotating wave pattern
+
 Sandstorm (SMG): Shoots projectiles which split once, halfway across the screen.
+
 Cyclone (Assault Rifle): CBlossom/Vortex hybrid
 Cherry Blossom (Assault Rifle): Bullets which explode into more bullets on hit.
-Recursive Assassin (Sniper Rifle): Fires a bullet which spawns three other bullets, which spawns three other bullets…
+
+The World (Sniper Rifle / Jojo): Stops time while shot travels, high damage/slow fire rate
 Bloodhound (Sniper Rifle): Bullets split once and track whichever target is closest upon splitting.
+
 BFG9000 (Laser Rifle / DOOM): Shoots a huge ball of energy that explodes on hit
 Kamehameha (Laser Rifle / DBZ): Shoots a single beam which expands until it covers the screen, and then fades.
+
 Raid Boss
 
 Shields:

@@ -34,6 +34,7 @@ ospeed = mspeed;
 rate = 1;
 
 image_xscale = -1;
+image_speed = 0;
 
 scrNewGun(global.stageLevel,1,scrGenGunType());
 bullets = mag;

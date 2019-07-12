@@ -131,24 +131,24 @@ if (type == "Sniper Rifle") {
     rand = round(random_range(1,2));
     switch(rand) {
     
-    //RECURSIVE
+    //THE WORLD
     case(1):
-    name = "Recursive Assassin";
-    pattern = objPatternRecursive;
+    name = "The World";
+    pattern = objPatternWorld;
     //BODY
-    body = sprRecursiveBody;
-    damage = 28; acc = 80; rate = 1; reload = 4; mag = 6;
-    scrElementalChance(50);
+    body = sprWorldBody;
+    damage = 50; acc = 100; rate = 0.5; reload = 5; mag = 3; fixed_bnum = 1;
     //GRIP
-    grip = sprRecursiveGrip;
-    barrel = scrGenBarrel();
-    splits = 3;
+    grip = scrGenGrip();
+    barrel = sprWorldBarrel;
+    bspeed = 4;
+    bspread = 25;
     scope = scrGenScope();
     stock = scrGenStock();
-    bnum = round(random_range(3,4));
+    bnum = round(random_range(4,6));
     access = scrGenAccess();
-    texture = texTech3;
-    redtext = "Did you mean: recursion?";
+    texture = texGold3;;
+    redtext = "BUT IT WAS ME";
     break;
     
     //BLOODHOUND

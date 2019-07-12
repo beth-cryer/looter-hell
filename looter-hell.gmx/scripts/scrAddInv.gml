@@ -48,9 +48,17 @@ if (i != -1 and i<global.invSize-1) {
     }
     
     //add to loadout if space
-    if (l != -1) {
+    
+    //GUNS
+    if (scrItemType(type) == 0 and l != -1) {
         global.loadout[l] = i; scrReloadGun(i,0);
         if (l == 0) scrSwitchWep(0);
+    }else
+    
+    //SHIELDS
+    if (scrItemType(type) == 1 and
+    global.loadout[global.loadSlots-1] == -1) {
+        global.loadout[global.loadSlots-1] = i;
     }
     
     return true;

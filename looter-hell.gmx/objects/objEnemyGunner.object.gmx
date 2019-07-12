@@ -36,6 +36,8 @@ rate = 1;
 dir = 0;
 strafetime = 0;
 
+variant = choose(0,1);
+
 image_xscale = -1;
 
 scrNewGun(global.stageLevel,1,scrGenGunType());
@@ -145,6 +147,7 @@ alarm[9] = 1;
 
 if (canmove==true and frozen==false
 and distance_to_object(instance_nearest(x,y,objEnemy)) &gt; 128) {
+    image_speed = 0.1;
     
     //don't strafe if close to border
     if (y&lt;=128+mspeed) {
@@ -164,6 +167,8 @@ and distance_to_object(instance_nearest(x,y,objEnemy)) &gt; 128) {
         y += dir * mspeed;
         strafetime -= 1;
     }
+}else{
+    image_speed = 0;
 }
 </string>
           </argument>

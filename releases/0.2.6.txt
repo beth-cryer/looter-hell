@@ -1,0 +1,5 @@
+-Player now starts with a Common Shield
+
+-Added enemy animations
+-Increased enemy run speed
+-Added enemy shatter effect when overkilled with enough damage

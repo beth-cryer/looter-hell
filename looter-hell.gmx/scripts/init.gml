@@ -9,8 +9,18 @@ key_bindings();
 global.level = 1;
 global.stageLevel = global.level;
 global.regen = 0;
-global.elem_bonus = 1;
-global.elem_resist = 0;
+
+global.fire_bonus = 1;
+global.ice_bonus = 1;
+global.electric_bonus = 1;
+global.corrosive_bonus = 1;
+global.explosive_bonus = 1;
+
+global.fire_resist = 0;
+global.ice_resist = 0;
+global.electric_resist = 0;
+global.corrosive_resist = 0;
+global.explosive_resist = 0;
 
 //CHARACTER INIT
 global.charNum = 1;

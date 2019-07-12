@@ -277,7 +277,6 @@ if (type == "Shotgun") {
     grip = scrGenGrip();
     //BARREL
     barrel = sprMeatshotBarrel;
-    damage = damage*1.05;
     bspeed = 15;
     bspread = 5;
     bnum = 10;
@@ -296,7 +295,6 @@ if (type == "Shotgun") {
     //BODY
     body = sprSpindashBody;
     damage = 40; acc = 84; rate = 1.2; reload = 3; mag = 6; fixed_bnum = 1;
-    element = scrGenElement("Electric");
     grip = scrGenGrip();
     //BARREL
     barrel = sprSpindashBarrel;
@@ -306,6 +304,7 @@ if (type == "Shotgun") {
     scope = scrGenScope();
     stock = scrGenStock();
     access = scrGenAccess(); //determines gun prefix
+    element = scrGenElement("Electric");
     texture = texSanic;
     redtext = "Must accelerate";
     break;
@@ -340,24 +339,24 @@ if (type == "Sniper Rifle") {
     redtext = "Does NOT look like an anime eye"
     break;
     
-    //THE WORLD
+    //RECURSIVE
     case(2):
-    name = "The World";
-    pattern = objPatternWorld;
+    name = "Recursive Assassin";
+    pattern = objPatternRecursive;
     //BODY
-    body = sprWorldBody;
-    damage = 72; acc = 100; rate = 0.5; reload = 5; mag = 3; fixed_bnum = 1;
+    body = sprRecursiveBody;
+    damage = 28; acc = 80; rate = 1; reload = 4; mag = 6;
+    scrElementalChance(50);
     //GRIP
-    grip = scrGenGrip();
-    barrel = sprWorldBarrel;
-    bspeed = 4;
-    bspread = 25;
+    grip = sprRecursiveGrip;
+    barrel = scrGenBarrel();
+    splits = 3;
     scope = scrGenScope();
     stock = scrGenStock();
-    bnum = round(random_range(4,6));
+    bnum = round(random_range(3,4));
     access = scrGenAccess();
-    texture = texGold3;;
-    redtext = "BUT IT WAS ME";
+    texture = texTech3;
+    redtext = "Did you mean: recursion?";
     break;
     
     //SPECTRE
