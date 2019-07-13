@@ -26,6 +26,7 @@ if (type == "Shield") {
     splits = global.inventory[o,20]; //splits
     scope = global.inventory[o,21]; //scope
     burst = global.inventory[o,22]; //burst
+    btype = global.inventory[i,26]; //btype
 }
 
 element = global.inventory[o,12]; //element

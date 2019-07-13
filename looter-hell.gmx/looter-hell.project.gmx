@@ -449,10 +449,16 @@
       <sprite>sprites\sprPlayerHand1</sprite>
       <sprite>sprites\sprPlayerHand2</sprite>
       <sprite>sprites\sprBanditGunner</sprite>
+      <sprite>sprites\sprBanditGunner2</sprite>
       <sprite>sprites\sprBanditRunner</sprite>
+      <sprite>sprites\sprBanditChaingun</sprite>
     </sprites>
     <sprite>sprites\sprBullet</sprite>
+    <sprite>sprites\sprWaterBolt</sprite>
+    <sprite>sprites\sprBloodBolt</sprite>
+    <sprite>sprites\sprBFGShot</sprite>
     <sprite>sprites\sprBulletEnemy</sprite>
+    <sprite>sprites\sprBombEnemy</sprite>
     <sprite>sprites\sprKnife</sprite>
     <sprite>sprites\sprSawblade</sprite>
     <sprite>sprites\sprLaser</sprite>
@@ -462,6 +468,8 @@
     <sprite>sprites\spr64x64</sprite>
     <sprite>sprites\sprGlow</sprite>
     <sprite>sprites\sprBlood</sprite>
+    <sprite>sprites\sprCompare</sprite>
+    <sprite>sprites\sprHitbox</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgShip</background>
@@ -495,6 +503,7 @@
       <script>scripts\scrStatsArm.gml</script>
       <script>scripts\scrStatsBattery.gml</script>
       <script>scripts\scrStatsStock.gml</script>
+      <script>scripts\scrStatsGun.gml</script>
     </scripts>
     <scripts name="inv">
       <script>scripts\scrMoveInv.gml</script>
@@ -532,6 +541,7 @@
       <script>scripts\scrResetWave.gml</script>
       <script>scripts\scrAddEnemies.gml</script>
       <script>scripts\scrCreateWaves.gml</script>
+      <script>scripts\scrBossWave.gml</script>
     </scripts>
     <scripts name="stages">
       <scripts name="a1">
@@ -583,6 +593,8 @@
     <script>scripts\scrShake.gml</script>
     <script>scripts\draw_circular_bar.gml</script>
     <script>scripts\draw_pie.gml</script>
+    <script>scripts\compare_stats.gml</script>
+    <script>scripts\scrCompare.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntStats</font>
@@ -590,14 +602,12 @@
     <font>fonts\fntMenuB</font>
   </fonts>
   <objects name="objects">
-    <object>objects\objGun</object>
     <object>objects\objPlayer</object>
+    <object>objects\objGun</object>
     <object>objects\objChest</object>
-    <objects name="Parents">
-      <object>objects\objSolid</object>
-      <object>objects\objProjectile</object>
-      <object>objects\objEnemy</object>
-    </objects>
+    <object>objects\objSolid</object>
+    <object>objects\objEnemy</object>
+    <object>objects\objProjectile</object>
     <objects name="Patterns">
       <object>objects\objPattern1</object>
       <object>objects\objPattern2</object>
@@ -615,9 +625,9 @@
       <object>objects\objPatternBlossom</object>
       <object>objects\objPatternVortex</object>
       <object>objects\objPatternGreed</object>
-      <object>objects\objPatternWorld</object>
       <object>objects\objPatternDragon</object>
       <object>objects\objPatternScarlet</object>
+      <object>objects\objPatternScarletLaser</object>
       <object>objects\objPatternTornado</object>
     </objects>
     <objects name="UI/System">
@@ -639,19 +649,27 @@
       <object>objects\objEnemyGunner</object>
       <object>objects\objEnemyAssault</object>
       <object>objects\objEnemyTurret</object>
+      <object>objects\objBanditChaingun</object>
     </objects>
     <objects name="Projectiles">
       <object>objects\objBullet</object>
+      <object>objects\objSpectre</object>
+      <object>objects\objWaterBolt</object>
+      <object>objects\objBloodBolt</object>
+      <object>objects\objBFGBullet</object>
       <object>objects\objBulletEnemy</object>
+      <object>objects\objBombEnemy</object>
       <object>objects\objLaser</object>
       <object>objects\objKnife</object>
-      <object>objects\objExplosion</object>
-      <object>objects\objPuddle</object>
       <object>objects\objSawblade</object>
+      <object>objects\objBloodhound</object>
+      <object>objects\objGreed</object>
     </objects>
     <object>objects\objDashTrail</object>
     <object>objects\objWall</object>
     <object>objects\objBlood</object>
+    <object>objects\objExplosion</object>
+    <object>objects\objPuddle</object>
     <object>objects\objGib</object>
   </objects>
   <rooms name="rooms">

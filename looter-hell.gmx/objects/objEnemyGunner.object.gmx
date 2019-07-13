@@ -36,16 +36,20 @@ rate = 1;
 dir = 0;
 strafetime = 0;
 
-variant = choose(0,1);
+switch(choose(0,1)) {
+case(0): sprite_index = sprBanditGunner; break;
+case(1): sprite_index = sprBanditGunner2; break;
+}
 
 image_xscale = -1;
 
 scrNewGun(global.stageLevel,1,scrGenGunType());
 bullets = mag;
-nrate = rate/2;
-if (bnum mod 2 == 0) nnum = bnum; else nnum = bnum+1;
 
-nspread = bspread*1.5;
+if (rate &gt; 6) nrate = rate/2; else nrate = rate;
+if (bnum mod 2 == 0) nnum = bnum; else nnum = bnum+1;
+if (bspread &lt; 25) nspread = bspread*2; else nspread = bspread;
+
 if (pattern==objPattern2) nspread = 10;
 alarm[9] = room_speed/nrate;
 
@@ -112,7 +116,7 @@ alarm[9] = 1;
     proj.type = objBulletEnemy;
     proj.speed = -(bspeed/2);
     proj.num = nnum;
-    proj.spread = nspread/bnum;
+    proj.spread = nspread/nnum;
     
     scrSetProj(proj);
     

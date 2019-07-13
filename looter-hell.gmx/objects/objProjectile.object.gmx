@@ -30,6 +30,7 @@
 xorig = x;
 yorig = y;
 owner = 0;
+freeze = 0;
 
 curve = 0;
 zigzag = 0;
@@ -43,7 +44,6 @@ slingshot = 0;
 vampire = 0;
 greed = 0;
 bloodhound = 0;
-world = 0;
 
 timetrans = 0;
 timespawn = 0;
@@ -56,35 +56,6 @@ splits = 0;
 
 image_speed = 0;
 alarm[0] = room_speed * 4;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (world == 1) {
-    //unfreeze all enemies
-    for (i=0; i&lt;instance_number(objEnemy); i++) {
-       enemy = instance_find(objEnemy,i);
-       enemy.canmove = true;
-    }
-}
 </string>
           </argument>
         </arguments>
@@ -255,11 +226,14 @@ instance_destroy();
 //add accuracy offset
 if (owner == 0) {
     acc = choose(1,-1);
-    direction += acc*(0.01*objPlayer.acc);
+    direction += acc*(1/objPlayer.acc);
 }
 
 //set type
 image_index = owner;
+
+//set initial pause speed
+pausespeed = speed;
 
 create = 1;
 }
@@ -283,24 +257,20 @@ create = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Bloodhound lock-on
-if (bloodhound = 1) {
-    if (instance_exists(objEnemy)) {
-    target = instance_nearest(x,y,objEnemy);
-    origspeed = speed;
-    speed = 0;
-    direction = 0;
-    bloodhound = 2;
+            <string>//PAUSED/FROZEN
+if (global.paused == 1 or freeze == 1) {
+    //Zero speed
+    if (speed != 0) {
+        pausespeed = speed;
+        speed = 0;
     }
-    
-    //reset speed if all enemies dead
-    if (speed == 0) speed = origspeed;
-}
-
-//Bloodhound tracking
-if (bloodhound == 2) {
-    if (instance_exists(target)) move_towards_point(target.x,target.y,origspeed);
-    else bloodhound = 1;
+    //Pause all alarms
+    alarm[0] = alarm[0]+1;
+    alarm[3] = alarm[0]+1;
+    alarm[4] = alarm[0]+1;
+    exit;
+}else{
+    speed = pausespeed;
 }
 
 //Zigzag activate
@@ -335,14 +305,14 @@ if (vortex == 1) {
 if (blackhole == 1) {
     ox = x;
     oy = y;
-    origspeed = speed;
+    ospeed = speed;
     speed = 96; //distance to start from
     alarm[1] = 1;
 }
 
 //Black hole converge
 if (blackhole == 2) {
-    move_towards_point(ox,oy,origspeed);
+    move_towards_point(ox,oy,ospeed);
     if (distance_to_point(ox,oy) &lt;= 1) {instance_destroy();}
 }
 
@@ -406,21 +376,8 @@ if (vampire == 1) {
     if (objPlayer.vampire &lt; 5) objPlayer.vampire += 0.5;
 }
 
-if (greed == 1) {
-    if (global.mag[objPlayer.equipped] &lt; global.inventory[global.loadout[objPlayer.equipped],7])
-    global.mag[objPlayer.equipped] += 1;
-}
-
-if (world == 1) {
-    //unfreeze all enemies
-    for (i=0; i&lt;instance_number(objEnemy); i++) {
-       enemy = instance_find(objEnemy,i);
-       enemy.canmove = true;
-    }
-}
-
-instance_create(x+16,y,objBlood);
-instance_destroy();
+//BLOOD
+if (global.blood != 0) instance_create(x+16,y,objBlood);
 }
 </string>
           </argument>
@@ -459,6 +416,9 @@ plr_damage(damage);
 
 //screen shake
 scrShake(1,0.7);
+
+//BLOOD
+if (global.blood != 0) instance_create(x-8,y,objBlood);
 
 audio_play_sound(sfxPlayerHurt,20,false);
 instance_destroy();

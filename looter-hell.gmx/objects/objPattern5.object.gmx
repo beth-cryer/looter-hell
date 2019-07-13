@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//CREATES X NUMBER OF EVENLY-SPREAD PROJECTILES AT 0 ANGLE
+            <string>//CREATES X NUMBER OF EVENLY-SPREAD PROJECTILES AT X ANGLE
 
 //move center if even
 if (num mod 2 == 0) originy = y+(spread); else originy = y;
@@ -38,7 +38,7 @@ for(i=0; i&lt;num; i+=1) {
     //create projectile
     yorig = originy + ((i + i mod 2) * spread) * dir;
     proj = instance_create(x,yorig,type);
-    proj.direction = origin + ((i + i mod 2) * spread/2) * dir;
+    proj.direction = direction + origin + ((i + i mod 2) * spread/2) * dir;
     proj.speed = speed;
     
     scrSetProj(proj);

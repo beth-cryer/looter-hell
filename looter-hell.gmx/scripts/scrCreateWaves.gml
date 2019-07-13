@@ -6,4 +6,7 @@ for(i=0; i<global.numWaves; i++) {
     global.w_positiony[i,0] = -1;
 }
 
+global.w_boss[0] = -1;
+global.w_boss[1] = -1;
+
 eindex = 0;

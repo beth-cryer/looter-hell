@@ -17,19 +17,20 @@ if (i != -1 and i<global.invSize-1) {
         global.inventory[i,3] = damage; //damage
         global.inventory[i,4] = acc; //acc
         global.inventory[i,5] = rate; //rate
-        global.inventory[i,16] = barrel; //barrel
-        global.inventory[i,17] = grip; //grip
         global.inventory[i,6] = reload; //reload
         global.inventory[i,7] = mag; //mag
         global.inventory[i,8] = bnum; //bnum
         global.inventory[i,9] = bspeed; //bspeed
         global.inventory[i,10] = pattern; //pattern
         global.inventory[i,11] = bspread; //spread
+        global.inventory[i,16] = barrel; //barrel
+        global.inventory[i,17] = grip; //grip
         global.inventory[i,18] = stock; //stock
         global.inventory[i,19] = access; //access
         global.inventory[i,20] = splits; //splits
         global.inventory[i,21] = scope; //scope
         global.inventory[i,22] = burst; //burst
+        global.inventory[i,26] = btype; //btype
     }
     
     global.inventory[i,12] = element; //element

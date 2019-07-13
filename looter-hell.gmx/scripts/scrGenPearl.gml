@@ -87,6 +87,7 @@ if (type == "Assault Rifle") {
     barrel = sprBFGBarrel;
     bspeed = 7;
     bspread = 1;
+    btype = objBFGBullet;
     bnum = 1;
     scope = scrGenScope();
     stock = scrGenStock();
@@ -134,15 +135,16 @@ if (type == "Sniper Rifle") {
     //THE WORLD
     case(1):
     name = "The World";
-    pattern = objPatternWorld;
+    pattern = objPattern4;
     //BODY
     body = sprWorldBody;
-    damage = 50; acc = 100; rate = 0.5; reload = 5; mag = 3; fixed_bnum = 1;
+    damage = 50; acc = 100; rate = 0.5; reload = 3; mag = 3; fixed_bnum = 1;
     //GRIP
     grip = scrGenGrip();
     barrel = sprWorldBarrel;
     bspeed = 4;
     bspread = 25;
+    btype = objKnife;
     scope = scrGenScope();
     stock = scrGenStock();
     bnum = round(random_range(4,6));
@@ -163,7 +165,8 @@ if (type == "Sniper Rifle") {
     damage = damage*0.9;
     bspeed = 7;
     bnum = round(random_range(3,4));
-    splits = 1;
+    btype = objBloodhound;
+    splits = 2;
     scope = scrGenScope();
     stock = scrGenStock();
     access = scrGenAccess();

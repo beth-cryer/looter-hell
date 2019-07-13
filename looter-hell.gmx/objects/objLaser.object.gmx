@@ -70,7 +70,7 @@ if (global.mag[objPlayer.equipped] &lt;= 0) instance_destroy();
         </arguments>
       </action>
     </event>
-    <event eventtype="10" enumb="32">
+    <event eventtype="10" enumb="90">
       <action>
         <libid>1</libid>
         <id>603</id>

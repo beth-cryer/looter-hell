@@ -3,14 +3,14 @@ switch(barrel) {
     case(sprPistolBarrel1):
     bspeed = 6;
     bspread = 30;
-    bnum += round(random_range(1,2));
+    bnum += round(random_range(0,1));
     scrElementalChance(60);
     break;
     
     case(sprPistolBarrel2):
     bspeed = 7;
     bspread = 20;
-    bnum += round(random_range(1,2));
+    bnum += round(random_range(0,2));
     damage += 2;
     rate = rate*0.99;
     break;
@@ -20,7 +20,7 @@ switch(barrel) {
     bspread = 40;
     damage += 4;
     rate += 2;
-    burst = round(random_range(2,3));
+    burst = round(random_range(1,2));
     break;
     
     case(sprPistolBarrel4):
@@ -43,7 +43,7 @@ switch(barrel) {
     case(sprARBarrel1):
     bspeed = 9;
     bspread = 40;
-    bnum += round(random_range(1,3));
+    bnum += round(random_range(0,1));
     damage += 1;
     rate += 1;
     break;
@@ -51,7 +51,7 @@ switch(barrel) {
     case(sprARBarrel2):
     bspeed = 12;
     bspread = 30;
-    bnum += round(random_range(2,3));
+    bnum += round(random_range(1,3));
     damage += 3;
     rate += 2;
     scrElementalChance(60);
@@ -76,7 +76,7 @@ switch(barrel) {
     case(sprARBarrel5):
     bspeed = 14;
     bspread = 30;
-    bnum += round(random_range(2,4));
+    bnum += round(random_range(2,3));
     rate += 1;
     damage = damage*0.96;
     break;
@@ -85,8 +85,8 @@ switch(barrel) {
 
     case(sprSGBarrel1):
     bspeed = 10;
-    bspread = 30;
-    bnum += round(random_range(3,4));
+    bspread = 40;
+    bnum += round(random_range(2,3));
     damage += 2;
     rate += 0.5;
     scrElementalChance(60);
@@ -94,32 +94,32 @@ switch(barrel) {
     
     case(sprSGBarrel2):
     bspeed = 9;
-    bspread = 50;
-    bnum += round(random_range(2,5));
+    bspread = 60;
+    bnum += round(random_range(1,4));
     damage += 4;
     scrElementalChance(40);
     break;
     
     case(sprSGBarrel3):
     bspeed = 11;
-    bspread = 40;
-    bnum += round(random_range(2,3));
+    bspread = 50;
+    bnum += round(random_range(1,3));
     damage += 1;
     rate += 1;
     break;
     
     case(sprSGBarrel4):
     bspeed = 14;
-    bspread = 25;
-    bnum += round(random_range(3,5));
+    bspread = 30;
+    bnum += round(random_range(2,4));
     damage += 2;
     rate -= 0.5;
     break;
     
     case(sprSGBarrel5):
     bspeed = 12;
-    bspread = 15;
-    bnum += round(random_range(2,4));
+    bspread = 20;
+    bnum += round(random_range(1,3));
     damage += 1;
     break;
 

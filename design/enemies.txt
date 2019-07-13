@@ -11,6 +11,7 @@ Gunners: move up/down and shoot
 Assault: move up/down/forward and shoot
 
 Mortar: fires aerial shots at set locations
+Rocketeer: shoots slow, large projectiles in all directions, slowly rotates
 
 Engineer: build turrets, move up/down
 Medic: heal units it touches

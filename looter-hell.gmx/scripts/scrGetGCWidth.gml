@@ -22,4 +22,4 @@ if (type == "Shield") {
 update_uiwidth(redtext);
 width2 = uiwidth;
 
-width = width1+width2;
+width = width1+width2+16;

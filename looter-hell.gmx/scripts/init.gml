@@ -45,6 +45,7 @@ global.stage = -1;
 
 //GLOBAL FLAGS
 global.updated_load = -1;
+global.paused = 0;
 
 //INVENTORY
 global.invSize = 36;
@@ -59,9 +60,6 @@ for(i=0;i<global.loadSlots;i++) {
 audio_group_load(1);
 audio_group_load(2);
 audio_master_gain(0.5);
-
-global.res_w = 1920;
-global.res_h = 1080;
 
 //AUDIO
 font_menu = load_text("font-menu");

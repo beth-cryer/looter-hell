@@ -1,5 +1,18 @@
 -Player now starts with a Common Shield
 
+-Added Chaingunner enemy type
+-Added Boss support in Stage scripts
+
+-Added stat comparison arrows to guncards in inventory when switching guns
+-Moved some objProjectile code to separate child objects for certain unique guns
+
+-Added enemy shatter effect when overkilled with enough damage
+-Added blood on player hit
+
+-Blood level, Screen shake and hitbox display now togglable from settings.ini
+-Added foreground sprite for player's hitbox
 -Added enemy animations
 -Increased enemy run speed
--Added enemy shatter effect when overkilled with enough damage
+-Adjusted bnum scaling, low-rarity guns should have higher projectile counts
+
+-Fixed Scarlet Devil laser pattern

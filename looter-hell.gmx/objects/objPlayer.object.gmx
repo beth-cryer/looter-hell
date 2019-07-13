@@ -254,7 +254,7 @@ if (burstcount &lt; burst) {
     //scrShake(0.5,0.1);
 
     proj = instance_create(x+xsh,y+ysh,pattern);
-    proj.type = objBullet;
+    proj.type = btype;
     proj.speed = bspeed;
     proj.num = bnum;
     proj.spread = bspread/bnum;
@@ -459,13 +459,17 @@ if (reloading == true) {audio_stop_sound(sfx_reload); reloadtime = 0; reloading 
 //only shoot either if not burstfire or if underneath burst limit
 if (burst == 0 or burstcount == 0) {
 
-//freeze enemies
+//freeze enemies + enemy bullets
 if (body = sprWorldBody) {
-for (i=0; i&lt;instance_number(objEnemy); i++) {
-   enemy = instance_find(objEnemy,i);
-   enemy.canmove = false;
-   enemy.canshoot = false;
-}
+    for (var i=0; i&lt;instance_number(objEnemy); i++) {
+       enemy = instance_find(objEnemy,i);
+       enemy.canmove = false;
+       enemy.canshoot = false;
+    }
+    for (var i=0; i&lt;instance_number(objProjectile); i++) {
+        proj = instance_find(objProjectile,i);
+        if (proj.owner == 1) proj.freeze = 1;
+    }
 }
 
 //shoot sound
@@ -475,7 +479,7 @@ scrShootSound();
 
 proj = instance_create(x+xsh,y+ysh,pattern);
 proj.owner = 0;
-proj.type = objBullet;
+proj.type = btype;
 proj.speed = bspeed;
 proj.num = bnum;
 proj.spread = bspread/bnum;
@@ -615,6 +619,8 @@ draw_text(16,view_hview/2,"Ammo: " + string(global.mag[equipped]) + " / " + stri
           <argument>
             <kind>1</kind>
             <string>draw_set_font(global.font_stats);
+
+//draw player
 draw_sprite(sprite_index,-1,x,y);
 
 //draw reload
@@ -649,6 +655,9 @@ if (global.loadout[equipped] != -1) {
     
 }
 }
+
+//draw hitbox
+if (global.hitbox != 0) draw_sprite_ext(sprHitbox,-1,x,y,1,1,0,image_blend,global.hitbox);
 </string>
           </argument>
         </arguments>

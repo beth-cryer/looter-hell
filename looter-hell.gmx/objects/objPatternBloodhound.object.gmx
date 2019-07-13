@@ -68,8 +68,7 @@ for(i=0; i&lt;num; i+=1) {
     proj.spread = spread;
     proj.type = type;
     proj.timetrans = objPatternBloodhound;
-    proj.lifespan = room_speed/2;
-    proj.bloodhound = 1;
+    proj.lifespan = room_speed*0.75;
     proj.splits = splits;
     
     scrSetProj(proj);

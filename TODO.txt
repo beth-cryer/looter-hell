@@ -1,6 +1,6 @@
 Inventory:
 Add Gems
-Add gun comparison
+Show both guns when comparing
 
 Add multiple Characters, with their own loadout + stats
 

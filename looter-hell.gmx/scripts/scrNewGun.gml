@@ -9,9 +9,10 @@ if (level < 1) level = 1;
 
 element = "None";
 elem_index = 0
-elem_dps = 6;
+elem_dps = 15;
 elem_chance = 10;
 
+btype = objBullet;
 bspeed = 4;
 bspread = 60;
 bnum = 1;
@@ -101,7 +102,7 @@ if (type == "Shield") {
     if (acc > 100) acc = 100;
     
     //don't scale bnum for certain weapons
-    if (fixed_bnum == 0) bnum = ceil(bnum * (rarity/3));
+    if (fixed_bnum == 0) bnum = floor(bnum * (1+rarity/4));
     
     //1% bonuses per rarity
     rate *= (1+(rarity/100));

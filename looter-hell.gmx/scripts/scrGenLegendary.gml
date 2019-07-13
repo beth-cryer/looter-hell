@@ -301,6 +301,7 @@ if (type == "Shotgun") {
     bspeed = 7;
     bnum = 1;
     bspread = 1;
+    btype = objSawblade;
     scope = scrGenScope();
     stock = scrGenStock();
     access = scrGenAccess(); //determines gun prefix
@@ -372,7 +373,7 @@ if (type == "Sniper Rifle") {
     barrel = sprSpectreBarrel;
     bnum = 1;
     bspread = 1;
-    bspeed = 6;
+    bspeed = 3;
     scope = scrGenScope();
     stock = scrGenStock();
     access = scrGenAccess();
@@ -420,6 +421,7 @@ if (type == "SMG") {
     bspeed = 10;
     bspread = 180;
     bnum = 2;
+    btype = objBloodBolt;
     splits = 0;
     scope = scrGenScope();
     stock = scrGenStock();
@@ -432,10 +434,10 @@ if (type == "SMG") {
     //GREED
     case(2):
     name = "Greed";
-    pattern = objPatternGreed;
+    pattern = objPattern6;
     //BODY
     body = sprGreedBody;
-    damage = 14; acc = 86; rate = 7.5; reload = 3; mag = 36; fixed_bnum = 1;
+    damage = 12; acc = 86; rate = 7.5; reload = 3; mag = 16; fixed_bnum = 1;
     scrElementalChance(60);
     grip = scrGenGrip();
     //BARREL
@@ -443,6 +445,7 @@ if (type == "SMG") {
     bspeed = 12;
     bspread = 240;
     bnum = 2;
+    btype = objGreed;
     scope = scrGenScope();
     stock = scrGenStock();
     access = scrGenAccess();
@@ -461,6 +464,7 @@ if (type == "SMG") {
     //GRIP
     grip = sprAquaGrip;
     barrel = scrGenBarrel();
+    btype = objWaterBolt;
     scope = scrGenScope();
     stock = 0;
     access = scrGenAccess();

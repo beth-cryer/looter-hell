@@ -371,7 +371,18 @@ draw_set_color(c_black);
 //LOADOUT
 uiwidth = 0;
 for(i=0;i&lt;global.loadSlots;i++) {
-    if (i == sel and across == 0) { if (switching == -1) draw_set_color(c_green); else draw_set_color(c_blue); } else draw_set_color(c_black);
+    //HIGHLIGHT SELECTION
+    draw_set_color(c_black);
+    
+    //IF NOT SWITCHING
+    if (switching == -1) {
+        //IF CURRENT SELECTED
+        if (across == 0 and i == sel) draw_set_color(c_green);
+    }else{
+        //IF SWITCHING AND CURRENT IS SELECTED
+        //OR SWITCHING FROM INV AND CURRENT WAS SELECTED
+        if ((across == 0 and i == sel) or (switching == 0 and i == iswitch)) draw_set_color(c_blue);
+    }
     
     if (global.loadout[i] != -1) {
         draw_text_w(xp,yp+(i*16),global.inventory[global.loadout[i],0]);
@@ -387,8 +398,20 @@ uiwidth = 0;
 //INV
 j = 0;
 for(i=pstart;i&lt;pend;i++) {
-    if (i == sel and across == 1) { if (switching == -1) draw_set_color(c_green); else draw_set_color(c_blue); } else draw_set_color(c_black);
-    //filter out Types in filters[]
+    //HIGHLIGHT SELECTION
+    draw_set_color(c_black);
+    
+    //IF NOT SWITCHING
+    if (switching == -1) {
+        //IF CURRENT SELECTED
+        if (across == 1 and i == sel) draw_set_color(c_green);
+    }else{
+        //IF SWITCHING AND CURRENT IS SELECTED
+        //OR SWITCHING FROM INV AND CURRENT WAS SELECTED
+        if ((across == 1 and i == sel) or (switching == 1 and i == iswitch)) draw_set_color(c_blue);
+    }
+    
+    //Filter out Types in filters[]
     if (scrCheckFilters(global.inventory[sinv[i],1]))
     {draw_text_w(xp+loadwidth+8,yp+(j*16),global.inventory[sinv[i],0]); j++;}
 }
@@ -455,24 +478,39 @@ if (type == "Shield") {
 
 }
 
+var wcomp;
+
 //draw stats
 draw_text(xw+width1,yp,string(name));
 draw_text(xw+width1,yp+16,load_text("level") + " " + string(level) + " " + string(type));
 
 if (type == "Shield") {
-    draw_text(xw+width1,yp+32,load_text("capacity") + ": " + string(capacity));
-    draw_text(xw+width1,yp+48,load_text("shieldrate") + ": " + string(chargerate));
-    draw_text(xw+width1,yp+64,load_text("shielddelay") + ": " + string(delay));
+    wcomp = draw_text_w(xw+width1,yp+32,load_text("capacity") + ": " + string(capacity));
+    scrCompare(xw+width1+wcomp,yp+32,3);
+    
+    wcomp = draw_text_w(xw+width1,yp+48,load_text("shieldrate") + ": " + string(chargerate));
+    scrCompare(xw+width1+wcomp,yp+48,5);
+    
+    wcomp = draw_text_w(xw+width1,yp+64,load_text("shielddelay") + ": " + string(delay));
+    scrCompare(xw+width1+wcomp,yp+64,4);
 }else{
     
-    if (bnum &gt; 1) draw_text(xw+width1,yp+32,load_text("damage") + ": " + string(damage) + "x" + string(bnum));
-    else draw_text(xw+width1,yp+32,load_text("damage") + ": " + string(damage));
+    if (bnum &gt; 1) wcomp = draw_text_w(xw+width1,yp+32,load_text("damage") + ": " + string(damage) + "x" + string(bnum));
+    else wcomp = draw_text_w(xw+width1,yp+32,load_text("damage") + ": " + string(damage));
+    scrCompare(xw+width1+wcomp,yp+32,3);
     
-    draw_text(xw+width1,yp+48,load_text("accuracy") + ": " + string(acc));
-    draw_text(xw+width1,yp+64,load_text("firerate") + ": " + string(rate));
-    draw_text(xw+width1,yp+80,load_text("reloadspeed") + ": " + string(reload));
-    draw_text(xw+width1,yp+96,load_text("magsize") + ": " + string(mag));
-
+    wcomp = draw_text_w(xw+width1,yp+48,load_text("accuracy") + ": " + string(acc));
+    scrCompare(xw+width1+wcomp,yp+48,4);
+    
+    wcomp = draw_text_w(xw+width1,yp+64,load_text("firerate") + ": " + string(rate));
+    scrCompare(xw+width1+wcomp,yp+64,5);
+    
+    wcomp = draw_text_w(xw+width1,yp+80,load_text("reloadspeed") + ": " + string(reload));
+    scrCompare(xw+width1+wcomp,yp+80,6);
+    
+    wcomp = draw_text_w(xw+width1,yp+96,load_text("magsize") + ": " + string(mag));
+    scrCompare(xw+width1+wcomp,yp+97,7);
+    
 }
 
 //RED TEXT

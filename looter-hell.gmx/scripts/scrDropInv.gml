@@ -27,3 +27,4 @@ global.inventory[i,22] = -1; //burst
 global.inventory[i,23] = -1; //texture
 global.inventory[i,24] = ""; //redtext
 global.inventory[i,25] = -1; //rarity
+global.inventory[i,26] = -1; //btype

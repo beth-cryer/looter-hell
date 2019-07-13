@@ -25,12 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>fire = false;
+            <string>bossName = ""
+
+fire = false;
 frozen = false;
 corrode = false;
+electric = false;
 
 mspeed = 1;
 ospeed = mspeed;
+boss = false;
 
 canmove = true;
 canattack = true;
@@ -42,6 +46,7 @@ body = 0;
 chestbonus = 0;
 
 hpmax = 0;
+hp = hpmax;
 xp = 0;
 gold = 0;
 metal = 0;
@@ -72,7 +77,9 @@ sprite[0] = sprite_index;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//blood amount/size based on kill damage
+            <string>if (global.blood == 0) exit;
+
+//blood amount/size based on kill damage
 var blood = ((lasthit * (recenthits)) / hpmax);
 if (blood &gt; 3) blood = 3;
 
@@ -100,6 +107,29 @@ if (blood &gt;= 1.5) {
         }
     }}
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>electric = false;
 </string>
           </argument>
         </arguments>
@@ -196,14 +226,22 @@ recenthits -= 0.1;
 
 if (recenthits &lt; 0) recenthits = 0;
 
-if (fire == true or corrode == true) {
+//ELEMENT DAMAGE
+if (fire == true or corrode == true or electric == true) {
     hp -= elem_dps/room_speed;
 }
 
+//ELECTROCUTE NEARBY
+if (electric == true) {
+    for(var e=0; e&lt;instance_number(objEnemy); e++) {
+        ii = instance_find(objEnemy, e);
+        if (distance_to_object(ii) &lt; 320) ii.hp -= elem_dps/room_speed;
+    }
+}
+
+mspeed = ospeed;
 if (position_meeting(x,y,objPuddle)) {
 mspeed = ospeed/2;
-}else{
-mspeed = ospeed;
 }
 
 //DEATH
@@ -261,30 +299,6 @@ instance_destroy();
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="objPuddle">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>ospeed = mspeed;
-mspeed = ospeed/2;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="7" enumb="0">
       <action>
         <libid>1</libid>
@@ -303,6 +317,37 @@ mspeed = ospeed/2;
           <argument>
             <kind>1</kind>
             <string>instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (boss == true) {
+draw_set_font(global.font_gui);
+
+draw_healthbar(display_get_gui_width()*0.25, view_hview-32, display_get_gui_width()*0.75, view_hview-8, (100*(hp/hpmax)), c_black, c_red, c_green, 0, true, false);
+
+draw_set_halign(fa_center);
+draw_text(display_get_gui_width()*0.5,view_hview-48,bossName)
+draw_set_halign(fa_left);
+}
 </string>
           </argument>
         </arguments>
@@ -329,12 +374,13 @@ mspeed = ospeed/2;
 
 if (fire == true) draw_col = c_red;
 else if (frozen == true) draw_col = c_aqua;
+else if (electric == true) draw_col = c_blue;
 else if (corrode == true) draw_col = c_green;
 else draw_col = image_blend;
 
 draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,draw_col,image_alpha);
 
-if(hp&gt;0) draw_text(x,y-24,string(hp));
+//if(hp&gt;0) draw_text(x,y-24,string(hp));
 </string>
           </argument>
         </arguments>
