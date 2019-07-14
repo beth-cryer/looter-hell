@@ -25,11 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
-if (owner == 0) {
-    instance_create(x,y,objPuddle);
-    instance_destroy();
-}
+            <string>if (owner == 0) instance_create(x,y,objPuddle);
 </string>
           </argument>
         </arguments>

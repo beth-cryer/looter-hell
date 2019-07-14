@@ -1,6 +1,6 @@
 //loop until value returned
 while(1) {
-    rand = round(random_range(1,5));
+    rand = irandom_range(1,5);
 
     switch(rand){
         case(1): return "Pistol"; break;

@@ -315,12 +315,16 @@ for(i=0;i&lt;global.loadSlots-1;i++) {
 }
 
 //MOVEMENT
-if (canmove == true and global.inv_open == false) {
+if (global.paused == false and canmove == true and global.inv_open == false) {
 image_speed = 0;
+y += mspeed * (global.k_down - global.k_up);
+x += mspeed * (global.k_right - global.k_left);
+/*
 if (keyboard_check(vk_up)) {y-=mspeed; image_speed = 0.1;}
 if (keyboard_check(vk_down)) {y+=mspeed; image_speed = 0.1;}
 if (keyboard_check(vk_left)) {x-=mspeed; image_speed = 0.1;}
 if (keyboard_check(vk_right)) {x+=mspeed; image_speed = 0.1;}
+*/
 }
 
 //WALK IF BACKGROUND SCROLLING
@@ -409,6 +413,123 @@ if(global.shield &gt; capacity) global.shield = capacity;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//CHECK SHOOT BUTTON
+if (global.k_shoot) {
+
+    if (global.paused == false and canshoot == true and global.mag[equipped] &gt; 0) {
+    
+    //cancel reload
+    if (reloading == true) {audio_stop_sound(sfx_reload); reloadtime = 0; reloading = false;}
+    
+    //only shoot either if not burstfire or if underneath burst limit
+    if (burst == 0 or burstcount == 0) {
+    
+    //freeze enemies + enemy bullets
+    if (body = sprWorldBody) {
+        with (objEnemy) {
+           canmove = false;
+           canshoot = false;
+        }
+        with (objProjectile) {
+            if (owner == 1) freeze = 1;
+        }
+    }
+    
+    //shoot sound
+    scrShootSound();
+    //screen shake
+    //scrShake(0.5,0.1);
+    
+    proj = instance_create(x+xsh,y+ysh,pattern);
+    proj.owner = 0;
+    proj.type = btype;
+    proj.speed = bspeed;
+    proj.num = bnum;
+    proj.spread = bspread/bnum;
+    
+    scrSetProj(proj);
+    
+    //deathspawn limit
+    proj.splits = splits;
+    
+    //add to burstcount
+    //if (burst &gt; 0) burstcount += 1;
+    
+    global.mag[equipped] -= 1;
+    alarm[0] = (room_speed/rate);
+    
+    canshoot = false;
+    
+    }
+    
+    }
+
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="objProjectile">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (other.owner == 1) {
+
+//check if player has invicibility effects
+if (skillactive == true) {
+if (skill == "Dash") exit;
+}
+
+//elemental effects
+scrElemEffect();
+
+if (corrode == true) plr_damage(other.damage*1.1); else
+plr_damage(other.damage);
+
+//screen shake
+scrShake(2,0.7);
+
+//BLOOD
+if (global.blood != 0) instance_create(x-8,y,objBlood);
+
+audio_play_sound(sfxPlayerHurt,20,false);
+
+if (other.hit_destroy == true) with(other) instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="4" ename="objSolid">
       <action>
@@ -451,56 +572,7 @@ y = yprevious;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (canshoot == true and global.mag[equipped] &gt; 0) {
-
-//cancel reload
-if (reloading == true) {audio_stop_sound(sfx_reload); reloadtime = 0; reloading = false;}
-
-//only shoot either if not burstfire or if underneath burst limit
-if (burst == 0 or burstcount == 0) {
-
-//freeze enemies + enemy bullets
-if (body = sprWorldBody) {
-    for (var i=0; i&lt;instance_number(objEnemy); i++) {
-       enemy = instance_find(objEnemy,i);
-       enemy.canmove = false;
-       enemy.canshoot = false;
-    }
-    for (var i=0; i&lt;instance_number(objProjectile); i++) {
-        proj = instance_find(objProjectile,i);
-        if (proj.owner == 1) proj.freeze = 1;
-    }
-}
-
-//shoot sound
-scrShootSound();
-//screen shake
-//scrShake(0.5,0.1);
-
-proj = instance_create(x+xsh,y+ysh,pattern);
-proj.owner = 0;
-proj.type = btype;
-proj.speed = bspeed;
-proj.num = bnum;
-proj.spread = bspread/bnum;
-
-scrSetProj(proj);
-
-//deathspawn limit
-proj.splits = splits;
-
-//add to burstcount
-//if (burst &gt; 0) burstcount += 1;
-
-global.mag[equipped] -= 1;
-alarm[0] = (room_speed/rate);
-
-canshoot = false;
-
-}
-
-}
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -704,7 +776,7 @@ if (global.hitbox != 0) draw_sprite_ext(sprHitbox,-1,x,y,1,1,0,image_blend,globa
           <argument>
             <kind>1</kind>
             <string>equipped++;
-if (equipped&gt;=global.loadSlots) equipped = 0;
+if (equipped &gt;= global.loadSlots-1) equipped = 0;
 
 scrSwitchWep(equipped);
 if (sfx_reload != 0) audio_stop_sound(sfx_reload);

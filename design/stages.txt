@@ -15,10 +15,17 @@ White/blue colour scheme
 A?: Alien Hive
 Green colour scheme
 Small melee enemies, Large stationary shooters
+Hive Mind boss
 
 Hellstar
 Red colour scheme
 Demon enemies. Basically copy DOOM
+Archdemon boss
+
+Underwater
+Blue colour scheme, water filter effect
+Fish enemies, megalodon boss
 
 Black Hole
 Infinite mode here possibly? Or have a cool Lovecraft boss in the center
+Could reveal to player early and have it as a content source which unlocks throughout the game

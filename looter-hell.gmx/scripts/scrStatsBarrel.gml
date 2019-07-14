@@ -162,7 +162,7 @@ switch(barrel) {
     case(sprSMGBarrel1):
     bspeed = 11;
     bspread = 10;
-    bnum += round(random_range(1,2));
+    bnum += round(random_range(0,2));
     scrElementalChance(60);
     acc = acc*1.02;
     break;
@@ -170,7 +170,7 @@ switch(barrel) {
     case(sprSMGBarrel2):
     bspeed = 14;
     bspread = 20;
-    bnum += round(random_range(1,3));
+    bnum += round(random_range(1,2));
     scrElementalChance(40);
     acc = acc*0.99;
     damage = damage*1.01;
@@ -179,7 +179,7 @@ switch(barrel) {
     case(sprSMGBarrel3):
     bspeed = 12;
     bspread = 10;
-    bnum += round(random_range(2,3));
+    bnum += round(random_range(1,3));
     acc = acc*1.01;
     damage = damage*1.01;
     rate = rate*0.97;

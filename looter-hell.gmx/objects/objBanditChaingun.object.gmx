@@ -123,7 +123,7 @@ alarm[9] = 1;
     scrSetProj(proj);
     bullets -= 1;
     
-    scrShootSound();
+    if (boss == true) scrShootSound();
     }
     
     alarm[9] = room_speed/nrate;

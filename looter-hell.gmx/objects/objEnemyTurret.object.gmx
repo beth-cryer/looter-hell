@@ -39,11 +39,16 @@ image_speed = 0;
 scrNewGun(global.stageLevel,1,scrGenGunType());
 bullets = mag;
 nrate = rate/2;
+
 if (bnum mod 2 == 0) nnum = bnum; else nnum = bnum+1;
 if (nnum &gt; 4) nnum = 4;
 if (bspread &lt; 25) nspread = bspread*2; else nspread = bspread;
 
 if (pattern==objPattern2) nspread = 10;
+if (pattern==objPattern4) pattern = objPattern1;
+
+scrEnemyDiffScale();
+
 alarm[9] = room_speed/nrate;
 
 scrGunPos();

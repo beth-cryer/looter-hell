@@ -1,7 +1,7 @@
 //NO ACCESS
-if (round(random(100)) < 50) return 0;
+if (random(100) < 75) return 0;
 
-rand = round(random_range(1,6));
+rand = irandom_range(1,6);
 
 switch(rand) {
 

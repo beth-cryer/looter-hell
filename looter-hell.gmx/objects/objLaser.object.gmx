@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>event_inherited();
 
+//don't destroy on hit
+hit_destroy = false;
+
 image_xscale = 32;
 
 //get y offset

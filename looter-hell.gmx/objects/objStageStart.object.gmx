@@ -43,21 +43,10 @@ instance_create(448,32,objInv);
 instance_destroy();
 }
 
-//AREA 1
-if(global.area == 0) {
-
-//STAGES
-switch(global.stage) {
-case(0): scrA1S1(); break;
-case(1): scrA1S2(); break;
-case(2): scrA1S3(); break;
-case(3): scrA1S4(); break;
-case(4): scrA1S5(); break;
-case(5): scrA1S6(); break;
-case(6): scrA1S7(); break;
-case(7): scrA1S8(); break;
-}
-
+var stage_str = "scrA" + string(global.area+1) + "S" + string(global.stage+1);
+var stage_scr = asset_get_index(stage_str);
+if (stage_scr &gt; -1) {
+    script_execute(stage_scr);
 }
 
 //DELAY START

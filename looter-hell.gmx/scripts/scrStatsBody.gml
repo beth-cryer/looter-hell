@@ -3,15 +3,15 @@ switch(body) {
     //PISTOLS
 
     case(sprPistolBody1):
-    damage = 11; acc = 84; rate = 6; reload = 3; mag = 20;
+    damage = 11; acc = 84; rate = 5.5; reload = 1; mag = 20;
     break;
     
     case(sprPistolBody2):
-    damage = 18; acc = 80; rate = 4.5; reload = 2; mag = 16;
+    damage = 18; acc = 80; rate = 4.5; reload = 1.5; mag = 16;
     break;
     
     case(sprPistolBody3):
-    damage = 9; acc = 90; rate = 7; reload = 2; mag = 25;
+    damage = 9; acc = 90; rate = 6.5; reload = 2; mag = 25;
     break;
     
     case(sprPistolBody4):
@@ -21,29 +21,29 @@ switch(body) {
     //ASSAULT RIFLES
     
     case(sprARBody1):
-    damage = 9; acc = 83; rate = 8; reload = 2.5; mag = 35;
+    damage = 9; acc = 83; rate = 8; reload = 2; mag = 35;
     break;
     
     case(sprARBody2):
-    damage = 12; acc = 87; rate = 6; reload = 2.5; mag = 25; scrElementalChance(30);
+    damage = 12; acc = 87; rate = 6; reload = 1.5; mag = 25; scrElementalChance(30);
     break;
     
     case(sprARBody3):
-    damage = 14; acc = 80; rate = 6; reload = 3; mag = 30;
+    damage = 14; acc = 80; rate = 6; reload = 2.5; mag = 30;
     break;
     
     case(sprARBody4):
-    damage = 11; acc = 85; rate = 7; reload = 3.5; mag = 42;
+    damage = 11; acc = 85; rate = 7; reload = 3; mag = 42;
     break;
 
     //SHOTGUNS
     
     case(sprSGBody1):
-    damage = 16; acc = 82; rate = 2.5; reload = 4; mag = 16; scrElementalChance(40);
+    damage = 16; acc = 82; rate = 2.5; reload = 1.5; mag = 16; scrElementalChance(40);
     break;
     
     case(sprSGBody2):
-    damage = 23; acc = 85; rate = 2; reload = 3.5; mag = 10;
+    damage = 23; acc = 85; rate = 2; reload = 2.5; mag = 10;
     break;
     
     case(sprSGBody3):
@@ -51,7 +51,7 @@ switch(body) {
     break;
     
     case(sprSGBody4):
-    damage = 21; acc = 80; rate = 2; reload = 2.5; mag = 11;
+    damage = 21; acc = 80; rate = 2; reload = 3; mag = 11;
     break;
     
     //SNIPERS
@@ -65,7 +65,7 @@ switch(body) {
     break;
     
     case(sprSniperBody3):
-    damage = 23; acc = 90; rate = 2; reload = 2.5; mag = 11; scrElementalChance(100);
+    damage = 23; acc = 90; rate = 2; reload = 1.5; mag = 11; scrElementalChance(100);
     break;
     
     case(sprSniperBody4):
@@ -91,7 +91,7 @@ switch(body) {
     break;
     
     case(sprSMGBody5):
-    damage = 8; acc = 91; rate = 8; reload = 2.5; mag = 15;
+    damage = 8; acc = 91; rate = 8; reload = 2; mag = 15;
     break;
     
     //SHIELDS

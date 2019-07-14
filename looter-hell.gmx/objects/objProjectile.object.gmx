@@ -31,6 +31,7 @@ xorig = x;
 yorig = y;
 owner = 0;
 freeze = 0;
+hit_destroy = true;
 
 curve = 0;
 zigzag = 0;
@@ -55,7 +56,7 @@ spread = 0;
 splits = 0;
 
 image_speed = 0;
-alarm[0] = room_speed * 4;
+//alarm[0] = room_speed * 4;
 </string>
           </argument>
         </arguments>
@@ -229,9 +230,6 @@ if (owner == 0) {
     direction += acc*(1/objPlayer.acc);
 }
 
-//set type
-image_index = owner;
-
 //set initial pause speed
 pausespeed = speed;
 
@@ -343,91 +341,6 @@ if (timetrans != 1 and lifespan != 0) {
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="objEnemy">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (owner == 0) {
-//elemental effects
-scrElemEffect();
-
-if (other.corrode == true) {
-other.hp -= (damage*1.1); other.lasthit = damage*1.1;
-}else{
-other.hp -= damage; other.lasthit = damage;
-}
-other.recenthits++;
-
-if (vampire == 1) {
-    global.hp += damage/5;
-    if (objPlayer.vampire &lt; 5) objPlayer.vampire += 0.5;
-}
-
-//BLOOD
-if (global.blood != 0) instance_create(x+16,y,objBlood);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objPlayer">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (owner == 1) {
-
-//check if player has invicibility effects
-if (other.skillactive == true) {
-if (other.skill == "Dash") exit;
-}
-
-//elemental effects
-scrElemEffect();
-
-if (other.corrode == true) plr_damage(damage*1.1); else
-plr_damage(damage);
-
-//screen shake
-scrShake(1,0.7);
-
-//BLOOD
-if (global.blood != 0) instance_create(x-8,y,objBlood);
-
-audio_play_sound(sfxPlayerHurt,20,false);
-instance_destroy();
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="7" enumb="0">
       <action>
         <libid>1</libid>
@@ -461,11 +374,7 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-
-/*
-if (bloodhound == 2)
-draw_line(x, y, target.x, target.y);*/
+            <string>draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 </string>
           </argument>
         </arguments>

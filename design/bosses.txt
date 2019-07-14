@@ -1,9 +1,16 @@
-Minibosses:
+-BANDITS-
 
 Chaingunner-
 large humanoid, high health
 Shoots high firerate beam which moves up and down the screen
 
+Cultist-
+small humanoid, fast with med health
+shoots large spell patterns
+special: homing spell
+
+
+-FEDERATION-
 
 Super Soldier-
 humanoid
@@ -11,11 +18,23 @@ moves at normal speed
 shoots regular bullets
 special: grenade launcher
 
+
+-ALIEN-
+
 Worm-
 alien
-stationary
+moves often
 spits acid
-special: burrows to a telegraphed spot
+special: burrows to a telegraphed spot, damages position
+
+Hive Mind-
+alien
+stationary
+spawns minions frequently
+special: multi-laser attack
+
+
+-SURPRISE!-
 
 Ninja-
 humanoid

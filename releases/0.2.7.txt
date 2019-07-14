@@ -1,0 +1,5 @@
+-Added enemy corpses and blood slide effect on death
+-Added support for key rebinding from settings.ini (no interface yet)
+
+-Changed random function to irandom, shouldn't be biased anymore
+-Fixed melee attacks

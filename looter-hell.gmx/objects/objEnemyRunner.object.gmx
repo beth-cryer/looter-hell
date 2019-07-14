@@ -101,7 +101,7 @@ if (canmove == true and frozen==false) {
 //MELEE
 if (distance_to_object(objPlayer)&lt;= 48 and canattack == true) {
     speed = 0;
-    global.hp -= damage;
+    plr_damage(damage);
     canattack = false;
     alarm[9] = rate*room_speed;
 }

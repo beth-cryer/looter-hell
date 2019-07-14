@@ -122,12 +122,17 @@ if (pickup == true) {
 if (scrAddInv() == true) {instance_destroy();}
 }
 
+//SELECT BY MOUSEOVER
 if point_in_rectangle(mouse_x, mouse_y, x, y, x+96, y+64) and idelay!=0 {
     cardopen = true;
 }else{
     cardopen = false;
 }
 
+//SELECT BY PROXIMITY
+if (distance_to_object(objPlayer)&lt;64 and idelay!=0) cardopen = true;
+
+//IF SELECTED
 if (cardopen == true) {
     xsc = 1; ysc = 1;
     //get the max width of the guncard for Draw event
@@ -176,7 +181,7 @@ gheight = sprite_get_height(body);
 //RARITY GLOW
 c = scrSetRarityColour();
 gwidth = sprite_get_width(body);
-draw_sprite_ext(sprGlow,-1,x-16+(gwidth/2),y+(gheight/2)-4,0.4,0.4,0,c,0.5);
+draw_sprite_ext(sprGlow,-1,x-16+(gwidth/2),y+(gheight/2)-4,0.4,0.4,0,c,0.8);
 
 if (cardopen == true) {
 

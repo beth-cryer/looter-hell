@@ -1,40 +1,40 @@
-rand = round(random(100));
-if (rand > elem_chance) {
+var rand = round(random(100));
+if (rand > other.elem_chance) {
     return false;
 }
 
 //spawn element effect if element proc'd
-switch(element) {
+switch(other.element) {
 
     case("Fire"):
-    if (other.fire == false) {
-        other.fire = true;
-        other.elem_dps = elem_dps;
-        other.alarm[0] = room_speed*4;
+    if (fire == false) {
+        fire = true;
+        elem_dps = other.elem_dps;
+        alarm[0] = room_speed*4;
     }
     break;
 
     case("Ice"):
-    if (other.frozen == false) other.frozen = true; other.alarm[1] = room_speed;
+    if (frozen == false) frozen = true; alarm[1] = room_speed;
     break;
     
     case("Electric"):
-        other.electric = true;
-        other.elem_dps = elem_dps;
-        other.alarm[3] = room_speed*4;
+        electric = true;
+        elem_dps = other.elem_dps;
+        alarm[3] = room_speed*4;
     break;
     
     case("Corrosive"):
-    if (other.corrode == false) {
-        other.corrode = true;
-        other.elem_dps = elem_dps;
-        other.alarm[2] = room_speed*4;
+    if (corrode == false) {
+        corrode = true;
+        elem_dps = other.elem_dps;
+        alarm[2] = room_speed*4;
     }
     break;
 
     case("Explosive"):
     ii = instance_create(x,y,objExplosion);
-    ii.dps = elem_dps;
+    ii.dps = other.elem_dps;
     break;
 
 }

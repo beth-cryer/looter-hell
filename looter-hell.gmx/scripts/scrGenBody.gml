@@ -1,7 +1,7 @@
 //PISTOL BODYS
 if (type == "Pistol") {
 
-    rand = round(random_range(1,4));
+    rand = irandom_range(1,4);
     switch(rand){
     case(1): body = sprPistolBody1; break;
     case(2): body = sprPistolBody2; break;
@@ -14,7 +14,7 @@ if (type == "Pistol") {
 //ASSAULT RIFLE BODYS
 if (type == "Assault Rifle") {
 
-    rand = round(random_range(1,4));
+    rand = irandom_range(1,4);
     switch(rand){
     case(1): body = sprARBody1; break;
     case(2): body = sprARBody2; break;
@@ -27,7 +27,7 @@ if (type == "Assault Rifle") {
 //SHOTGUN BODYS
 if (type == "Shotgun") {
 
-    rand = round(random_range(1,4));
+    rand = irandom_range(1,4);
     switch(rand){
     case(1): body = sprSGBody1; break;
     case(2): body = sprSGBody2; break;
@@ -40,7 +40,7 @@ if (type == "Shotgun") {
 //SNIPER BODYS
 if (type == "Sniper Rifle") {
 
-    rand = round(random_range(1,4));
+    rand = irandom_range(1,4);
     switch(rand){
     case(1): body = sprSniperBody1; break;
     case(2): body = sprSniperBody2; break;
@@ -53,7 +53,7 @@ if (type == "Sniper Rifle") {
 //SMG BODYS
 if (type == "SMG") {
 
-    rand = round(random_range(1,5));
+    rand = irandom_range(1,5);
     switch(rand){
     case(1): body = sprSMGBody1; break;
     case(2): body = sprSMGBody2; break;
@@ -67,7 +67,7 @@ if (type == "SMG") {
 //SHIELD BODYS
 if (type == "Shield") {
 
-    rand = round(random_range(1,4));
+    rand = irandom_range(1,4);
     switch(rand){
     case(1): body = sprShieldBody1; break;
     case(2): body = sprShieldBody2; break;

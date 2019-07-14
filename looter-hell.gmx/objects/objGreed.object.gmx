@@ -25,15 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
-
-if (owner == 0) {
-
-//REGEN AMMO
-if (global.mag[objPlayer.equipped] &lt; global.inventory[global.loadout[objPlayer.equipped],7])
-global.mag[objPlayer.equipped] += 1;
-
-instance_destroy();
+            <string>if (owner == 0) {
+    //REGEN AMMO
+    if (global.mag[objPlayer.equipped] &lt; global.inventory[global.loadout[objPlayer.equipped],7])
+    global.mag[objPlayer.equipped] += 1;
 }
 </string>
           </argument>

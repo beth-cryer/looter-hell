@@ -5,6 +5,7 @@
 
 -Added stat comparison arrows to guncards in inventory when switching guns
 -Moved some objProjectile code to separate child objects for certain unique guns
+-Moved collision code from each objProjectile to player/enemy object
 
 -Added enemy shatter effect when overkilled with enough damage
 -Added blood on player hit
@@ -14,5 +15,7 @@
 -Added enemy animations
 -Increased enemy run speed
 -Adjusted bnum scaling, low-rarity guns should have higher projectile counts
+-Decreased reload time for almost all guns
 
 -Fixed Scarlet Devil laser pattern
+-Can no longer use Ctrl-switching to equip shield as your gun (lol)

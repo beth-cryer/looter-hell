@@ -51,7 +51,7 @@ if (type == "Assault Rifle") {
     stock = scrGenStock();
     access = scrGenAccess();
     texture = texVortex;
-    redtext = "uwu";
+    redtext = "Cloudy with a chance of death";
     break;
     
     //CHERRY BLOSSOM
@@ -67,6 +67,7 @@ if (type == "Assault Rifle") {
     bspeed = 5;
     bspread = 180;
     bnum = round(random_range(8,10));
+    btype = objPetal;
     splits = 1;
     scope = scrGenScope();
     stock = scrGenStock();
@@ -110,12 +111,13 @@ if (type == "Shotgun") {
     pattern = objPatternScarlet;
     //BODY
     body = sprScarletBody;
-    damage = 10; acc = 85; rate = 3; reload = 3; mag = 30; bnum = 8;
+    damage = 10; acc = 85; rate = 3; reload = 3; mag = 25; bnum = 8;
     grip = scrGenGrip();
     //BARREL
     barrel = sprScarletBarrel;
     bspeed = 8;
     bspread = 180;
+    btype = objScarlet;
     scope = 0;
     stock = 0;
     access = scrGenAccess(); //determines gun prefix

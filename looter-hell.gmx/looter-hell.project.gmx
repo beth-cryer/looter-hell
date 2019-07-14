@@ -453,15 +453,19 @@
       <sprite>sprites\sprBanditRunner</sprite>
       <sprite>sprites\sprBanditChaingun</sprite>
     </sprites>
-    <sprite>sprites\sprBullet</sprite>
-    <sprite>sprites\sprWaterBolt</sprite>
-    <sprite>sprites\sprBloodBolt</sprite>
-    <sprite>sprites\sprBFGShot</sprite>
-    <sprite>sprites\sprBulletEnemy</sprite>
-    <sprite>sprites\sprBombEnemy</sprite>
-    <sprite>sprites\sprKnife</sprite>
-    <sprite>sprites\sprSawblade</sprite>
-    <sprite>sprites\sprLaser</sprite>
+    <sprites name="Projectiles">
+      <sprite>sprites\sprBullet</sprite>
+      <sprite>sprites\sprPetal</sprite>
+      <sprite>sprites\sprBloodBolt</sprite>
+      <sprite>sprites\sprWaterBolt</sprite>
+      <sprite>sprites\sprBFGShot</sprite>
+      <sprite>sprites\sprBulletEnemy</sprite>
+      <sprite>sprites\sprBombEnemy</sprite>
+      <sprite>sprites\sprKnife</sprite>
+      <sprite>sprites\sprSawblade</sprite>
+      <sprite>sprites\sprLaser</sprite>
+      <sprite>sprites\sprScarlet</sprite>
+    </sprites>
     <sprite>sprites\sprEnemy</sprite>
     <sprite>sprites\sprExplosion</sprite>
     <sprite>sprites\sprPuddle</sprite>
@@ -473,6 +477,7 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bgShip</background>
+    <background>background\bgDesert</background>
     <background>background\background1</background>
   </backgrounds>
   <paths name="paths"/>
@@ -517,6 +522,7 @@
       <script>scripts\inv_sort.gml</script>
       <script>scripts\sval_type.gml</script>
       <script>scripts\sremove_type.gml</script>
+      <script>scripts\scrInLoadout.gml</script>
     </scripts>
     <scripts name="genNames">
       <script>scripts\scrGenPistolName.gml</script>
@@ -553,6 +559,7 @@
         <script>scripts\scrA1S6.gml</script>
         <script>scripts\scrA1S7.gml</script>
         <script>scripts\scrA1S8.gml</script>
+        <script>scripts\scrA1S9.gml</script>
       </scripts>
     </scripts>
     <scripts name="characters">
@@ -574,27 +581,30 @@
       <script>scripts\draw_elem.gml</script>
       <script>scripts\scrSpawnGun.gml</script>
       <script>scripts\scrGunPos.gml</script>
+      <script>scripts\scrSetProj.gml</script>
+      <script>scripts\scrGetGCWidth.gml</script>
+      <script>scripts\approach.gml</script>
+      <script>scripts\draw_shadow.gml</script>
+      <script>scripts\diff_scale.gml</script>
+      <script>scripts\scrCheckFilters.gml</script>
+      <script>scripts\compare_stats.gml</script>
+      <script>scripts\keys.gml</script>
     </scripts>
-    <script>scripts\scrSetProj.gml</script>
+    <script>scripts\init.gml</script>
+    <script>scripts\load_settings.gml</script>
+    <script>scripts\inputs_pressed.gml</script>
     <script>scripts\scrSwitchWep.gml</script>
     <script>scripts\scrElemEffect.gml</script>
     <script>scripts\scrReloadGun.gml</script>
-    <script>scripts\init.gml</script>
-    <script>scripts\scrLoadSettings.gml</script>
-    <script>scripts\scrGetGCWidth.gml</script>
-    <script>scripts\scrInLoadout.gml</script>
-    <script>scripts\draw_shadow.gml</script>
-    <script>scripts\key_bindings.gml</script>
-    <script>scripts\scrCheckFilters.gml</script>
     <script>scripts\plr_damage.gml</script>
     <script>scripts\input_check.gml</script>
-    <script>scripts\approach.gml</script>
     <script>scripts\scrItemType.gml</script>
     <script>scripts\scrShake.gml</script>
     <script>scripts\draw_circular_bar.gml</script>
     <script>scripts\draw_pie.gml</script>
-    <script>scripts\compare_stats.gml</script>
     <script>scripts\scrCompare.gml</script>
+    <script>scripts\scrEnemyDiffScale.gml</script>
+    <script>scripts\find_gamepad.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntStats</font>
@@ -606,8 +616,8 @@
     <object>objects\objGun</object>
     <object>objects\objChest</object>
     <object>objects\objSolid</object>
-    <object>objects\objEnemy</object>
     <object>objects\objProjectile</object>
+    <object>objects\objEnemy</object>
     <objects name="Patterns">
       <object>objects\objPattern1</object>
       <object>objects\objPattern2</object>
@@ -631,6 +641,7 @@
       <object>objects\objPatternTornado</object>
     </objects>
     <objects name="UI/System">
+      <object>objects\objController</object>
       <object>objects\objInv</object>
       <object>objects\objMenuMain</object>
       <object>objects\objMenuOptions</object>
@@ -640,7 +651,6 @@
       <object>objects\objSpawner</object>
       <object>objects\objGunSpawn</object>
       <object>objects\objStarterItems</object>
-      <object>objects\objController</object>
       <object>objects\objCamera</object>
     </objects>
     <objects name="Enemies">
@@ -653,6 +663,8 @@
     </objects>
     <objects name="Projectiles">
       <object>objects\objBullet</object>
+      <object>objects\objPetal</object>
+      <object>objects\objScarlet</object>
       <object>objects\objSpectre</object>
       <object>objects\objWaterBolt</object>
       <object>objects\objBloodBolt</object>
@@ -671,6 +683,7 @@
     <object>objects\objExplosion</object>
     <object>objects\objPuddle</object>
     <object>objects\objGib</object>
+    <object>objects\objCorpse</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMenu</room>

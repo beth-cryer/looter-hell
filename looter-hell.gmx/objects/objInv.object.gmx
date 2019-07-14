@@ -152,7 +152,7 @@ or (moused == true and mouse_check_button_pressed(mb_left))) {
     if (switching == -1) {
         //from loadout
         if (across == 0) {
-        if (global.loadout[sinv[sel]] != -1) switching = 0; across = 1;
+        if (global.loadout[sel] != -1) switching = 0; across = 1;
         //from inventory
         }else if (across == 1) {
         switching = 1; across = 0;

@@ -1,9 +1,7 @@
 randomize();
 
 //LOAD SETTINGS FROM INI
-scrLoadSettings();
-global.input_device = 0; //0=kb+m //1=controller
-key_bindings();
+load_settings();
 
 //PLAYER STATS
 global.level = 1;
@@ -55,6 +53,10 @@ global.loadSlots = 5;
 for(i=0;i<global.loadSlots;i++) {
     global.loadout[i] = -1;
 }
+
+//GAMEPAD
+global.gpad = 0;
+find_gamepad();
 
 //TECHNICAL SHIT
 audio_group_load(1);

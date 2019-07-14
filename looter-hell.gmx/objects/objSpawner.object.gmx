@@ -55,11 +55,14 @@ smove = 0;
             <string>background_hspeed[0] = 0;
 smove = 0;
 
-//reset blood surface
+//reset old blood surface
 if(instance_exists(objController)) {
 surface_free(objController.bsurf);
 objController.xpos = 0;
 }
+
+//clean up corpses
+with(objCorpse) fade = true;
 
 //spawn this wave of enemies
 for(i=0; i&lt;array_length_2d(global.w_enemies,current); i++) {
@@ -105,11 +108,14 @@ waveend = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//fade out blood
-if (smove != 0) {
-    //fade out blood
+            <string>if (smove != 0) {
+    //scroll blood
     if (instance_exists(objController)) {
         objController.xpos += background_hspeed[0];
+    }
+    //scroll corpses
+    with(objCorpse) {
+        x += background_hspeed[0];
     }
 }
 

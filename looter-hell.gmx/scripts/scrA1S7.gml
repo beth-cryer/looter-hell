@@ -25,7 +25,7 @@ scrAddEnemies(objEnemyGunner,3,cx-128,cy,sp);
 scrNewWave();
 
 //WAVE 5
-scrAddEnemies(objEnemyRunner,4,cx,cy,sp);
+scrAddEnemies(objEnemyRunner,3,cx,cy,sp);
 scrAddEnemies(objEnemyGunner,4,cx-128,cy,sp);
-scrAddEnemies(objEnemyTurret,3,cx-64,cy,sp*2);
+scrAddEnemies(objBanditChaingun,1,cx-64,cy,sp);
 scrNewWave();

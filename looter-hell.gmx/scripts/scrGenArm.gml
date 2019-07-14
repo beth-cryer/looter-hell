@@ -1,4 +1,5 @@
-rand = round(random_range(1,4));
+rand = irandom_range(1,4);
+
 switch(rand){
 case(1): arm = sprShieldArm1; break;
 case(2): arm = sprShieldArm2; break;
