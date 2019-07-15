@@ -79,10 +79,10 @@ stages[0] = 8;
             <string>xp = 256;
 yp = 160;
 if (delay == 0) {
-    if (keyboard_check(vk_down)) {sel++; delay = 1;}
-    if (keyboard_check(vk_up)) {sel--; delay = 1;}
-    if (keyboard_check(vk_right)) {area++; delay = 1;}
-    if (keyboard_check(vk_left)) {area--; delay = 1;}
+    if (global.k_down) {sel++; delay = 1;}
+    if (global.k_up) {sel--; delay = 1;}
+    if (global.k_right) {area++; delay = 1;}
+    if (global.k_left) {area--; delay = 1;}
     if (delay == 1) alarm[0] = room_speed/10;
 }
 
@@ -102,10 +102,12 @@ if (sel&gt;stages[area]-1) sel = stages[area]-1;
 if (sel&lt;0) sel = 0;
 
 //select option
-if (keyboard_check_pressed(vk_enter) or (moused == true and mouse_check_button_pressed(mb_left))) {
+if (global.k_select or (moused == true and mouse_check_button_pressed(mb_left))) {
     audio_play_sound(sfxMenuSelect,10,false);
     global.area = area;
     global.stage = sel;
+    
+    global.inv_open = false;
     
     room_goto(rmBattle);
 }

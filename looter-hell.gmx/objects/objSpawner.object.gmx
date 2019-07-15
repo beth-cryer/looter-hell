@@ -28,7 +28,6 @@
             <string>wavelength = 0;
 current = 0;
 waveend = 0;
-stageend = 0;
 smove = 0;
 </string>
           </argument>
@@ -52,20 +51,27 @@ smove = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>background_hspeed[0] = 0;
+            <string>//stop moving all background layers
+backgrounds_stop();
+
 smove = 0;
 
-//reset old blood surface
-if(instance_exists(objController)) {
-surface_free(objController.bsurf);
-objController.xpos = 0;
+//new blood surface
+global.bsurfc++;
+global.bsurf[global.bsurfc] = surface_create(room_width,room_height);
+
+//free surfaces that are definitely offscreen
+for(var i=0; i&lt;global.bsurfc+1; i++) {
+    if (surface_exists(global.bsurf[i])) {
+    if (-global.bpos[i] &gt; room_width) surface_free(global.bsurf[i]);
+    }
 }
 
 //clean up corpses
-with(objCorpse) fade = true;
+//with(objCorpse) fade = true;
 
 //spawn this wave of enemies
-for(i=0; i&lt;array_length_2d(global.w_enemies,current); i++) {
+for(var i=0; i&lt;array_length_2d(global.w_enemies,current); i++) {
     //if position is empty
     if !(instance_position(global.w_positionx[current,i],global.w_positiony[current,i],objEnemy))
     instance_create(global.w_positionx[current,i],global.w_positiony[current,i],global.w_enemies[current,i]);
@@ -109,19 +115,37 @@ waveend = 0;
           <argument>
             <kind>1</kind>
             <string>if (smove != 0) {
-    //scroll blood
-    if (instance_exists(objController)) {
-        objController.xpos += background_hspeed[0];
+    
+    //SCROLL BACKGROUND IF NOT PAUSED
+    if(global.paused == true) {
+    alarm_pause(1);
+    background_hspeed[global.bg_floor] = 0;
+    
+    } else background_hspeed[global.bg_floor] = -(0.9*objPlayer.basespeed);
+    
+    //scroll other background layers accordingly
+    for(var i=0; i&lt;8; i++) {
+        if(background_visible[i] and i != global.bg_floor) {
+        //BEHIND FLOOR
+        if (global.bg_floor-i &gt; 0) background_hspeed[i] = (background_hspeed[global.bg_floor]*(0.5/(global.bg_floor-i)));
+        //IN FRONT OF FLOOR
+        else background_hspeed[i] = (background_hspeed[global.bg_floor] * 1.5*(i-global.bg_floor));
+        }
     }
+    
+    //scroll all blood
+    for(var i=0; i&lt;global.bsurfc+1; i++)
+    global.bpos[i] += background_hspeed[global.bg_floor];
+    
     //scroll corpses
     with(objCorpse) {
-        x += background_hspeed[0];
+        x += background_hspeed[global.bg_floor];
     }
+    
 }
 
 //check if all enemies defeated
-if (instance_number(objEnemy) == 0 and waveend = 0 and stageend == 0) {
-    background_hspeed[0] = -(0.9*objPlayer.basespeed);
+if (instance_number(objEnemy) == 0 and waveend = 0) {
     alarm[1] = room_speed*3;
     waveend = 1;
     
@@ -129,8 +153,9 @@ if (instance_number(objEnemy) == 0 and waveend = 0 and stageend == 0) {
     
     //END STAGE
     if (current &gt;= global.numWaves) {
-    stageend = 1;
-    background_hspeed[0] = 0;
+    
+    //stop moving all background layers
+    backgrounds_stop();
     
     //generate chest rarity
     rand = random(100);
@@ -144,7 +169,8 @@ if (instance_number(objEnemy) == 0 and waveend = 0 and stageend == 0) {
     ii.chestbonus = chestbonus;
     
     scrEmptyWaves();
-    instance_create(x,y,objInv);
+    instance_create((view_wview/2)-128,view_hview/2,objInv);
+    instance_create((view_wview/2)+160,(view_hview/2)+16,objEvac);
     instance_destroy();
     }
 }
@@ -153,7 +179,7 @@ if (instance_number(objEnemy) == 0 and waveend = 0 and stageend == 0) {
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -171,10 +197,14 @@ if (instance_number(objEnemy) == 0 and waveend = 0 and stageend == 0) {
           <argument>
             <kind>1</kind>
             <string>//Show remaining waves
-if (current&lt;=global.numWaves) {
-    draw_set_font(fntMenu);
-    draw_text(view_xview[0]+320,view_yview[0]+32,
+if (current &lt;= global.numWaves) {
+    draw_set_font(global.font_menu);
+    draw_set_halign(fa_center);
+    
+    draw_text(display_get_gui_width()/2,64,
     string(current) + " / " + string(global.numWaves));
+    
+    draw_set_halign(fa_left);
 }
 </string>
           </argument>

@@ -39,6 +39,7 @@ for(i=0; i&lt;num; i+=1) {
     proj.y = origin + ((i + i mod 2) * spread) * dir;
     proj.speed = speed;
     proj.vortex = 1;
+    proj.alarm[0] = room_speed * 4;
     
     scrSetProj(proj);
 }

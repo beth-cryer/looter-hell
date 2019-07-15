@@ -41,6 +41,59 @@ audio_play_sound(sfxChest2,20,false);
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(global.k_select) {
+
+    //OPEN CHEST
+    if(distance_to_object(objPlayer)&lt;64 and opened == false) {
+        opened = true;
+        image_index = 1;
+        
+        audio_play_sound(sfxChestOpen,10,false);
+        
+        //GENERATE GUNS
+        type = scrGenType();
+        
+        xof = 0;
+        switch(type) {
+        case("Pistol"): xof = 12; break;
+        case("Assault Rifle"): xof = 2; break;
+        case("Shotgun"): xof = -2; break;
+        case("Sniper Rifle"): xof = -8; break;
+        case("SMG"): xof = 6; break;
+        case("Shield"): xof = 8; break;
+        }
+        
+        ii = instance_create(x+xof,y,objGun);
+        ii.typegen = type;
+        ii.lvlgen = global.stageLevel;
+        ii.chestbonus = chestbonus;
+        ii.depth = depth-1;
+    
+    }
+    
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="4">
       <action>
         <libid>1</libid>
@@ -59,7 +112,7 @@ audio_play_sound(sfxChest2,20,false);
           <argument>
             <kind>1</kind>
             <string>//OPEN CHEST
-if (opened == false) {
+if(opened == false) {
     opened = true;
     image_index = 1;
     
@@ -83,7 +136,7 @@ if (opened == false) {
     ii.lvlgen = global.stageLevel;
     ii.chestbonus = chestbonus;
     ii.depth = depth-1;
-    
+
 }
 </string>
           </argument>

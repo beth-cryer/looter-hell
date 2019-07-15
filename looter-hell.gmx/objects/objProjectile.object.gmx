@@ -263,9 +263,9 @@ if (global.paused == 1 or freeze == 1) {
         speed = 0;
     }
     //Pause all alarms
-    alarm[0] = alarm[0]+1;
-    alarm[3] = alarm[0]+1;
-    alarm[4] = alarm[0]+1;
+    alarm_pause(0);
+    alarm_pause(3);
+    alarm_pause(4);
     exit;
 }else{
     speed = pausespeed;

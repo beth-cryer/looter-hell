@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sel = 0;
+            <string>//APPLY SETTINGS
+instance_create(x,y,objApplySettings);
+
+sel = 0;
 moused = false;
 smax = 3;
 delay = 0;

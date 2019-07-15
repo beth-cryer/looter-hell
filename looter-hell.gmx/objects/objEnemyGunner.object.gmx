@@ -112,7 +112,7 @@ alarm[9] = 1;
             <kind>1</kind>
             <string>if (bullets &lt;= 0) alarm[10] = room_speed*reload; else{
 
-    if (canmove == true) {
+    if (global.paused == false and canmove == true) {
 
     //scrShootSound();
 
@@ -154,7 +154,7 @@ alarm[9] = 1;
             <kind>1</kind>
             <string>event_inherited();
 
-if (canmove==true and frozen==false
+if (global.paused==false and canmove==true and frozen==false
 and distance_to_object(instance_nearest(x,y,objEnemy)) &gt; 128) {
     image_speed = 0.1;
     

@@ -32,6 +32,7 @@ rargen = 0;
 typegen = "";
 
 cardopen = false;
+moused = false;
 idelay = 0;
 xsc = 1;
 ysc = 1;
@@ -123,7 +124,9 @@ if (scrAddInv() == true) {instance_destroy();}
 }
 
 //SELECT BY MOUSEOVER
+moused = false;
 if point_in_rectangle(mouse_x, mouse_y, x, y, x+96, y+64) and idelay!=0 {
+    moused = true;
     cardopen = true;
 }else{
     cardopen = false;
@@ -142,7 +145,7 @@ if (cardopen == true) {
     scrGetGCWidth();
     //PICKUP GUN
     //+inform spawner object if needed
-    if (mouse_check_button_pressed(mb_left)) {
+    if (global.k_select or (moused == true and mouse_check_button_pressed(mb_left))) {
         if (scrAddInv() == true) {
             if (spawner != 0) spawner.spawn = 1;
             instance_destroy();

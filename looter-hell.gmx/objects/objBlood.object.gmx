@@ -47,50 +47,6 @@ sizeChange = random_range(image_xscale/10, image_xscale/3);
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -120,11 +76,9 @@ if (movSpd &gt; 0)
 movSpd = approach(movSpd,0,fric);
 
 //draw blood to surface
-if (instance_exists(objController)) {
-    surface_set_target(objController.bsurf);
-    draw_sprite_ext(sprBlood,0,x-objController.xpos,y,image_xscale,image_yscale,image_angle,c_white,global.blood);
-    surface_reset_target();  
-}
+surface_set_target(global.bsurf[global.bsurfc]);
+draw_sprite_ext(sprBlood,0,x,y,image_xscale,image_yscale,image_angle,c_white,global.blood);
+surface_reset_target();
 
 //destroy self once blood thins to size 0
 if (image_xscale &lt;= 0) instance_destroy();

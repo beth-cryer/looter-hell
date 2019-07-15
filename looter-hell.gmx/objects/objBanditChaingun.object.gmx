@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 
-bossName = "CHAINGUNNER"
+bossName = load_text("boss-chaingun");
 hpmax = 1200 * global.stageLevel;
 hp = hpmax;
 mspeed = 1;

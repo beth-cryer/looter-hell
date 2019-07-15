@@ -34,8 +34,12 @@ ospeed = mspeed;
 damage = 20 * global.stageLevel;
 rate = 1;
 
+switch(choose(0,1)) {
+case(0): sprite_index = sprBanditRunner; break;
+case(1): sprite_index = sprBanditRunner2; break;
+}
+
 image_xscale = -1;
-image_speed = 0.1;
 
 xp = 15;
 gold = 30;
@@ -88,13 +92,14 @@ crystal = 0;
             <kind>1</kind>
             <string>event_inherited();
 
-if (canmove == true and frozen==false) {
-    //image_angle = point_direction(x,y,objPlayer.x,objPlayer.y);
-
+if (global.paused == false and canmove == true and frozen==false) {
+    image_speed = 0.1;
+    
     //run at player
     if (distance_to_object(objPlayer)&gt;32)
     move_towards_point(objPlayer.x,objPlayer.y,mspeed);
 }else{
+    image_speed = 0;
     speed = 0;
 }
 
@@ -105,6 +110,32 @@ if (distance_to_object(objPlayer)&lt;= 48 and canattack == true) {
     canattack = false;
     alarm[9] = rate*room_speed;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="objProjectile">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited();
+
+//PUSHBACK
+if (other.owner == 0) x += 2;
 </string>
           </argument>
         </arguments>

@@ -86,6 +86,15 @@ if (blood &gt; 3) blood = 3;
 var blood_amount = blood * random_range(32,40);
 var blood_size = blood * 16;
 
+//SFX
+if (blood &lt; 1.5) sfx = choose(sfxEnemyDeath,sfxEnemyDeath2,sfxEnemyDeath3);
+else sfx = choose(sfxEnemyExplode,sfxEnemyExplode2);
+
+audio_play_sound(sfx,15,false);
+
+//SCREEN SHAKE
+scrShake(blood*3,0.6);
+
 //BIG BLOOD SPLATTER
 for (var i=0; i&lt;blood_amount; i++) {
     instance_create(x+random_range(-blood_size,blood_size), y+random_range(-blood_size,blood_size), objBlood);
@@ -294,11 +303,6 @@ if (body != 0) {
     }
 }*/
 
-//screen shake
-scrShake(2,0.5);
-
-sfx = choose(sfxEnemyDeath,sfxEnemyDeath2);
-audio_play_sound(sfx,15,false);
 instance_destroy();
 }
 </string>

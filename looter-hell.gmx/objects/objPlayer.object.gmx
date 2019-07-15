@@ -47,6 +47,7 @@ equipped = -1;
 canmove = true;
 moving = false;
 canshoot = true;
+shoot = 0;
 reloading = false;
 reloadtime = 0;
 burstcount = 0;
@@ -85,6 +86,29 @@ for(j=0;j&lt;global.loadSlots;j++) {
 }
 
 scrSwitchWep(l);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>shoot = 0;
 </string>
           </argument>
         </arguments>
@@ -243,7 +267,7 @@ canshoot = true;
 if (burst &gt; 0 and global.mag[equipped] &gt; 0) {
 
 //add to burstcount
-if (burst &gt; 0) burstcount += 1;
+burstcount++;
 
 //if underneath burst limit
 if (burstcount &lt; burst) {
@@ -267,6 +291,8 @@ if (burstcount &lt; burst) {
 
     global.mag[equipped] -= 1;
     alarm[0] = (room_speed/rate);
+    
+    shoot = 1; alarm[6] = 1;
     
 }else{
     //if reached burst limit
@@ -300,37 +326,42 @@ if (burstcount &lt; burst) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//CHECK FOR LOADOUT UPDATE
+            <string>//PAUSE ALARMS
+if (global.paused == true) {
+alarm_pause_all();
+}
+
+//CHECK FOR LOADOUT UPDATE
 if(global.updated_load != -1) {
     if (equipped == global.updated_load) scrSwitchWep(equipped);
     global.updated_load = -1;
 }
 
 //SWITCH WEAPONS
+/*
 for(i=0;i&lt;global.loadSlots-1;i++) {
     if (keyboard_check(ord(string(i+1)))) {
     scrSwitchWep(i);
     if (sfx_reload != 0) audio_stop_sound(sfx_reload);
     }
-}
+}*/
 
 //MOVEMENT
-if (global.paused == false and canmove == true and global.inv_open == false) {
 image_speed = 0;
+if (global.paused == false and canmove == true and global.inv_open == false) {
 y += mspeed * (global.k_down - global.k_up);
 x += mspeed * (global.k_right - global.k_left);
-/*
-if (keyboard_check(vk_up)) {y-=mspeed; image_speed = 0.1;}
-if (keyboard_check(vk_down)) {y+=mspeed; image_speed = 0.1;}
-if (keyboard_check(vk_left)) {x-=mspeed; image_speed = 0.1;}
-if (keyboard_check(vk_right)) {x+=mspeed; image_speed = 0.1;}
-*/
+
+//Animate if moving
+if (global.k_down or global.k_up or global.k_right or global.k_left) image_speed = 0.1;
+
 }
 
-//WALK IF BACKGROUND SCROLLING
-if (background_hspeed[0] != 0) image_speed = 0.1;
+//Animate if in wave transition
+if (background_hspeed[global.bg_floor] != 0 and global.paused == false) image_speed = 0.1;
 
-//for skills with effect every step:
+
+//For skills with effect every step:
 if (skillactive == true) {
 switch(skill) {
     case("Dash"):
@@ -438,7 +469,7 @@ if (global.k_shoot) {
     if (reloading == true) {audio_stop_sound(sfx_reload); reloadtime = 0; reloading = false;}
     
     //only shoot either if not burstfire or if underneath burst limit
-    if (burst == 0 or burstcount == 0) {
+    if (burst == 0 or (burst &gt; 0 and burstcount == 0)) {
     
     //freeze enemies + enemy bullets
     if (body = sprWorldBody) {
@@ -476,10 +507,30 @@ if (global.k_shoot) {
     
     canshoot = false;
     
+    shoot = 1; alarm[6] = 1;
     }
     
     }
 
+}
+
+//CHECK RELOAD BUTTON
+if (global.k_reload) {
+    if (reloading == false
+    and global.mag[equipped] != global.inventory[global.loadout[equipped],7]) {
+        scrReloadSound();
+        reloading = true;
+        alarm[1] = room_speed * global.inventory[global.loadout[equipped],6];
+    }
+}
+
+//CHECK SWITCH WEP BUTTON
+if (global.k_switchwep) {
+    equipped++;
+    if (equipped &gt;= global.loadSlots-1) equipped = 0;
+    
+    scrSwitchWep(equipped);
+    if (sfx_reload != 0) audio_stop_sound(sfx_reload);
 }
 </string>
           </argument>
@@ -555,28 +606,6 @@ y = yprevious;
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="90">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="5" enumb="88">
       <action>
         <libid>1</libid>
@@ -594,13 +623,7 @@ y = yprevious;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (reloading == false 
-and global.mag[equipped] != global.inventory[global.loadout[equipped],7]) {
-    scrReloadSound();
-    reloading = true;
-    alarm[1] = room_speed * global.inventory[global.loadout[equipped],6];
-}
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -705,104 +728,34 @@ if (reloading == true) {
 if (equipped != -1) {
 if (global.loadout[equipped] != -1) {
 
+    //draw muzzle flash
+    draw_sprite(sprMuzzleFlash,shoot,x+xsh,y+ysh);
+
     //draw BOTTOM hand
-    draw_sprite(sprPlayerHand1,hi,x,y);
+    draw_sprite(sprPlayerHand1,hi,x-shoot,y);
 
     xcenter = sprite_get_width(body)/2;
 
-    if (scope != 0) draw_sprite_texture(scope,texture,0,x+xof+xcenter,y+yof,xsc,ysc);
-    if (stock != 0) draw_sprite_texture(stock,texture,0,x+xof+xcenter,y+yof,xsc,ysc);
-    draw_sprite_texture(grip,texture,0,x+xof+xcenter,y+yof,xsc,ysc);
+    if (scope != 0) draw_sprite_texture(scope,texture,0,x+xof+xcenter-shoot,y+yof,xsc,ysc);
+    if (stock != 0) draw_sprite_texture(stock,texture,0,x+xof+xcenter-shoot,y+yof,xsc,ysc);
+    draw_sprite_texture(grip,texture,0,x+xof+xcenter-shoot,y+yof,xsc,ysc);
     
     if (type == "Shotgun") {
-    draw_sprite_texture(body,texture,0,x+xof+xcenter,y+yof,xsc,ysc);
-    draw_sprite_texture(barrel,texture,0,x+xof+xcenter,y+yof,xsc,ysc);
+    draw_sprite_texture(body,texture,0,x+xof+xcenter-shoot,y+yof,xsc,ysc);
+    draw_sprite_texture(barrel,texture,0,x+xof+xcenter-shoot,y+yof,xsc,ysc);
     }else{    
-    draw_sprite_texture(barrel,texture,0,x+xof+xcenter,y+yof,xsc,ysc);
-    draw_sprite_texture(body,texture,0,x+xof+xcenter,y+yof,xsc,ysc);
+    draw_sprite_texture(barrel,texture,0,x+xof+xcenter-shoot,y+yof,xsc,ysc);
+    draw_sprite_texture(body,texture,0,x+xof+xcenter-shoot,y+yof,xsc,ysc);
     }
     
     //draw TOP hand
-    draw_sprite(sprPlayerHand2,hi,x,y);
+    draw_sprite(sprPlayerHand2,hi,x-shoot,y);
     
 }
 }
 
 //draw hitbox
 if (global.hitbox != 0) draw_sprite_ext(sprHitbox,-1,x,y,1,1,0,image_blend,global.hitbox);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="27">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>room_goto(rmHub);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="17">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>equipped++;
-if (equipped &gt;= global.loadSlots-1) equipped = 0;
-
-scrSwitchWep(equipped);
-if (sfx_reload != 0) audio_stop_sound(sfx_reload);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="90">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>burstcount = 0;
 </string>
           </argument>
         </arguments>

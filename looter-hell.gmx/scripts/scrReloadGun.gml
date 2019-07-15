@@ -5,5 +5,6 @@ global.mag[argument0] += argument1;
 else
 global.mag[argument0] = global.inventory[global.loadout[argument0],7];
 
+burstcount = 0;
 reloading = false;
 reloadtime = 0;

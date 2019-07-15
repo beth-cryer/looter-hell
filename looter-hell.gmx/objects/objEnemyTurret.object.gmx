@@ -105,7 +105,7 @@ alarm[9] = 1;
             <kind>1</kind>
             <string>if (bullets &lt;= 0) alarm[10] = room_speed*reload; else {
 
-    if (canmove == true) {
+    if (global.paused == false and canmove == true) {
 
     proj = instance_create(x,y,pattern);
     proj.owner = 1;

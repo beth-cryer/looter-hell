@@ -25,14 +25,42 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>init();
+            <string>//Prevent multiple objController instances
+if(instance_number(object_index) &gt; 1) instance_destroy();
 
-bsurfc = 0;
-bsurf1 = 0;
-bsurf2 = 0;
+//INIT
+init();
 
 instance_create(x,y,objStarterItems);
-xpos = 0;
+
+global.bpos[0] = 0;
+global.bsurfc = 0;
+global.bsurf[global.bsurfc] = surface_create(room_width,room_height);
+
+alarm[0] = global.loadSlots+1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(rmMenu);
 </string>
           </argument>
         </arguments>
@@ -57,6 +85,14 @@ xpos = 0;
             <kind>1</kind>
             <string>//check which keys are pressed every step
 inputs_pressed();
+
+if (keyboard_check_pressed(vk_escape)) {
+    //pause if not in a menu room
+    if (room == rmBattle or room == rmHub) global.paused = !global.paused;
+}
+
+//return to hub
+if (global.k_select and global.paused == true) { global.paused = false; room_goto(rmHub); }
 </string>
           </argument>
         </arguments>
@@ -79,7 +115,10 @@ inputs_pressed();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>surface_free(bsurf);
+            <string>//free all blood surfaces
+for(var i=0; i&lt;array_length_1d(global.bsurf); i++) {
+if (surface_exists(global.bsurf[i])) surface_free(global.bsurf[i]);
+}
 </string>
           </argument>
         </arguments>
@@ -102,12 +141,54 @@ inputs_pressed();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//set window to resolution size
-window_set_size(global.res_w,global.res_h);
-surface_resize(application_surface,global.res_w,global.res_h);
+            <string>//BLOOOOOOD
+global.bpos[0] = 0;
 
-//create blood surface
-bsurf = surface_create(room_width,room_height);
+for(var i=0; i&lt;global.numWaves+1; i++) {
+global.bsurf[i] = -1;
+global.bpos[i] = 0;
+}
+
+global.bsurfc = 0;
+global.bsurf[global.bsurfc] = surface_create(room_width,room_height);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//PAUSE MENU
+if (global.paused == true) {
+    draw_set_font(global.font_menub);
+    draw_set_color(c_white);
+    draw_set_halign(fa_center);
+    
+    draw_text(display_get_gui_width()/2,display_get_gui_height()/2,load_text("paused"));
+    
+    draw_set_font(global.font_menu);
+    draw_set_color(c_black);
+    draw_text(display_get_gui_width()/2,(display_get_gui_height()/2)+32,load_text("exit?"));
+    
+    draw_set_color(c_black);
+    draw_set_halign(fa_left);
+}
 </string>
           </argument>
         </arguments>
@@ -130,13 +211,13 @@ bsurf = surface_create(room_width,room_height);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_shadow();
-
-//blood surface
-if(surface_exists(bsurf))
-    draw_surface(bsurf,xpos,0);
-else
-    bsurf = surface_create(room_width,room_height);
+            <string>//blood surfaces
+for(var i=0; i&lt;global.bsurfc+1; i++) {
+    if(surface_exists(global.bsurf[i]))
+        draw_surface(global.bsurf[i],global.bpos[i],0);
+    else
+        global.bsurf[i] = surface_create(room_width,room_height);
+}
 </string>
           </argument>
         </arguments>

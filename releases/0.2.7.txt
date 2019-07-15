@@ -1,5 +1,20 @@
--Added enemy corpses and blood slide effect on death
 -Added support for key rebinding from settings.ini (no interface yet)
+-Added functional pause button
+-Blood no longer disappears after each wave
+
+-BUG: Blood can't be rendered in stages with 8 or more waves due to surface texture limits
+-(FIX) Reworked blood system again, now saves an array of blood surfaces and frees them once offscreen
+
+-Added enemy corpses and blood slide effect on death
+-Added muzzle flash and recoil
+-Changed to a cool 64-bit colour palette
+-Changed default player bullet sprite
+-Backgrounds now have multiple layers that scroll at different rates depending on their depth
 
 -Changed random function to irandom, shouldn't be biased anymore
 -Fixed melee attacks
+-Can now only compare items of the same type
+-Reload speed and Recharge delay now compare correctly (lower is better)
+-Fixed burst fire bugs
+
+-BUG: Main menu and settings have different gui scale or something?

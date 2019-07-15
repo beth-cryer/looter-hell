@@ -5,5 +5,5 @@ var decay = argument1;
 
 if(instance_exists(objCamera)) {
     objCamera.shake = amount*global.shake;
-    objCamera.decay = decay*global.shake;
+    objCamera.decay = decay;
 }

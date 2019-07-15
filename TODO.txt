@@ -9,6 +9,8 @@ Add basic crafting system
 Rewrite projectile code - have Pattern objects handle drawing,collision,movement for all bullets they create
 
 Add proper controls handling (global vars + controller support)
+Update Settings menus
 
 Fix inventory bug which crashes when inv is full
 Fix bug with infinite loop when switching weapons sometimes
+Make inventory arrow controls work

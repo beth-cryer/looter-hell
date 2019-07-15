@@ -30,8 +30,12 @@ cx = 864; cy = room_height/2;
 sp = 96;
 
 //BACKGROUND SETUP
-background_xscale[0] = 4;
-background_yscale[0] = 4;
+for(var i=0; i&lt;8; i++) {
+    if(background_visible[i]) {
+        background_xscale[i] = 4;
+        background_yscale[i] = 4;
+    }
+}
 
 //TEST STAGE
 if(global.area == -1) {
