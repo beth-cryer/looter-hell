@@ -30,7 +30,7 @@ area = 0;
 moused = false;
 delay = 0;
 
-stages[0] = 8;
+stages[0] = 9;
 </string>
           </argument>
         </arguments>

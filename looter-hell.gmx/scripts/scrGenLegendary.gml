@@ -37,7 +37,8 @@ if (type == "Pistol") {
     damage = damage*1.03;
     bspread = 10;
     bnum += round(random_range(2,4));
-    bspeed = 22;
+    bspeed = 18;
+    btype = objBulletSphere;
     //GRIP
     grip = sprSlingshotGrip;
     rate = rate*1.05;
@@ -60,6 +61,7 @@ if (type == "Pistol") {
     bspread = 40;
     bnum = round(random_range(6,9));
     bspeed = 8;
+    btype = objBulletSphere;
     //GRIP
     grip = scrGenGrip();
     scope = scrGenScope();
@@ -78,6 +80,7 @@ if (type == "Pistol") {
     barrel = sprOSBarrel;
     bspread = 1;
     bspeed = 4;
+    btype = objBulletSphere;
     //GRIP
     grip = scrGenGrip();
     scope = scrGenScope();
@@ -149,6 +152,7 @@ if (type == "Assault Rifle") {
     barrel = sprBakaBarrel;
     bspeed = 9;
     bspread = 15;
+    btype = objBulletSphere;
     bnum = round(random_range(4,5));
     scope = scrGenScope();
     stock = scrGenStock();
@@ -210,6 +214,7 @@ if (type == "Assault Rifle") {
     barrel = sprFrostbiteBarrel;
     bspeed = 9;
     bspread = 30;
+    btype = objBulletSphere;
     bnum = round(random_range(3,4));
     element = "Ice";
     scope = scrGenScope();
@@ -240,6 +245,7 @@ if (type == "Shotgun") {
     barrel = sprChernobylBarrel;
     bspeed = 6;
     bspread = 60;
+    btype = objBulletSphere;
     scope = scrGenScope();
     stock = scrGenStock();
     access = scrGenAccess(); //determines gun prefix
@@ -331,6 +337,7 @@ if (type == "Sniper Rifle") {
     barrel = sprBlackHoleBarrel;
     bspeed = 7;
     bspread = 180;
+    btype = objBulletSphere;
     bnum = round(random_range(7,8));
     scrElementalChance(100);
     scope = 0;

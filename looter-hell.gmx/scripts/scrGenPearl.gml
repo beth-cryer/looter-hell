@@ -15,6 +15,7 @@ if (type == "Pistol") {
     bspread = 90;
     bnum += round(random_range(3,5));
     bspeed = 4;
+    btype = objBulletSphere;
     //GRIP
     grip = sprVortexGrip;
     rate = rate*0.99;
@@ -46,6 +47,7 @@ if (type == "Assault Rifle") {
     bspeed = 4;
     bspread = 180;
     bnum = 6;
+    btype = objBulletSphere;
     splits = 1;
     scope = scrGenScope();
     stock = scrGenStock();
@@ -197,6 +199,7 @@ if (type == "SMG") {
     barrel = sprSandstormBarrel;
     bspeed = 5;
     bspread = 80;
+    btype = objBulletSphere;
     bnum = round(random_range(6,8));
     splits = 1;
     scope = scrGenScope();

@@ -53,6 +53,9 @@ reloadtime = 0;
 burstcount = 0;
 sfx_reload = 0;
 
+offscreenx = 0;
+offscreeny = 0;
+
 skill = "Dash";
 cool = room_speed;
 
@@ -346,6 +349,26 @@ for(i=0;i&lt;global.loadSlots-1;i++) {
     }
 }*/
 
+//OUTSIDE MAP?
+if (x &lt; 0 or x &gt; room_width) {
+    offscreenx = 1;
+}else offscreenx = 0;
+
+if (y &lt; 0 or y &gt; room_height) {
+    offscreeny = 1;
+}else offscreeny = 0;
+
+//NEXT STAGE?
+if (x &gt; room_width+16 and !instance_exists(objSpawner)) {
+    var stage_str = "scrA" + string(global.area+1) + "S" + string(global.stage+2);
+    var stage_scr = asset_get_index(stage_str);
+    //If next stage in this area exists
+    if (stage_scr &gt; -1) {
+        global.stage++;
+        room_goto(rmBattle);
+    }
+}
+
 //MOVEMENT
 image_speed = 0;
 if (global.paused == false and canmove == true and global.inv_open == false) {
@@ -383,7 +406,7 @@ vampire -= 0.05;
 if (vampire &lt; 0) vampire = 0;
 }
 
-
+//if a gun is equipped
 if (equipped != -1) {
     //stop mag size going over max
     if (global.mag[equipped] &gt; global.inventory[global.loadout[equipped],7])
@@ -756,6 +779,29 @@ if (global.loadout[equipped] != -1) {
 
 //draw hitbox
 if (global.hitbox != 0) draw_sprite_ext(sprHitbox,-1,x,y,1,1,0,image_blend,global.hitbox);
+
+
+//DRAW ARROW INDICATOR
+if (offscreenx != 0 or offscreeny != 0) {
+    var ax; var ay;
+    
+    ax = x;
+    ay = y;
+    
+    if(offscreenx == 1) {
+    ax = clamp(x,32,room_width-32);
+    ay = clamp(y,16,room_height-16);
+    }
+    
+    if(offscreeny == 1) {
+    ax = clamp(x,16,room_width-16);
+    ay = clamp(y,32,room_height-32);
+    }
+    
+    //DRAW ARROW
+    var a_angle = point_direction(ax,ay,x,y);
+    draw_sprite_ext(sprArrow,-1,ax,ay,1,1,a_angle,image_blend,image_alpha);
+}
 </string>
           </argument>
         </arguments>

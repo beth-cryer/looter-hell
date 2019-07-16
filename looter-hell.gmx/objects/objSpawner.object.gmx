@@ -170,7 +170,8 @@ if (instance_number(objEnemy) == 0 and waveend = 0) {
     
     scrEmptyWaves();
     instance_create((view_wview/2)-128,view_hview/2,objInv);
-    instance_create((view_wview/2)+160,(view_hview/2)+16,objEvac);
+    
+    instance_create(128,(view_hview/2)+16,objEvac);
     instance_destroy();
     }
 }

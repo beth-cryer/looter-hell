@@ -473,6 +473,7 @@
       <sprite>sprites\sprBulletThin</sprite>
       <sprite>sprites\sprBulletLarge</sprite>
       <sprite>sprites\sprBullet</sprite>
+      <sprite>sprites\sprCultistEnergy</sprite>
     </sprites>
     <sprite>sprites\sprEnemy</sprite>
     <sprite>sprites\sprExplosion</sprite>
@@ -484,6 +485,7 @@
     <sprite>sprites\sprHitbox</sprite>
     <sprite>sprites\sprMuzzleFlash</sprite>
     <sprite>sprites\objPortal</sprite>
+    <sprite>sprites\sprArrow</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgShip</background>
@@ -620,6 +622,8 @@
     <script>scripts\alarm_pause_all.gml</script>
     <script>scripts\get_aspect_ratio.gml</script>
     <script>scripts\backgrounds_stop.gml</script>
+    <script>scripts\gun_default.gml</script>
+    <script>scripts\scale.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntStats</font>
@@ -676,9 +680,11 @@
       <object>objects\objEnemyAssault</object>
       <object>objects\objEnemyTurret</object>
       <object>objects\objBanditChaingun</object>
+      <object>objects\objBanditCultist</object>
     </objects>
     <objects name="Projectiles">
       <object>objects\objBullet</object>
+      <object>objects\objBulletSphere</object>
       <object>objects\objPetal</object>
       <object>objects\objScarlet</object>
       <object>objects\objSpectre</object>
@@ -692,6 +698,7 @@
       <object>objects\objSawblade</object>
       <object>objects\objBloodhound</object>
       <object>objects\objGreed</object>
+      <object>objects\objCultistEnergy</object>
     </objects>
     <object>objects\objDashTrail</object>
     <object>objects\objWall</object>

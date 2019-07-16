@@ -55,8 +55,8 @@ scrGunPos();
 
 xp = 30;
 gold = 40;
-metal = floor(random(5));
-crystal = floor(random(5));
+metal = irandom(5);
+crystal = irandom(5);
 </string>
           </argument>
         </arguments>

@@ -1,0 +1,6 @@
+-Added Bandit Cultist boss
+
+-Added arrow which shows player's position when offscreen
+-Player can now exit a stage from the left or right side - evacs or moves to next stage respectively
+
+-Updated hand sprite for new skin colour

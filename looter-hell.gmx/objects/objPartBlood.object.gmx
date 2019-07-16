@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>100</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,18 +25,30 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0;
-image_angle = irandom_range(-95,-85);
-image_blend = make_color_rgb(255,94,100);
+            <string>//PARTICLE SYSTEM
+partsys_blood = part_system_create();
+part_system_depth(partsys_blood,0);
 
-sliding = true;
-fade = false;
+//BLOOD PARTICLE
+part_blood = part_type_create();
+part_type_shape(part_blood,pt_shape_disk);
+part_type_size(part_blood,0.1,0.3,-0.01);
+part_type_color1(part_blood,c_red);
+part_type_alpha2(part_blood,0.8,0.4);
+part_type_speed(part_blood,1,3,0,0);
+part_type_direction(part_blood,0,359,0,0);
+part_type_gravity(part_blood,0.3,270);
+part_type_blend(part_blood,1);
+part_type_life(part_blood,room_speed/4,room_speed/2);
+
+//EMITTER
+partemit_blood = part_emitter_create(partsys_blood);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="6" enumb="50">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -53,19 +65,33 @@ fade = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//slide along ground
-if (sliding == true) {
-speed *= 0.9;
-instance_create(x,y,objBlood)
-}
-
-//stop sliding
-if (speed &lt; 0.1) {speed = 0; sliding = false;}
-
-
-//fade out
-if (fade == true) image_alpha -= 0.5/room_speed;
-if (image_alpha &lt; 0) instance_destroy();
+            <string>part_emitter_region(partsys_blood,partemit_blood,mouse_x+4,mouse_y+4,mouse_x-4,mouse_y-4,1,1);
+part_emitter_burst(partsys_blood,partemit_blood,part_blood,20);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>part_emitter_destroy(partsys_blood,partemit_blood);
+part_type_destroy(part_blood);
+part_system_destroy(partsys_blood);
 </string>
           </argument>
         </arguments>

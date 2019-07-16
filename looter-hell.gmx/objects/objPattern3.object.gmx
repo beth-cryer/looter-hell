@@ -39,6 +39,7 @@ for(i=0; i&lt;num; i+=1) {
     proj.direction = direction + origin + ((i + i mod 2) * spread) * dir;
     proj.speed = speed;
     proj.curve = spread/15 * -dir;
+    proj.owner = owner;
     
     scrSetProj(proj);
     

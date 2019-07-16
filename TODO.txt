@@ -14,3 +14,8 @@ Update Settings menus
 Fix inventory bug which crashes when inv is full
 Fix bug with infinite loop when switching weapons sometimes
 Make inventory arrow controls work
+
+
+
+ART:
+Give sand floor background depth effect - sand grains smaller and more condensed further away from the bottom

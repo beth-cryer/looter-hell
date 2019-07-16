@@ -36,6 +36,7 @@
 		"shieldrate" : "Recharge Rate",
 		"shielddelay" : "Recharge Delay",
 		"boss-chaingun" : "CHAINGUNNER",
+		"boss-cultist" : "BANDIT CULTIST",
 		"tooltip-hc" : "If you get hit with your shield down, you die",
 		"tooltip-ultrahc" : "Being hit results in instant death",
 		"story1" : "That was a close call! Almost bit it there, but we managed to pull through in the end. Shame we lost the weapon vault - here's a few from my personal stash so you're not wandering around defenceless.",
