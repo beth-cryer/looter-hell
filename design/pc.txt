@@ -40,7 +40,7 @@ Mind Control
 -Legendary-
 
 Time Lord
-Skill: Stop Time
+Skill: Slow Time
 
 Defuser
 Skill: Destroy Enemy Projectiles

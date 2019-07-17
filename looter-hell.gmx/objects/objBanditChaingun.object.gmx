@@ -28,7 +28,7 @@
             <string>event_inherited();
 
 bossName = load_text("boss-chaingun");
-hpmax = 1200 * global.stageLevel;
+hpmax = scale(1500,1,global.stageLevel);
 hp = hpmax;
 mspeed = 1;
 ospeed = mspeed;
@@ -123,7 +123,7 @@ alarm[9] = 1;
     scrSetProj(proj);
     bullets -= 1;
     
-    if (boss == true) scrShootSound();
+    //if (boss == true) scrShootSound();
     }
     
     alarm[9] = room_speed/nrate;

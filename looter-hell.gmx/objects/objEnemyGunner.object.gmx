@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 
-hpmax = 300 * global.stageLevel;
+hpmax = scale(300,1,global.stageLevel);
 hp = hpmax;
 mspeed = 1;
 ospeed = mspeed;

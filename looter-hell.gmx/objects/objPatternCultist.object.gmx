@@ -40,6 +40,7 @@ for(i=0; i&lt;num; i++) {
     proj.direction = direction + origin + ((i + i mod 2) * spread) * dir;
     proj.speed = speed;
     proj.owner = owner;
+    proj.decay = decay;
     
     scrSetProj(proj);
 }

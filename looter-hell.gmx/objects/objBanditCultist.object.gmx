@@ -28,13 +28,22 @@
             <string>event_inherited();
 
 bossName = load_text("boss-cultist");
-hpmax = 4000 * global.stageLevel;
+hpmax = scale(6000,2,global.stageLevel);
 hp = hpmax;
 mspeed = 1;
 ospeed = mspeed;
 
+timer_shoot[0] = 0;
+timer_reload[0] = 0;
+statept[0] = 0;
+shootdir[0] = 0;
+
+pts = 0;
 state = 0;
-shootdir = 0;
+phase = 0;
+
+destx = -2;
+desty = -2;
 
 image_xscale = -1;
 image_speed = 0;
@@ -45,13 +54,13 @@ metal = irandom_range(5,10);
 crystal = irandom_range(15,25);
 
 //SELECT STATE
-alarm[8] = 1;
+alarm[9] = 1;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="10">
+    <event eventtype="1" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -68,10 +77,13 @@ alarm[8] = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>bullets = mag;
+            <string>event_inherited();
 
-//NEW PHASE
-alarm[8] = 1;
+scrShake(32,0.8);
+
+with(objProjectile) {
+if (owner == 1) instance_destroy();
+}
 </string>
           </argument>
         </arguments>
@@ -94,24 +106,29 @@ alarm[8] = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (bullets &lt;= 0) alarm[10] = room_speed*reload; else {
+            <string>//GENERATE NEW STATE
+if (phase == 0) {
+    if (state == 1) state = 2;
+    else state = choose(1,2,2);
+}else if (phase == 1) {
+    if (state == 4) state = 3;
+    else state = choose(4,3,3);
+}else{
+    state = 5;
+}
 
-    if (global.paused == false and canmove == true) {
+//MOVE FIRST
 
-    proj = instance_create(x,y,pattern);
-    proj.owner = 1;
-    proj.type = btype;
-    proj.speed = bspeed;
-    proj.num = nnum;
-    proj.spread = nspread/nnum;
-    proj.direction = shootdir;
-    
-    scrSetProj(proj);
-    
-    bullets--;
-    }
-    
-    alarm[9] = room_speed/nrate;
+//CENTER
+if (state == 1 or state == 4 or state == 5) {
+    destx = room_width/2 + 128;
+    desty = room_height/2;
+}
+
+//RANDOM
+if (state == 2 or state == 3) {
+    destx = irandom_range(64+room_width/2,room_width-64);
+    desty = irandom_range(128,room_height-64);
 }
 </string>
           </argument>
@@ -135,58 +152,151 @@ alarm[8] = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//GENERATE NEW STATE
-if (state == 1) state = 2;
-else state = choose(1,2,3);
+            <string>pts = 0;
 
 //ROTATING BALLS
 if (state == 1) {
+    
     damage = scale(15,1,global.stageLevel);
     btype = objCultistEnergy;
     reload = 1;
     mag = 24;
     bullets = mag;
-    nrate = 4;
-    nnum = 16;
-    nspread = 180;
+    rate = 5;
+    bnum = 24;
+    bspread = 180;
     bspeed = 4;
     pattern = objPattern1;
-    
     shootdir = 0;
     
-    scrEnemyDiffScale();
+    scrEnemyPattern(0);
     
-    //TELEPORT TO CENTER
-    x = room_width/2 + 128;
-    y = room_height/2;
 }
 
 //TELEPORT BURST
 if (state == 2 or state == 3) {
-    x = irandom_range(room_width/2,room_width-64);
-    y = irandom_range(128,room_height-64);
     
     damage = scale(10,1,global.stageLevel);
-    btype = objCultistEnergy;
-    acc = 50;
+    btype = objCultistBall;
     reload = 1;
     mag = 8;
     bullets = mag;
-    nrate = 16;
-    nnum = 3;
-    nspread = 5;
+    rate = 16;
+    bnum = 3;
+    bspread = 5;
     bspeed = 10;
     pattern = objPattern1;
     
     shootdir = point_direction(x,y,objPlayer.x,objPlayer.y);
     
+    //ALT FIRE
+    if(state == 3) shootdir -= 40;
+    
+    scrEnemyPattern(0);
 }
 
-//Pattern 3 is just p2 with spread
-if (state == 3) shootdir -= 16;
 
-alarm[9] = room_speed/nrate;
+if (state == 4) {
+    
+    //SWIRL
+    damage = scale(15,1,global.stageLevel);
+    btype = objCultistEnergy;
+    reload = 1;
+    mag = 24;
+    bullets = mag;
+    rate = 5;
+    bnum = 24;
+    bspread = 180;
+    bspeed = 4;
+    pattern = objPattern1;
+    shootdir = 0;
+    scrEnemyPattern(0);
+    
+    //STRAIGHT LINES
+    damage = scale(10,1,global.stageLevel);
+    btype = objCultistBall;
+    reload = 1;
+    mag = 24;
+    bullets = mag;
+    rate = 3;
+    bnum = 9;
+    bspread = 80;
+    bspeed = 12;
+    pattern = objPattern1;
+    
+    shootdir = 180;
+    
+    scrEnemyPattern(1);
+    
+}
 
+//DART PATTERN
+if (state == 5) {
+
+    //SECTION 1
+    damage = scale(10,1,global.stageLevel);
+    btype = objCultistDart;
+    reload = 0.2;
+    mag = 32;
+    bullets = mag;
+    rate = 4;
+    bnum = 32;
+    bspread = 180;
+    bspeed = 3;
+    pattern = objPattern1;
+    shootdir = 0;
+    
+    scrEnemyPattern(0);
+    
+    
+    //SECTION 2
+    statept[state] = pts;
+    
+    damage = scale(10,1,global.stageLevel);
+    btype = objCultistDart;
+    reload = 0.2;
+    mag = 32;
+    bullets = mag;
+    rate = 4;
+    bnum = 32;
+    bspread = 180;
+    bspeed = 4;
+    pattern = objPattern3;
+    
+    shootdir = 180+(bspread/bnum);
+    
+    scrEnemyPattern(1);
+    timer_shoot[pts-1] = 1.5*(room_speed/p_rate[pts-1]);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//TICK TIMERS
+if (global.paused == false) {
+    for(var i=0; i&lt;pts; i++) {
+    if(timer_shoot[i] &gt; 0) timer_shoot[i]--;
+    if(timer_reload[i] &gt; 0) timer_reload[i]--;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -217,9 +327,81 @@ and distance_to_object(instance_nearest(x,y,objEnemy)) &gt; 128) {
     speed = 0;
 }else speed = 0;
 
+//PHASES
+if (hp &lt; hpmax*0.7) phase = 1;
+if (hp &lt; hpmax*0.4) phase = 2;
+
 //ROTATE PATTERNS
-if (state == 1) shootdir += 8;
-if (state == 3) shootdir += 3;
+if (destx == -1) {
+    if (state == 1 or state == 4) p_shootdir[stateptn[state,0]] += 8;
+    if (state == 3) p_shootdir[stateptn[state,0]] += 4;
+    if (state == 5) p_shootdir[stateptn[state,1]] += 4;
+}
+
+//MOVEMENT
+if (destx != -1) {
+    x = lerp(x,destx,0.1);
+    y = lerp(y,desty,0.1);
+    if (diff(x,destx)&lt;4 and diff(y,desty)&lt;4) {
+        destx = -1;
+        alarm[8] = 1; //SHOOT
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Loop through all current patterns
+for(var i=0; i&lt;pts; i++) {
+    //SHOOT
+    if (timer_shoot[i] &lt;= 1 and timer_shoot[i] &gt; 0) { //if shoot timer for this pattern is done
+        //reload if out of bullets
+        if (p_bullets[i] &lt;= 0) timer_reload[i] = room_speed*p_reload[i]; else {
+        
+            if (global.paused == false and canmove == true) {
+            proj = instance_create(x,y,p_pattern[i]);
+            proj.owner = 1;
+            proj.type = p_btype[i];
+            proj.speed = p_bspeed[i];
+            proj.num = p_bnum[i];
+            proj.spread = p_bspread[i]/p_bnum[i];
+            proj.direction = p_shootdir[i];
+                        
+            scrSetProj(proj);
+            proj.damage = p_damage[i];
+            
+            p_bullets[i]--;
+            }
+            
+            timer_shoot[i] = room_speed/p_rate[i];
+        }
+    }
+    //RELOAD
+    if (timer_reload[i] == 1) { //if reload timer for this pattern is done
+        if (state == 4 and i == stateptn[state,1])
+            p_bullets[i] = p_mag[i];
+        else{
+            //NEW PHASE
+            alarm[9] = 1;
+        }
+    }
+}
 </string>
           </argument>
         </arguments>

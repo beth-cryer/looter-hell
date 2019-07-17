@@ -33,6 +33,10 @@ owner = 0;
 freeze = 0;
 hit_destroy = true;
 
+element = "None";
+elem_dps = 0;
+elem_chance = 0;
+
 curve = 0;
 zigzag = 0;
 lock = 0;
@@ -54,6 +58,10 @@ lifespan = 0;
 num = 0;
 spread = 0;
 splits = 0;
+
+//how far out of bounds before they should be destroyed
+xbounds = 0;
+ybounds = 0;
 
 image_speed = 0;
 //alarm[0] = room_speed * 4;
@@ -355,6 +363,31 @@ if (timetrans != 1 and lifespan != 0) {
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (x &gt; room_width + xbounds
+or x &lt; -xbounds
+or y &gt; room_height + ybounds
+or y &lt; -ybounds)
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
       </action>
     </event>
     <event eventtype="8" enumb="0">

@@ -474,6 +474,9 @@
       <sprite>sprites\sprBulletLarge</sprite>
       <sprite>sprites\sprBullet</sprite>
       <sprite>sprites\sprCultistEnergy</sprite>
+      <sprite>sprites\sprCultistEnergy2</sprite>
+      <sprite>sprites\sprCultistBall</sprite>
+      <sprite>sprites\sprCultistDart</sprite>
     </sprites>
     <sprite>sprites\sprEnemy</sprite>
     <sprite>sprites\sprExplosion</sprite>
@@ -486,6 +489,7 @@
     <sprite>sprites\sprMuzzleFlash</sprite>
     <sprite>sprites\objPortal</sprite>
     <sprite>sprites\sprArrow</sprite>
+    <sprite>sprites\sprNone</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgShip</background>
@@ -602,6 +606,7 @@
       <script>scripts\scrCheckFilters.gml</script>
       <script>scripts\compare_stats.gml</script>
       <script>scripts\keys.gml</script>
+      <script>scripts\diff.gml</script>
     </scripts>
     <script>scripts\init.gml</script>
     <script>scripts\load_settings.gml</script>
@@ -624,6 +629,7 @@
     <script>scripts\backgrounds_stop.gml</script>
     <script>scripts\gun_default.gml</script>
     <script>scripts\scale.gml</script>
+    <script>scripts\scrEnemyPattern.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntStats</font>
@@ -699,6 +705,9 @@
       <object>objects\objBloodhound</object>
       <object>objects\objGreed</object>
       <object>objects\objCultistEnergy</object>
+      <object>objects\objCultistDart</object>
+      <object>objects\objCultistBall</object>
+      <object>objects\objCultistOrb</object>
     </objects>
     <object>objects\objDashTrail</object>
     <object>objects\objWall</object>
