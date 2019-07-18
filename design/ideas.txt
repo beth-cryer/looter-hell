@@ -15,3 +15,6 @@ EXP is a resource gained from clearing stages
 Can be allocated to: Player, Action Skill, Passive Skill
 
 Can play stages above your level, but can't equip items above Player Level
+
+
+Unlock Suits instead of new characters (ie. warframes), can keep one player character throughout the story this way

@@ -3,14 +3,14 @@ switch(barrel) {
     case(sprPistolBarrel1):
     bspeed = 6;
     bspread = 30;
-    bnum += round(random_range(0,1));
+    bnum += round(random_range(1,2));
     scrElementalChance(60);
     break;
     
     case(sprPistolBarrel2):
     bspeed = 7;
     bspread = 20;
-    bnum += round(random_range(0,2));
+    bnum += round(random_range(1,2));
     damage += 2;
     rate = rate*0.99;
     break;
@@ -20,14 +20,14 @@ switch(barrel) {
     bspread = 40;
     damage += 4;
     rate += 2;
-    burst = round(random_range(1,2));
+    burst = round(random_range(2,3));
     break;
     
     case(sprPistolBarrel4):
     bspeed = 10;
     bspread = 10;
     acc = acc*1.03;
-    bnum += round(random_range(0,1));
+    bnum += round(random_range(1,3));
     break;
     
     case(sprPistolBarrel5):
@@ -43,7 +43,7 @@ switch(barrel) {
     case(sprARBarrel1):
     bspeed = 9;
     bspread = 40;
-    bnum += round(random_range(0,1));
+    bnum += round(random_range(1,2));
     damage += 1;
     rate += 1;
     break;

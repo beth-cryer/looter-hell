@@ -1,10 +1,11 @@
-//CURRENT VALUE APPROACHES TARGET VALUE BY INCREMENT VALUE
+//Moves current towards target by amount
+//Never overshoots
 var current = argument0;
 var target = argument1;
-var inc = argument2;
+var amount = argument2;
 
-//increase or decrease depending on if target is </> from current
-if (current > target) current -= inc;
-else if (current < target) current += inc;
-
-return current;
+if (current < target){
+return min (current + amount, target);
+} else {
+return max (current - amount, target);
+}

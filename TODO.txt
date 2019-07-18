@@ -2,7 +2,8 @@ Inventory:
 Add Gems
 Show both guns when comparing
 
-Add multiple Characters, with their own loadout + stats
+Add warframe system essentially, each has their own action skill
+//Add multiple Characters, with their own loadout + stats
 
 Add basic crafting system
 

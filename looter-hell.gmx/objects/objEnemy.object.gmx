@@ -103,7 +103,7 @@ for (var i=0; i&lt;blood_amount; i++) {
 }
 
 //EXPLODE?
-if (blood &gt;= 1.5) {
+if (blood &gt;= 1.5 and boss == false) {
     var width = sprite_get_width(sprite_index), height = sprite_get_height(sprite_index),
     c_x = x+(width*0.5), c_y = y+(height*0.5),
     i_inc = (width/6), j_inc = (height/6);
