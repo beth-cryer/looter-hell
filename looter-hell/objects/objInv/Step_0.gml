@@ -1,8 +1,5 @@
 if global.inv_open == false exit;
 
-//xp = view_xview[0]+320;
-//yp = view_yview[0]+32;
-
 xp = 640;
 yp = 32;
 
@@ -13,8 +10,7 @@ if (keyboard_check(ord("S"))) sinv = inv_sort(sinv);
 if (idelay = 0) {
     if (keyboard_check(ord("A"))) {ipage--; idelay = 1; alarm[0] = room_speed/10;}
     if (keyboard_check(ord("D"))) {ipage++; idelay = 1; alarm[0] = room_speed/10;}
-    if(ipage<0) ipage = 0;
-    if(ipage>scrSInvSize()/inum) ipage = floor(scrSInvSize()/inum);
+    ipage = clamp(ipage,0,floor(scrSInvSize()/inum));
 }
 
 //delete
@@ -126,8 +122,8 @@ if (keyboard_check(vk_up) and idelay == 0) {
     alarm[0] = room_speed/10;
 }
 
-if (keyboard_check_pressed(vk_left)) {across=0};
-if (keyboard_check_pressed(vk_right)) {across=1};
+if (global.k_left) {across=0};
+if (global.k_right) {across=1};
 
 //select gun by mouseover
 
@@ -140,9 +136,6 @@ while(p < ipage) {
 }
 //then simply get the next page size at the end
 pend = scrSPageSize(pstart,inum);
-
-//pstart = scrSPageSize(0,ipage*inum);
-//pend = scrSPageSize(pstart,inum);
 
 moused = false; j = 0;
 for(i=pstart;i<pend;i++) {

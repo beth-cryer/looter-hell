@@ -1,8 +1,9 @@
+if (global.paused == true) alarm_pause(1);
+
 if (smove != 0) {
     
     //SCROLL BACKGROUND IF NOT PAUSED
     if(global.paused == true) {
-    alarm_pause(1);
     __background_set( e__BG.HSpeed, global.bg_floor, 0 );
     
     } else __background_set( e__BG.HSpeed, global.bg_floor, -(0.9*objPlayer.basespeed) );
