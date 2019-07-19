@@ -1,0 +1,30 @@
+i = argument0;
+
+//delete weapon
+global.inventory[i,0] = ""; //name
+global.inventory[i,1] = ""; //type
+global.inventory[i,2] = -1; //level
+global.inventory[i,3] = -1; //damage
+global.inventory[i,4] = -1; //acc
+global.inventory[i,5] = -1; //rate
+global.inventory[i,6] = -1; //reload
+global.inventory[i,7] = -1; //mag
+global.inventory[i,8] = -1; //bnum
+global.inventory[i,9] = -1; //bspeed
+global.inventory[i,10] = -1; //pattern
+global.inventory[i,11] = -1; //spread
+global.inventory[i,12] = ""; //element
+global.inventory[i,13] = -1; //elem_dps
+global.inventory[i,14] = -1; //elem_change
+global.inventory[i,15] = -1; //body
+global.inventory[i,16] = -1; //barrel
+global.inventory[i,17] = -1; //grip
+global.inventory[i,18] = -1; //stock
+global.inventory[i,19] = -1; //access
+global.inventory[i,20] = -1; //splits
+global.inventory[i,21] = -1; //scope
+global.inventory[i,22] = -1; //burst
+global.inventory[i,23] = -1; //texture
+global.inventory[i,24] = ""; //redtext
+global.inventory[i,25] = -1; //rarity
+global.inventory[i,26] = -1; //btype

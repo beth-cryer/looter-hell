@@ -1,0 +1,4 @@
+scrStatsBody();
+scrStatsGrip();
+scrStatsBarrel();
+scrStatsStock();

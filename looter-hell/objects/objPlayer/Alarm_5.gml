@@ -1,0 +1,3 @@
+//cooldown over
+skillcool = false;
+
