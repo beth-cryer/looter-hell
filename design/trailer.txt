@@ -1,6 +1,6 @@
 -regular gameplay vs small amount of enemies
 -legendary drop
--show player mowing through tons of enemies
+-show player mowing through lots of enemies
 -transition to traditional bullet-hell boss gameplay
 
 (showing unique aspect of this game vs other bullet hells first

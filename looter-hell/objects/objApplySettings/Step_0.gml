@@ -14,7 +14,7 @@ switch(step) //each case is a different step.
 
     case(3):
     surface_resize(application_surface, global.res_w, global.res_h); //This will resize the application surface so that it fills the screen/window correctly. Only use this along with views.
-    get_aspect_ratio(); //change aspect ratio
+    //get_aspect_ratio(); //change aspect ratio
     display_set_gui_size(global.res_w, global.res_h); //resize the gui to fit the new resolution so any draw GUI events will appear in the correct place.
     break;
     

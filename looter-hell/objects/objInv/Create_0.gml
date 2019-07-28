@@ -18,6 +18,9 @@ ysc = 2;
 ipage = 0;
 inum = 12;
 
+gwidth = 0;
+gheight = 0;
+
 vampire = 0;
 
 //set filters

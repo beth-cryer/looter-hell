@@ -34,8 +34,17 @@ switch(barrel) {
     rate = rate*1.04;
     damage -= 1;
     bspeed = 8;
-    bspread = 60;
+    bspread = 40;
     bnum += round(random_range(1,2));
+    break;
+
+    case(sprPistolBarrel6):
+    rate = rate*1.05;
+    damage -= 1;
+    bspeed = 10;
+    bspread = 50;
+    bnum += round(random_range(2,3));
+	scrElementalChance(50);
     break;
 
     //ASSAULT RIFLE BARRELS
@@ -70,6 +79,7 @@ switch(barrel) {
     bspeed = 10;
     bspread = 25;
     bnum += round(random_range(1,3));
+	scrElementalChance(40);
     rate = rate*1.03;
     break;
     
@@ -79,6 +89,14 @@ switch(barrel) {
     bnum += round(random_range(2,3));
     rate += 1;
     damage = damage*0.96;
+    break;
+
+    case(sprARBarrel6):
+    bspeed = 12;
+    bspread = 25;
+    bnum += round(random_range(1,2));
+	acc *= 1.04;
+	mag *= 1.04;
     break;
 
     //SHOTGUN BARRELS
@@ -157,6 +175,14 @@ switch(barrel) {
     damage = damage*0.96;
     break;
 
+    case(sprSniperBarrel5):
+    bspeed = 15;
+    bspread = 10;
+    bnum += round(random_range(1,2));
+	rate = rate*0.96;
+    damage = damage*1.04;;
+    break;
+
     //SMG BARRELS
     
     case(sprSMGBarrel1):
@@ -193,6 +219,15 @@ switch(barrel) {
     acc = acc*1.03;
     damage = damage*0.99;
     rate = rate*1.01;
+    break;
+	
+    case(sprSMGBarrel5):
+    bspeed = 17;
+    bspread = 5;
+    bnum += round(random_range(0,2));
+    acc = acc*1.06;
+    damage = damage*1.03;
+    rate = rate*0.97;
     break;
     
 }

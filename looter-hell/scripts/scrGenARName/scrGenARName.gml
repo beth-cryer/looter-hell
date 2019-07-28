@@ -6,6 +6,7 @@ if (body == sprARBody1) {
     case(sprARBarrel3): return "Guerilla"; break;
     case(sprARBarrel4): return "Rifle"; break;
     case(sprARBarrel5): return "Spinigun"; break;
+	case(sprARBarrel6): return "Sprayer"; break;
     }
 }
 
@@ -17,6 +18,7 @@ if (body == sprARBody2) {
     case(sprARBarrel3): return "Defender"; break;
     case(sprARBarrel4): return "Rifle"; break;
     case(sprARBarrel5): return "Spinigun"; break;
+	case(sprARBarrel6): return "Mauler"; break;
     }
 }
 
@@ -28,6 +30,7 @@ if (body == sprARBody3) {
     case(sprARBarrel3): return "Lance"; break;
     case(sprARBarrel4): return "Rifle"; break;
     case(sprARBarrel5): return "Spinigun"; break;
+	case(sprARBarrel6): return "Massacre"; break;
     }
 }
 
@@ -39,5 +42,18 @@ if (body == sprARBody4) {
     case(sprARBarrel3): return "Beater"; break;
     case(sprARBarrel4): return "Machine Gun"; break;
     case(sprARBarrel5): return "Spinigun"; break;
+	case(sprARBarrel6): return "Poker"; break;
+    }
+}
+
+//BODY5
+if (body == sprARBody5) {
+    switch(barrel) {
+    case(sprARBarrel1): return "Pounder"; break;
+    case(sprARBarrel2): return "Cobra"; break;
+    case(sprARBarrel3): return "Stomper"; break;
+    case(sprARBarrel4): return "Rifle"; break;
+    case(sprARBarrel5): return "Spinigun"; break;
+	case(sprARBarrel6): return "Havoc"; break;
     }
 }

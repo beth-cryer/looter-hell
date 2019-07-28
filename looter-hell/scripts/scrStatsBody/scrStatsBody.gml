@@ -3,7 +3,7 @@ switch(body) {
     //PISTOLS
 
     case(sprPistolBody1):
-    damage = 11; acc = 84; rate = 5.5; reload = 1; mag = 20;
+    damage = 13; acc = 84; rate = 5.5; reload = 1; mag = 20;
     break;
     
     case(sprPistolBody2):
@@ -11,11 +11,15 @@ switch(body) {
     break;
     
     case(sprPistolBody3):
-    damage = 9; acc = 90; rate = 6.5; reload = 2; mag = 25;
+    damage = 10; acc = 86; rate = 6.5; reload = 2; mag = 25;
     break;
     
     case(sprPistolBody4):
     damage = 21; acc = 87; rate = 3.5; reload = 1.5; mag = 12;
+    break;
+    
+    case(sprPistolBody5):
+    damage = 8; acc = 90; rate = 7; reload = 2; mag = 24;
     break;
     
     //ASSAULT RIFLES
@@ -29,11 +33,15 @@ switch(body) {
     break;
     
     case(sprARBody3):
-    damage = 14; acc = 80; rate = 6; reload = 2.5; mag = 30;
+    damage = 16; acc = 80; rate = 5.5; reload = 2.5; mag = 30;
     break;
     
     case(sprARBody4):
     damage = 11; acc = 85; rate = 7; reload = 3; mag = 42;
+    break;
+
+    case(sprARBody5):
+    damage = 14; acc = 73; rate = 6.5; reload = 2; mag = 20; scope = 0;
     break;
 
     //SHOTGUNS
@@ -69,7 +77,11 @@ switch(body) {
     break;
     
     case(sprSniperBody4):
-    damage = 19; acc = 86; rate = 3; reload = 2; mag = 12;
+    damage = 18; acc = 86; rate = 3; reload = 2; mag = 12;
+    break;
+
+    case(sprSniperBody5):
+    damage = 20; acc = 95; rate = 2.5; reload = 2.5; mag = 5;
     break;
 
     //SMGS
@@ -87,11 +99,15 @@ switch(body) {
     break;
     
     case(sprSMGBody4):
-    damage = 8; acc = 88; rate = 7.5; reload = 2.5; mag = 20; scrElementalChance(50);
+    damage = 8; acc = 88; rate = 7.5; reload = 2.5; mag = 20; scrElementalChance(30);
     break;
     
     case(sprSMGBody5):
-    damage = 8; acc = 91; rate = 8; reload = 2; mag = 15;
+    damage = 8; acc = 91; rate = 8; reload = 2; mag = 15; scrElementalChance(50);
+    break;
+	
+	case(sprSMGBody6):
+    damage = 11; acc = 93; rate = 6; reload = 2.5; mag = 26; scrElementalChance(90);
     break;
     
     //SHIELDS

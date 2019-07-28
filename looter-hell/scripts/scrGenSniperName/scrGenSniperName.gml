@@ -5,16 +5,18 @@ if (body == sprSniperBody1) {
     case(sprSniperBarrel2): return "Efficator"; break;
     case(sprSniperBarrel3): return "Sniper Rifle"; break;
     case(sprSniperBarrel4): return "Composition"; break;
+	case(sprSniperBarrel5): return "Gambit"; break;
     }
 }
 
 //BODY2
 if (body == sprSniperBody2) {
     switch(barrel) {
-    case(sprSniperBarrel1): return "Decapitator"; break;
+    case(sprSniperBarrel1): return "Terror"; break;
     case(sprSniperBarrel2): return "Hunting Rifle"; break;
     case(sprSniperBarrel3): return "Annihilator"; break;
     case(sprSniperBarrel4): return "Diaub"; break;
+	case(sprSniperBarrel5): return "Decapitator"; break;
     }
 }
 
@@ -25,6 +27,7 @@ if (body == sprSniperBody3) {
     case(sprSniperBarrel2): return "Corinthian"; break;
     case(sprSniperBarrel3): return "Atlas"; break;
     case(sprSniperBarrel4): return "Rakehell"; break;
+	case(sprSniperBarrel5): return "Thunder"; break;
     }
 }
 
@@ -35,5 +38,17 @@ if (body == sprSniperBody4) {
     case(sprSniperBarrel2): return "Horrorshow"; break;
     case(sprSniperBarrel3): return "Pooshka"; break;
     case(sprSniperBarrel4): return "Droog"; break;
+	case(sprSniperBarrel5): return "Uprising"; break;
+    }
+}
+
+//BODY5
+if (body == sprSniperBody5) {
+    switch(barrel) {
+    case(sprSniperBarrel1): return "Lance"; break;
+    case(sprSniperBarrel2): return "Hawkeye"; break;
+    case(sprSniperBarrel3): return "Jericho"; break;
+    case(sprSniperBarrel4): return "Wrath"; break;
+	case(sprSniperBarrel5): return "Contract"; break;
     }
 }

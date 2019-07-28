@@ -12,7 +12,7 @@ switch(grip) {
     scrElementalChance(80);
     reload = reload*1.05;
     mag = mag*1.05;
-    prefix = "Technical";
+    prefix = "Neon";
     break;
     
     case(sprPistolGrip3):
@@ -30,6 +30,14 @@ switch(grip) {
     rate = rate*1.04;
     mag = mag*1.02;
     prefix = "Forsaken";
+    break;
+
+    case(sprPistolGrip6):
+	scrElementalChance(25);
+    rate = rate*1.05;
+    mag = mag*1.05;
+	damage = damage*0.95;
+    prefix = "Technical";
     break;
 
     //ASSAULT RIFLE GRIPS
@@ -57,6 +65,12 @@ switch(grip) {
     reload = reload*1.02;
     mag = mag*1.05;
     prefix = "Packed";
+    break;
+    
+    case(sprARGrip5):
+    damage = damage*0.98;
+	rate = rate*1.05;
+    prefix = "Hydraulic";
     break;
     
     //SHOTGUN GRIPS
@@ -118,6 +132,12 @@ switch(grip) {
     prefix = "Rapid";
     break;
 
+    case(sprSniperGrip5):
+    rate = rate*0.98;
+	acc = acc*1.04;
+    prefix = "Longbow";
+    break;
+
     //SMG GRIPS
     
     case(sprSMGGrip1):
@@ -149,6 +169,13 @@ switch(grip) {
     acc = acc*1.05;
     reload = reload*0.99;
     prefix = "Tactical";
+    break;
+	
+    case(sprSMGGrip6):
+    mag = mag*1.06;
+    acc = acc*1.03;
+    reload = reload*1.05;
+    prefix = "Hydraulic";
     break;
     
 }

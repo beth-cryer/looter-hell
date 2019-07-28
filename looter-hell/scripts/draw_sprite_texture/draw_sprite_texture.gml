@@ -16,22 +16,22 @@ surface_set_target(Surface);
 draw_clear_alpha(c_white,0);
 
 //draw texture
-draw_set_colour_write_enable(true,true,true,false);
+gpu_set_colorwriteenable(true,true,true,false);
 draw_sprite(texture,0,0,0);
 
 //activate texture with sprite
-draw_set_colour_write_enable(false,false,false,true);
+gpu_set_colorwriteenable(false,false,false,true);
 draw_sprite(sprite,index,0,0);
 
 //use white pixels of sprite to burn texture
-draw_set_colour_write_enable(true,true,true,false);
-draw_set_blend_mode(bm_subtract);
+gpu_set_colorwriteenable(true,true,true,false);
+gpu_set_blendmode(bm_subtract);
 draw_sprite(sprite,index,0,0);
 
 //wrap up 
-draw_set_blend_mode(bm_normal);
+gpu_set_blendmode(bm_normal);
 surface_reset_target();
-draw_set_colour_write_enable(true,true,true,true);
+gpu_set_colorwriteenable(true,true,true,true);
 
 ycenter = height/2;
 

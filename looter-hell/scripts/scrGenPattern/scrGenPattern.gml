@@ -1,7 +1,7 @@
 switch(rarity) {
 
     case(1):
-    rand = round(random_range(1,3));
+    rand = irandom_range(1,3);
     switch(rand) {
         case(1): return objPattern1; break;
         case(2): bspread /= 2; return objPattern2; break;
@@ -10,7 +10,7 @@ switch(rarity) {
     break;
     
     case(2):
-    rand = round(random_range(1,3));
+    rand = irandom_range(1,3);
     switch(rand) {
         case(1): return objPattern1; break;
         case(2): return objPattern4; break;
@@ -19,7 +19,7 @@ switch(rarity) {
     break;
     
     case(3):
-    rand = round(random_range(1,4));
+    rand = irandom_range(1,4);
     switch(rand) {
         case(1): return objPattern3; break;
         case(2): return objPattern4; break;
@@ -29,7 +29,7 @@ switch(rarity) {
     break;
     
     case(4):
-    rand = round(random_range(1,4));
+    rand = irandom_range(1,4);
     switch(rand) {
         case(1): return objPattern4; break;
         case(2): return objPattern5; break;

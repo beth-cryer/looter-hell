@@ -1,3 +1,5 @@
+PORT TO GMS2 (remove compatibility scripts)
+
 Inventory:
 Add Gems
 Show both guns when comparing

@@ -42,10 +42,10 @@ if (argument2 > 0) { // no point even running if there is nothing to display (al
         
         draw_set_alpha(1);
         
-        draw_set_blend_mode(bm_subtract)
+        gpu_set_blendmode(bm_subtract)
         draw_set_colour(c_black)
         draw_circle(argument5-1, argument5-1,argument5-argument7,false)
-        draw_set_blend_mode(bm_normal)
+        gpu_set_blendmode(bm_normal)
 
         surface_reset_target()
      

@@ -189,14 +189,9 @@ if (scrInvSize() > 0) {
     }
 }
 
-//CODE FOR DRAWING WEAPON CARD
-if drawcard == false exit;
-
 //get the max width of the guncard
 draw_set_font(global.font_gui);
 gwidth = sprite_get_width(body)*xsc;
 gheight = sprite_get_height(body)*ysc;
 scrGetGCWidth();
-
 xw = xp-(width+16);
-

@@ -20,6 +20,11 @@ switch(stock) {
     mag = mag*1.05;
     break;
     
+    case(sprARStock5):
+    acc = acc*1.02;
+    rate = rate*1.03;
+    break;
+    
     //SHOTGUN STOCKS
     
     case(sprSGStock1):
@@ -59,6 +64,11 @@ switch(stock) {
     rate = rate*1.03;
     break;
     
+    case(sprSniperStock5):
+    acc = acc*1.04;
+	rate = rate*1.02;
+    break;
+    
     //SMG STOCKS
     
     case(sprSMGStock1):
@@ -82,6 +92,10 @@ switch(stock) {
     case(sprSMGStock5):
     reload = reload*0.95;
     acc = acc*0.98;
+    break;
+	
+    case(sprSMGStock6):
+    reload = reload*0.98;
     break;
     
 }

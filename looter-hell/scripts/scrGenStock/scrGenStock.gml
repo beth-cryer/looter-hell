@@ -3,12 +3,13 @@ stock = 0;
 //ASSAULT RIFLE STOCKS
 if (type == "Assault Rifle") {
 
-    rand = irandom_range(1,4);
+    rand = irandom_range(1,5);
     switch(rand){
     case(1): stock = sprARStock1; break;
     case(2): stock = sprARStock2; break;
     case(3): stock = sprARStock3; break;
     case(4): stock = sprARStock4; break;
+	case(5): stock = sprARStock5; break;
     }
 
 }
@@ -36,19 +37,21 @@ if (type == "Sniper Rifle") {
     case(2): stock = sprSniperStock2; break;
     case(3): stock = sprSniperStock3; break;
     case(4): stock = sprSniperStock4; break;
+	case(5): stock = sprSniperStock5; break;
     }
 }
 
 //SMG STOCKS
 if (type == "SMG") {
 
-    rand = irandom_range(1,5);
+    rand = irandom_range(1,6);
     switch(rand){
     case(1): stock = sprSMGStock1; break;
     case(2): stock = sprSMGStock2; break;
     case(3): stock = sprSMGStock3; break;
     case(4): stock = sprSMGStock4; break;
     case(5): stock = sprSMGStock5; break;
+	case(6): stock = sprSMGStock6; break;
     }
     
 }

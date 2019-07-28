@@ -6,6 +6,7 @@ if (body == sprPistolBody1) {
     case(sprPistolBarrel3): return "Handgun"; break;
     case(sprPistolBarrel4): return "Phobia"; break;
     case(sprPistolBarrel5): return "Umbrage"; break;
+	case(sprPistolBarrel6): return "Repeater"; break;
     }
 }
 
@@ -13,10 +14,11 @@ if (body == sprPistolBody1) {
 if (body == sprPistolBody2) {
     switch(barrel) {
     case(sprPistolBarrel1): return "Chrome"; break;
-    case(sprPistolBarrel2): return "Rod"; break;
+    case(sprPistolBarrel2): return "Masher"; break;
     case(sprPistolBarrel3): return "Slapper"; break;
     case(sprPistolBarrel4): return "Hole Puncher"; break;
     case(sprPistolBarrel5): return "Injector"; break;
+	case(sprPistolBarrel6): return "Swatter"; break;
     }
 }
 
@@ -28,6 +30,7 @@ if (body == sprPistolBody3) {
     case(sprPistolBarrel3): return "Silencer"; break;
     case(sprPistolBarrel4): return "Assassin"; break;
     case(sprPistolBarrel5): return "Anarchist"; break;
+	case(sprPistolBarrel6): return "Fury"; break;
     }
 }
 
@@ -39,5 +42,18 @@ if (body == sprPistolBody4) {
     case(sprPistolBarrel3): return "Widow Maker"; break;
     case(sprPistolBarrel4): return "Longarm"; break;
     case(sprPistolBarrel5): return "Pepperbox"; break;
+	case(sprPistolBarrel6): return "Lacerator"; break;
+    }
+}
+
+//BODY5
+if (body == sprPistolBody5) {
+    switch(barrel) {
+    case(sprPistolBarrel1): return "Raptor"; break;
+    case(sprPistolBarrel2): return "Viper"; break;
+    case(sprPistolBarrel3): return "Rage"; break;
+    case(sprPistolBarrel4): return "Needler"; break;
+    case(sprPistolBarrel5): return "Justice"; break;
+	case(sprPistolBarrel6): return "Machine Pistol"; break;
     }
 }
