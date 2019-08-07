@@ -1,6 +1,6 @@
 event_inherited();
 
-hpmax = scale(250,1,global.stageLevel);
+hpmax = scale(150,1,global.stageLevel);
 hp = hpmax;
 mspeed = 1;
 ospeed = mspeed;
@@ -23,8 +23,12 @@ if (rate > 6) nrate = rate*0.5; else nrate = rate*0.75;
 //if (bspread < 25) nspread = bspread*2; else nspread = bspread;
 if (bnum mod 2 == 0) nnum = bnum; else nnum = bnum+1;
 
-if (pattern==objPattern2) nspread = 10;
+pattern = objPattern1;
+nspread = nnum*15;
+
+/*if (pattern==objPattern2) nspread = 10;
 if (pattern==objPattern4) nspread = nnum*30; else nspread = nnum*15;
+*/
 
 //DIFFICULTY SCALE
 scrEnemyDiffScale();

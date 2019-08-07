@@ -16,13 +16,14 @@ if (type == "Pistol") {
 //ASSAULT RIFLE GRIPS
 if (type == "Assault Rifle") {
 
-    rand = irandom_range(1,5);
+    rand = irandom_range(1,6);
     switch(rand){
     case(1): grip = sprARGrip1; break;
     case(2): grip = sprARGrip2; break;
     case(3): grip = sprARGrip3; break;
     case(4): grip = sprARGrip4; break;
 	case(5): grip = sprARGrip5; break;
+	case(6): grip = sprARGrip6; break;
     }
 
 }
@@ -30,13 +31,14 @@ if (type == "Assault Rifle") {
 //SHOTGUN GRIPS
 if (type == "Shotgun") {
 
-    rand = irandom_range(1,5);
+    rand = irandom_range(1,6);
     switch(rand){
     case(1): grip = sprSGGrip1; break;
     case(2): grip = sprSGGrip2; break;
     case(3): grip = sprSGGrip3; break;
     case(4): grip = sprSGGrip4; break;
     case(5): grip = sprSGGrip5; break;
+    case(6): grip = sprSGGrip6; break;
     }
 
 }
@@ -44,13 +46,14 @@ if (type == "Shotgun") {
 //SNIPER GRIPS
 if (type == "Sniper Rifle") {
 
-    rand = irandom_range(1,5);
+    rand = irandom_range(1,6);
     switch(rand){
     case(1): grip = sprSniperGrip1; break;
     case(2): grip = sprSniperGrip2; break;
     case(3): grip = sprSniperGrip3; break;
     case(4): grip = sprSniperGrip4; break;
 	case(5): grip = sprSniperGrip5; break;
+	case(6): grip = sprSniperGrip6; break;
     }
     
 }

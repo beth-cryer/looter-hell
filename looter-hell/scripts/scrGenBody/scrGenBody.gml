@@ -15,13 +15,14 @@ if (type == "Pistol") {
 //ASSAULT RIFLE BODYS
 if (type == "Assault Rifle") {
 
-    rand = irandom_range(1,5);
+    rand = irandom_range(1,6);
     switch(rand){
     case(1): body = sprARBody1; break;
     case(2): body = sprARBody2; break;
     case(3): body = sprARBody3; break;
     case(4): body = sprARBody4; break;
 	case(5): body = sprARBody5; break;
+	case(6): body = sprARBody6; break;
     }
 
 }
@@ -29,12 +30,13 @@ if (type == "Assault Rifle") {
 //SHOTGUN BODYS
 if (type == "Shotgun") {
 
-    rand = irandom_range(1,4);
+    rand = irandom_range(1,5);
     switch(rand){
     case(1): body = sprSGBody1; break;
     case(2): body = sprSGBody2; break;
     case(3): body = sprSGBody3; break;
     case(4): body = sprSGBody4; break;
+	case(5): body = sprSGBody5; break;
     }
 
 }

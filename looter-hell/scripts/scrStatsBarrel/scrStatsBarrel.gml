@@ -53,7 +53,7 @@ switch(barrel) {
     bspeed = 9;
     bspread = 40;
     bnum += round(random_range(1,2));
-    damage += 1;
+    damage += 2;
     rate += 1;
     break;
     
@@ -82,21 +82,30 @@ switch(barrel) {
 	scrElementalChance(40);
     rate = rate*1.03;
     break;
-    
-    case(sprARBarrel5):
-    bspeed = 14;
-    bspread = 30;
-    bnum += round(random_range(2,3));
-    rate += 1;
-    damage = damage*0.96;
-    break;
 
-    case(sprARBarrel6):
+    case(sprARBarrel5):
     bspeed = 12;
     bspread = 25;
     bnum += round(random_range(1,2));
 	acc *= 1.04;
 	mag *= 1.04;
+    break;
+	
+    case(sprARBarrel6):
+    bspeed = 15;
+    bspread = 15;
+    bnum += round(random_range(0,1));
+	damage += 4;
+	acc *= 0.95;
+	rate *= 1.02;
+    break;
+	
+	case(sprARBarrel7):
+    bspeed = 14;
+    bspread = 30;
+    bnum += round(random_range(2,3));
+    rate += 1;
+    damage = damage*0.96;
     break;
 
     //SHOTGUN BARRELS
@@ -135,6 +144,12 @@ switch(barrel) {
     break;
     
     case(sprSGBarrel5):
+    bspeed = 8;
+    bspread = 15;
+    bnum += round(random_range(2,3));
+    break;
+	
+    case(sprSGBarrel6):
     bspeed = 12;
     bspread = 20;
     bnum += round(random_range(1,3));

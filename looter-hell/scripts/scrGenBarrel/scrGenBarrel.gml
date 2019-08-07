@@ -16,7 +16,7 @@ if (type == "Pistol") {
 //ASSAULT RIFLE BARRELS
 if (type == "Assault Rifle") {
 
-    rand = irandom_range(1,6);
+    rand = irandom_range(1,7);
     switch(rand){
     case(1): barrel = sprARBarrel1; break;
     case(2): barrel = sprARBarrel2; break;
@@ -24,6 +24,7 @@ if (type == "Assault Rifle") {
     case(4): barrel = sprARBarrel4; break;
     case(5): barrel = sprARBarrel5; break;
 	case(6): barrel = sprARBarrel6; break;
+	case(7): barrel = sprARBarrel7; break;
     }
 
 }
@@ -31,13 +32,14 @@ if (type == "Assault Rifle") {
 //SHOTGUN BARRELS
 if (type == "Shotgun") {
 
-    rand = irandom_range(1,5);
+    rand = irandom_range(1,6);
     switch(rand){
     case(1): barrel = sprSGBarrel1; break;
     case(2): barrel = sprSGBarrel2; break;
     case(3): barrel = sprSGBarrel3; break;
     case(4): barrel = sprSGBarrel4; break;
     case(5): barrel = sprSGBarrel5; break;
+	case(6): barrel = sprSGBarrel6; break;
     }
 
 }

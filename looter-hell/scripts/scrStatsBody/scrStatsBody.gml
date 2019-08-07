@@ -43,6 +43,10 @@ switch(body) {
     case(sprARBody5):
     damage = 14; acc = 73; rate = 6.5; reload = 2; mag = 20; scope = 0;
     break;
+	
+    case(sprARBody6):
+    damage = 12; acc = 65; rate = 7.5; reload = 2.5; mag = 26;
+    break;
 
     //SHOTGUNS
     
@@ -60,6 +64,10 @@ switch(body) {
     
     case(sprSGBody4):
     damage = 21; acc = 80; rate = 2; reload = 3; mag = 11;
+    break;
+	
+    case(sprSGBody5):
+    damage = 18; acc = 91; rate = 1.5; reload = 1.5; mag = 20;
     break;
     
     //SNIPERS

@@ -72,6 +72,14 @@ switch(grip) {
 	rate = rate*1.05;
     prefix = "Hydraulic";
     break;
+	
+    case(sprARGrip6):
+    damage = damage*0.97;
+	mag = mag*1.05;
+	rate = rate*1.04;
+	reload = reload*1.04;
+    prefix = "Xeno";
+    break;
     
     //SHOTGUN GRIPS
     
@@ -103,6 +111,13 @@ switch(grip) {
     break;
     
     case(sprSGGrip5):
+	damage = damage*0.98;
+	rate = rate*1.02;
+	reload = reload*0.98;
+    prefix = "Xeno";
+    break;
+	
+    case(sprSGGrip6):
     damage = damage*1.04;
     acc = acc*0.96;
     rate = rate*1.02;
@@ -136,6 +151,12 @@ switch(grip) {
     rate = rate*0.98;
 	acc = acc*1.04;
     prefix = "Longbow";
+    break;
+
+    case(sprSniperGrip6):
+	mag = mag*1.06;
+	acc = acc*0.97;
+    prefix = "Tactical";
     break;
 
     //SMG GRIPS

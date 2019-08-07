@@ -43,8 +43,8 @@ fire = false;
 frozen = false;
 corrode = false;
 
-xsc = -0.7;
-ysc = 0.7;
+xsc = -0.65;
+ysc = 0.65;
 xof = -4;
 yof = 4;
 

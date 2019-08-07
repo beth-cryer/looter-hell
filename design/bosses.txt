@@ -2,7 +2,7 @@
 
 Chaingunner-
 large humanoid, high health
-Shoots high firerate beam which moves up and down the screen
+Shoots high firerate spray of bullets which moves up and down the screen
 
 Cultist-
 small humanoid, fast with med health

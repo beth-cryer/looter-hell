@@ -82,14 +82,8 @@ if (type == "Shield") {
     if (stock != 0) draw_sprite_texture(stock,texture,0,xw,yp+(gheight*0.1),xsc,ysc);
     
     draw_sprite_texture(grip,texture,0,xw,yp+(gheight*0.1),xsc,ysc);
-    //DECIDE ORDER TO DRAW BODY/BARREL
-    if (type == "Shotgun") {
-        draw_sprite_texture(body,texture,0,xw,yp+(gheight*0.1),xsc,ysc);
-        draw_sprite_texture(barrel,texture,0,xw,yp+(gheight*0.1),xsc,ysc);
-    }else{
-        draw_sprite_texture(barrel,texture,0,xw,yp+(gheight*0.1),xsc,ysc);
-        draw_sprite_texture(body,texture,0,xw,yp+(gheight*0.1),xsc,ysc);
-    }
+    draw_sprite_texture(barrel,texture,0,xw,yp+(gheight*0.1),xsc,ysc);
+    draw_sprite_texture(body,texture,0,xw,yp+(gheight*0.1),xsc,ysc);
     
     //DPS
     draw_text(xw+4,yp,string_hash_to_newline("DPS: " + string(damage*rate + elem_dps)));

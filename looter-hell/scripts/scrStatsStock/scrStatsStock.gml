@@ -24,6 +24,12 @@ switch(stock) {
     acc = acc*1.02;
     rate = rate*1.03;
     break;
+	
+    case(sprARStock6):
+	damage = damage*1.01;
+    acc = acc*1.04;
+    rate = rate*1.02;
+    break;
     
     //SHOTGUN STOCKS
     

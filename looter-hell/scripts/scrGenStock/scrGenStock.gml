@@ -3,13 +3,14 @@ stock = 0;
 //ASSAULT RIFLE STOCKS
 if (type == "Assault Rifle") {
 
-    rand = irandom_range(1,5);
+    rand = irandom_range(1,6);
     switch(rand){
     case(1): stock = sprARStock1; break;
     case(2): stock = sprARStock2; break;
     case(3): stock = sprARStock3; break;
     case(4): stock = sprARStock4; break;
 	case(5): stock = sprARStock5; break;
+	case(6): stock = sprARStock6; break;
     }
 
 }

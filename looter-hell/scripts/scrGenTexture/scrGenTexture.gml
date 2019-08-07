@@ -1,5 +1,5 @@
 //MALIWAN
-if (body==sprPistolBody1 or body==sprSMGBody1 or body==sprSMGBody6 or body==sprSniperBody3 or body==sprShieldBody1) {
+if (body==sprPistolBody1 or body==sprSMGBody1 or body==sprSMGBody6 or body==sprSniperBody3 or body==sprShieldBody1 or body==sprARBody6 or body==sprSGBody5) {
 switch(rarity) {
     case(1): return texSilver; break;
     case(2): return texTech4; break;

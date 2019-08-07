@@ -2,6 +2,7 @@ PORTED TO GMS2, todo: phase out compatibility scripts
 
 -Added Bandit Cultist boss
 -Added many new gun parts
+-Shotguns body/barrel now layered the same as other guns
 
 -Added arrow which shows player's position when offscreen
 -Player can now exit a stage from the left or right side - evacs or moves to next stage respectively

@@ -279,7 +279,7 @@ if (type == "Shotgun") {
     //BODY
     body = scrGenBody();
     mag = 6;
-    reload = 0.35;
+    reload = 0.4;
     grip = scrGenGrip();
     //BARREL
     barrel = sprMeatshotBarrel;
@@ -466,7 +466,7 @@ if (type == "SMG") {
     pattern = objPattern1;
     //BODY
     body = sprAquaBody;
-    damage = 11; acc = 83; rate = 7; reload = 2; mag = 25; fixed_bnum = 1;
+    damage = 12; acc = 83; rate = 7; reload = 2; mag = 25; fixed_bnum = 1;
     scrElementalChance(75);
     //GRIP
     grip = sprAquaGrip;
@@ -485,7 +485,7 @@ if (type == "SMG") {
     pattern = objPattern1;
     //BODY
     body = sprUziBody;
-    damage = 7; acc = 75; rate = 11; reload = 1.5; mag = 15;
+    damage = 9; acc = 75; rate = 11; reload = 1.5; mag = 15;
     scrElementalChance(25);
     //GRIP
     grip = sprUziGrip;

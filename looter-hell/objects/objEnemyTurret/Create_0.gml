@@ -1,6 +1,6 @@
 event_inherited();
 
-hpmax = scale(300,1,global.stageLevel);
+hpmax = scale(200,1,global.stageLevel);
 hp = hpmax;
 mspeed = 1;
 ospeed = mspeed;

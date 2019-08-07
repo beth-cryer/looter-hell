@@ -27,11 +27,11 @@ if (distance_to_object(objPlayer)<64 and idelay!=0) cardopen = true;
 //IF SELECTED
 if (cardopen == true) {
     xsc = 1; ysc = 1;
-    //get the max width of the guncard for Draw event
-    draw_set_font(global.font_stats);
-    gwidth = sprite_get_width(body);
-    gheight = sprite_get_height(body);
-    scrGetGCWidth();
+	//get the max width of the guncard for Draw event
+	draw_set_font(global.font_stats);
+	gwidth = sprite_get_width(body);
+	gheight = sprite_get_height(body);
+	scrGetGCWidth();
     //PICKUP GUN
     //+inform spawner object if needed
     if (global.k_select or (moused == true and mouse_check_button_pressed(mb_left))) {

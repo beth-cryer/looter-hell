@@ -5,7 +5,8 @@ if (body == sprSGBody1) {
     case(sprSGBarrel2): return "Bangstick"; break;
     case(sprSGBarrel3): return "Straight-Shooter"; break;
     case(sprSGBarrel4): return "Sweeper"; break;
-    case(sprSGBarrel5): return "Doom"; break;
+	case(sprSGBarrel5): return "Deathbringer"; break;
+    case(sprSGBarrel6): return "Doom"; break;
     }
 }
 
@@ -16,7 +17,8 @@ if (body == sprSGBody2) {
     case(sprSGBarrel2): return "Ravager"; break;
     case(sprSGBarrel3): return "Stalker"; break;
     case(sprSGBarrel4): return "Pounder"; break;
-    case(sprSGBarrel5): return "Cannon"; break;
+	case(sprSGBarrel5): return "Raider"; break;
+    case(sprSGBarrel6): return "Cannon"; break;
     }
 }
 
@@ -27,7 +29,8 @@ if (body == sprSGBody3) {
     case(sprSGBarrel2): return "Expander"; break;
     case(sprSGBarrel3): return "Delivery"; break;
     case(sprSGBarrel4): return "Facial"; break;
-    case(sprSGBarrel5): return "Unloader"; break;
+	case(sprSGBarrel5): return "Persona"; break;
+    case(sprSGBarrel6): return "Unloader"; break;
     }
 }
 
@@ -38,6 +41,19 @@ if (body == sprSGBody4) {
     case(sprSGBarrel2): return "Quad"; break;
     case(sprSGBarrel3): return "Longrider"; break;
     case(sprSGBarrel4): return "Coach Gun"; break;
-    case(sprSGBarrel5): return "Double-Barrel"; break;
+	case(sprSGBarrel5): return "Sawed-Off"; break;
+    case(sprSGBarrel6): return "Double-Barrel"; break;
+    }
+}
+
+//BODY5
+if (body == sprSGBody5) {
+    switch(barrel) {
+    case(sprSGBarrel1): return "Sprayer"; break;
+    case(sprSGBarrel2): return "Powder Keg"; break;
+    case(sprSGBarrel3): return "Dragoon"; break;
+    case(sprSGBarrel4): return "Blaster"; break;
+	case(sprSGBarrel5): return "Phasepumper"; break;
+    case(sprSGBarrel6): return "Dread"; break;
     }
 }
